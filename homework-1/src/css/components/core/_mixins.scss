@@ -18,6 +18,11 @@
   @content;
 }
 
+@mixin size-element($width, $height) {
+  width: $width;
+  height: $height;
+}
+
 @mixin mobile {
   @media only screen and (min-width: $mobile) {
     @content;
