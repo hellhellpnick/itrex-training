@@ -8,6 +8,12 @@
 
 .is-error-input {
   border: 1px solid $color-text-error;
+
+  @include tablet {
+    & + .form-main__wrapper-input--margin {
+      margin-bottom: 40px;
+    }
+  }
 }
 
 .is-hidden-block {
@@ -19,5 +25,5 @@
 }
 
 .is-focus-input {
-  border: 1px solid $color-bg-btn-main; 
+  border: 1px solid $color-bg-btn-main;
 }

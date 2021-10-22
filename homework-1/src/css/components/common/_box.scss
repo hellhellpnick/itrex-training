@@ -9,3 +9,27 @@
 .form-main__box-content--margin {
   margin-bottom: 32px;
 }
+
+.form-main__box-content--height {
+  @include tablet {
+    min-height: 625px;
+    justify-content: space-between;
+  }
+}
+
+.form-main__box-content--height-large {
+  @include tablet {
+    min-height: 720px;
+    justify-content: space-between;
+  }
+}
+
+.form-main__box--row {
+  @include tablet {
+    @include flex(flex-start, stretch, row, nowrap);
+
+    & > .form-main__text {
+      margin-right: 12px;
+    }
+  }
+}

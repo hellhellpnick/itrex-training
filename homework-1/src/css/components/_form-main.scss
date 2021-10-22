@@ -6,6 +6,17 @@
   padding: 32px;
   border-radius: 24px 24px 0px 0px;
   min-height: calc(100% - 72px);
+
+  @include tablet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    border-radius: 0;
+    width: 560px;
+    padding: 0 96px 80px;
+    justify-content: flex-end;
+  }
 }
 
 .form-main__input {
@@ -20,6 +31,14 @@
     color: $color-text-primary;
   }
 
+  @include tablet {
+    font-size: $font-size-medium-primary;
+
+    &:placeholder-shown,
+    &::placeholder {
+      font-size: $font-size-medium-primary;
+    }
+  }
 }
 
 .form-main__title {
@@ -27,6 +46,11 @@
   @include text($font-size-medium-second, $font-weigth-primary, $color-text-main);
   line-height: 24px;
   margin-bottom: 24px;
+
+  @include tablet {
+    font-size: $font-size-large-primary;
+    margin-bottom: 40px;
+  }
 }
 
 .form-main__error {
@@ -35,6 +59,11 @@
   position: relative;
   top: -8px;
   margin-bottom: 24px;
+
+  @include tablet {
+    top: -25px;
+    margin-bottom: 0;
+  }
 }
 
 .form-main__text {

@@ -5,4 +5,8 @@
   background-repeat: no-repeat;
   background-color: #000;
   height: 100vh;
+
+  @include tablet {
+    background-size: cover;
+  }
 }

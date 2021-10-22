@@ -8,12 +8,20 @@
   box-shadow: 0px 4px 32px rgba(218, 228, 255, 0.16);
   margin-bottom: 24px;
   transition: all 0.2s ease;
+
+  @include tablet {
+    margin-bottom: 40px;
+  }
 }
 
 .form-main__icon-wrapper {
   @include size-element(20px, 20px);
   margin-right: 10px;
   transition: all 0.2s ease;
+
+  @include tablet {
+    margin-right: 20px;
+  }
 }
 
 .form-main__icon-wrapper--small {
@@ -40,6 +48,10 @@
 
 .form-main__wrapper-input--margin {
   margin-bottom: 32px;
+
+  @include tablet {
+    margin-bottom: 64px;
+  }
 }
 
 .form-main__wrapper-btn {
@@ -58,4 +70,11 @@
 
 .form-main__wrapper-row {
   @include flex(flex-start, stretch, row, nowrap);
+}
+
+.form-main__icon-wrapper--margin {
+  @include tablet {
+    margin-right: 10px;
+    @include size-element(8px, 13px);
+  }
 }
