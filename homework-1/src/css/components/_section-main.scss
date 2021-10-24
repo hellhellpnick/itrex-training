@@ -1,0 +1,12 @@
+.section-main {
+  background-image: url('/../images/bg-main.png');
+  background-position: 0 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #000;
+  height: 100vh;
+
+  @include tablet {
+    background-size: cover;
+  }
+}
