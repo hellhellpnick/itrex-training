@@ -15,6 +15,10 @@
     border-radius: 0;
     width: 560px;
     padding: 80px 96px;
+    justify-content: center;
+  }
+
+  @include desktop {
     justify-content: flex-end;
   }
 }
@@ -53,6 +57,7 @@
 }
 
 .form-main__title {
+  position: relative;
   align-self: stretch;
   @include text($font-size-medium-second, $font-weigth-primary, $color-text-main);
   line-height: 24px;
@@ -61,6 +66,14 @@
   @include tablet {
     font-size: $font-size-large-primary;
     margin-bottom: 40px;
+  }
+
+  @include desktop {
+    &:hover {
+      .form-main__link-back::after {
+        transform: translateX(-10px) rotate(180deg);
+      }
+    }
   }
 }
 
@@ -93,30 +106,17 @@
   height: 10px;
   position: absolute;
   left: 5px;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%);
 
   &::after {
-    content: url('../../images/icons/icon-arrow-right.svg');
+    content: url('../images/icons/icon-arrow-right.svg');
     display: block;
     width: 8px;
     height: 13px;
     position: relative;
     transform: rotate(180deg);
     transition: all 0.2s ease;
-  }
-}
-
-.form-main__legend {
-  position: relative;
-  margin-bottom: 32px;
-
-  @include desktop {
-    &:hover {
-      .form-main__link-back::after {
-        transform: translateX(-10px) rotate(180deg);
-      }
-    }
   }
 }
 
