@@ -23,8 +23,6 @@ btnForm.addEventListener('click', () => {
   const blocks = document.querySelectorAll('.form-main__box-content');
   const valueInput = blocks[2].getElementsByTagName('input')[0].value;
 
-  console.log(blocks);
-
   if (blocks[1].getElementsByTagName('input')[0].checkValidity()) {
     blocks[2].classList.replace('is-visible-block', 'is-hidden-block');
     blocks[4].classList.replace('is-hidden-block', 'is-visible-block');
