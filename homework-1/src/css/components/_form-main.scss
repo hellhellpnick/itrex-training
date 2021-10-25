@@ -11,10 +11,10 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 100vh;
+    min-height: 100vh;
     border-radius: 0;
     width: 560px;
-    padding: 0 96px 80px;
+    padding: 80px 96px;
     justify-content: flex-end;
   }
 }
