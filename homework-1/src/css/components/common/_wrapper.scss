@@ -55,6 +55,8 @@
 }
 
 .form-main__wrapper-btn {
+  position: relative;
+  cursor: pointer;
   max-width: 122px;
   align-self: stretch;
   @include flex(center, center, row, nowrap);
@@ -62,6 +64,22 @@
   padding: 15px 16px;
   border-radius: 8px;
   margin-bottom: 5px;
+
+  &::after {
+    position: relative;
+    content: url('../../../images/icons/icon-arrow-right.svg');
+    top: 1px;
+    margin-left: 15px;
+    transition: all 0.2s ease;
+  }
+
+  @include desktop {
+    &:hover {
+      &::after {
+        transform: translateX(5px);
+      }
+    }
+  }
 }
 
 .form-main__wrapper-btn--large {

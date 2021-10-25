@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Sign In</title>
   </head>
@@ -13,72 +14,75 @@
   <body>
     <main class="section-main">
       <form class="form-main">
-        
         <div class="form-main__box-content form-main__box-content--height">
-        <div class="form-main__box-content">
-        <legend class="form-main__title">Sign in</legend>
-        <div class="form-main__wrapper-input form-main__wrapper--email">
-          <div class="form-main__wrapper">
-            <div class="form-main__box">
-              <svg class="form-main__icon-wrapper">
-                <use xlink:href="#icon-email" class="form-main__icon"></use>
-              </svg>
-              <input
-                type="email"
-                id="email-name"
-                class="form-main__input"
-                placeholder="Email"
-              />
+          <div class="form-main__box-content">
+            <legend class="form-main__title">Sign in</legend>
+            <div class="form-main__wrapper-input form-main__wrapper--email">
+              <div class="form-main__wrapper">
+                <div class="form-main__box">
+                  <svg class="form-main__icon-wrapper">
+                    <use xlink:href="#icon-email" class="form-main__icon"></use>
+                  </svg>
+                  <input
+                    type="email"
+                    id="email-name"
+                    class="form-main__input"
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+              <label
+                for="email-name"
+                class="form-main__error is-hidden-error animate__animated animate__backInUp"
+              >
+                Email not found. Please check the spelling
+              </label>
+            </div>
+            <div class="form-main__wrapper-input form-main__wrapper--password">
+              <div class="form-main__wrapper">
+                <div class="form-main__box">
+                  <svg class="form-main__icon-wrapper">
+                    <use xlink:href="#icon-lock" class="form-main__icon"></use>
+                  </svg>
+                  <input
+                    type="password"
+                    id="password-name"
+                    class="form-main__input"
+                    placeholder="Password"
+                  />
+                </div>
+                <button class="btn-password">
+                  <svg class="form-main__icon-wrapper form-main__icon-wrapper--right">
+                    <use xlink:href="#icon-hidden-password" class="form-main__icon"></use>
+                  </svg>
+                </button>
+              </div>
+              <label
+                for="password-name"
+                class="form-main__error is-hidden-error animate__animated animate__backInUp"
+              >
+                Password contain unsupported characters
+              </label>
+            </div>
+            <div class="form-main__box-content">
+              <button
+                class="form-main__wrapper-btn form-main__box-content--margin form-main__btn-submit"
+              >
+                Sign in
+              </button>
+              <a class="form-main__link" href="./restore-password.html">Forgot password?</a>
             </div>
           </div>
-          <label for="email-name" class="form-main__error is-hidden-error animate__animated animate__backInUp">
-            Email not found. Please check the spelling
-          </label>
-        </div>
-        <div class="form-main__wrapper-input form-main__wrapper--password">
-          <div class="form-main__wrapper">
-            <div class="form-main__box">
-              <svg class="form-main__icon-wrapper">
-                <use xlink:href="#icon-lock" class="form-main__icon"></use>
-              </svg>
-              <input
-                type="password"
-                id="password-name"
-                class="form-main__input"
-                placeholder="Password"
-              />
-            </div>
-            <button class="btn-password">
-              <svg class="form-main__icon-wrapper form-main__icon-wrapper--right">
-                <use xlink:href="#icon-hidden-password" class="form-main__icon"></use>
-              </svg>
-            </button>
+          <div class="form-main__box-content">
+            <p class="form-main__text">Don’t have an account?</p>
+            <a href="./index.html" class="form-main__link">Sign up</a>
           </div>
-          <label for="password-name" class="form-main__error is-hidden-error animate__animated animate__backInUp">
-            Password contain unsupported characters
-          </label>
-        </div>
-        <div class="form-main__box-content">
-          <div class="form-main__wrapper-btn form-main__box-content--margin">
-            <input type="submit" value="Sign in" class="form-main__btn-submit"></input>
-            <svg class="form-main__icon-wrapper form-main__icon-wrapper--margin">
-              <use xlink:href="#icon-arrow-right" class="form-main__icon form-main__icon--btn"></use>
-            </svg>
-          </div>
-          <a class="form-main__link" href='./restore-password.html'>Forgot password?</a>
-        </div>
-        </div>
-        <div class="form-main__box-content">
-          <p class="form-main__text">Don’t have an account?</p>
-          <a href='./index.html' class="form-main__link">Sign up</a>
-        </div>
         </div>
       </form>
     </main>
 
     //= templates/icons.html
 
-    
-    <script src='./js/sign-in.js'></script>
+    <script src="./js/sign-in.js"></script>
   </body>
 </html>
