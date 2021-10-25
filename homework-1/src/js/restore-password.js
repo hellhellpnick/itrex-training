@@ -5,15 +5,6 @@ const btnForm = document.querySelector('.form-main__wrapper-btn');
 const form = document.getElementsByTagName('form')[0];
 const allInputs = document.querySelectorAll('.form-main__wrapper');
 
-allInputs.forEach((item) => {
-  item.getElementsByTagName('input')[0].addEventListener('focus', () => {
-    item.classList.toggle('is-focus-input');
-  });
-
-  item.getElementsByTagName('input')[0].addEventListener('focusout', () => {
-    item.classList.toggle('is-focus-input');
-  });
-});
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();

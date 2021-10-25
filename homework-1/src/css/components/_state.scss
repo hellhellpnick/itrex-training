@@ -4,16 +4,12 @@
 
 .is-visible-error {
   display: block;
+  position: absolute;
+  top: calc(100% + 8px);
 }
 
 .is-error-input {
-  border: 1px solid $color-text-error;
-
-  @include tablet {
-    & + .form-main__wrapper-input--margin {
-      margin-bottom: 40px;
-    }
-  }
+  border: 1px solid $color-text-error !important;
 }
 
 .is-hidden-block {
@@ -22,8 +18,4 @@
 
 .is-visible-block {
   display: block;
-}
-
-.is-focus-input {
-  border: 1px solid $color-bg-btn-main;
 }
