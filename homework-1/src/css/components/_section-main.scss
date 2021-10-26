@@ -8,5 +8,6 @@
 
   @include tablet {
     background-size: cover;
+    @include flex(flex-end);
   }
 }

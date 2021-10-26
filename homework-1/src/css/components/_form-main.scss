@@ -8,9 +8,7 @@
   min-height: calc(100% - 72px);
 
   @include tablet {
-    position: absolute;
     top: 0;
-    right: 0;
     min-height: 100vh;
     border-radius: 0;
     width: 560px;
@@ -67,14 +65,6 @@
     font-size: $font-size-large-primary;
     margin-bottom: 40px;
   }
-
-  @include desktop {
-    &:hover {
-      .form-main__link-back::after {
-        transform: translateX(-10px) rotate(180deg);
-      }
-    }
-  }
 }
 
 .form-main__error {
@@ -102,24 +92,28 @@
 }
 
 .form-main__link-back {
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: 5px;
-  top: 70%;
+  top: 60%;
   transform: translateY(-50%);
+  z-index: 1;
 
   &::after {
-    content: url('../images/icons/icon-arrow-right.svg');
-    display: block;
-    width: 8px;
-    height: 13px;
+    content: url(../images/icons/icon-arrow-right.svg);
+    display: flex;
     position: relative;
+    width: 20px;
+    height: 20px;
     transform: rotate(180deg);
     transition: all 0.2s ease;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
 
-.form-main__title--margin {
-  padding-left: 30px;
+.form-main__title--padding {
+  padding-left: 40px;
 }
