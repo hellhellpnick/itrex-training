@@ -41,9 +41,25 @@
 }
 
 .form-main__wrapper-input {
+  position: relative;
   width: 100%;
   min-width: 256px;
   transition: all 0.2s ease;
+  margin-bottom: 24px;
+
+  &::after {
+    position: absolute;
+    content: url('src/../../images/icons/icon-user.svg');
+    left: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    @include size-element(20px, 20px);
+    transition: all 0.2s ease;
+  }
+
+  @include tablet {
+    margin-bottom: 40px;
+  }
 }
 
 .form-main__wrapper-input--margin {
@@ -55,20 +71,43 @@
 }
 
 .form-main__wrapper-btn {
+  position: relative;
+  cursor: pointer;
   max-width: 122px;
   align-self: stretch;
   @include flex(center, center, row, nowrap);
   background-color: $color-bg-btn-main;
   padding: 15px 16px;
+  padding-right: 40px;
   border-radius: 8px;
   margin-bottom: 5px;
+
+  &::after {
+    position: absolute;
+    content: url('src/../../images/icons/icon-arrow-right-light.svg');
+    top: 46%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    margin-left: 15px;
+    transition: all 0.2s ease;
+  }
+
+  @include desktop {
+    &:hover {
+      &::after {
+        transform: translateY(-50%) translateX(5px);
+      }
+    }
+  }
 }
 
 .form-main__wrapper-btn--large {
   max-width: 198px;
 }
 
-.form-main__wrapper-row {
+.form-main__wrapper-title {
   @include flex(flex-start, stretch, row, nowrap);
 }
 
@@ -76,5 +115,44 @@
   @include tablet {
     margin-right: 10px;
     @include size-element(8px, 13px);
+  }
+}
+
+.form-main__wrapper--email {
+  &::after {
+    content: url('src/../../images/icons/icon-email.svg');
+  }
+}
+
+.form-main__wrapper--password {
+  &::after {
+    content: url('src/../../images/icons/icon-lock.svg');
+  }
+
+  &::before {
+    position: absolute;
+    content: url('src/../../images/icons/icon-hidden-password.svg');
+    right: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    @include size-element(20px, 20px);
+    transition: all 0.2s ease;
+    z-index: 1;
+
+    @include tablet {
+      cursor: pointer;
+    }
+  }
+}
+
+.form-main__wrapper--lock {
+  &::after {
+    content: url('src/../../images/icons/icon-check.svg');
+  }
+}
+
+.form-main__wrapper--password-visible {
+  &::before {
+    content: url('src/../../images/icons/icon-visible-password.svg');
   }
 }

@@ -8,21 +8,30 @@
   min-height: calc(100% - 72px);
 
   @include tablet {
-    position: absolute;
     top: 0;
-    right: 0;
-    height: 100vh;
+    min-height: 100vh;
     border-radius: 0;
     width: 560px;
-    padding: 0 96px 80px;
+    padding: 80px 96px;
+    justify-content: center;
+  }
+
+  @include desktop {
     justify-content: flex-end;
   }
 }
 
 .form-main__input {
+  position: relative;
   border: none;
   outline: none;
-  width: 90%;
+  max-height: 58px;
+  width: 100%;
+  padding: 20px 26px 20px 64px;
+  box-shadow: 0px 4px 32px rgba(218, 228, 255, 0.16);
+  border-radius: 8px;
+  border: 1px solid $color-border-main;
+  transition: all 0.2s ease;
 
   @include text($font-size-small-second, $font-weigth-main, $color-text-main);
 
@@ -39,9 +48,14 @@
       font-size: $font-size-medium-primary;
     }
   }
+
+  &:focus {
+    border: 1px solid $color-bg-btn-main;
+  }
 }
 
 .form-main__title {
+  position: relative;
   align-self: stretch;
   @include text($font-size-medium-second, $font-weigth-primary, $color-text-main);
   line-height: 24px;
@@ -56,8 +70,6 @@
 .form-main__error {
   @include text($font-size-small-primary, $font-weigth-main, $color-text-error);
   letter-spacing: -0.24px;
-  position: relative;
-  top: -8px;
   margin-bottom: 24px;
 
   @include tablet {
@@ -80,5 +92,28 @@
 }
 
 .form-main__link-back {
-  padding-left: 10px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 5px;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  &::after {
+    content: url(../images/icons/icon-arrow-right.svg);
+    display: flex;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.form-main__title--padding {
+  padding-left: 40px;
 }

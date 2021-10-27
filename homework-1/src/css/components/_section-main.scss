@@ -1,5 +1,5 @@
 .section-main {
-  background-image: url('/../images/bg-main.png');
+  background-image: url('./../images/bg-main.png');
   background-position: 0 0;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -8,5 +8,6 @@
 
   @include tablet {
     background-size: cover;
+    @include flex(flex-end);
   }
 }

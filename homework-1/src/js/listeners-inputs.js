@@ -8,12 +8,12 @@ const checkValidInput = (item) => {
     );
 
     if (!regul.test(value)) {
-      item.querySelector('.form-main__wrapper').classList.add('is-error-input');
+      item.querySelector('.form-main__input').classList.add('is-error-input');
       item
         .getElementsByTagName('label')[0]
         .classList.replace('is-hidden-error', 'is-visible-error');
     } else {
-      item.querySelector('.form-main__wrapper').classList.remove('is-error-input');
+      item.querySelector('.form-main__input').classList.remove('is-error-input');
       item
         .getElementsByTagName('label')[0]
         .classList.replace('animate__backInUp', 'animate__backOutDown');
@@ -32,16 +32,14 @@ const checkValidInput = (item) => {
 
 const listenersInputs = (el) => {
   el.forEach((item) => {
-    if (item.getElementsByTagName('button')[0]) {
-      item.getElementsByTagName('button')[0].addEventListener('click', () => {
-        if (
-          item.getElementsByTagName('use')[1].getAttribute('xlink:href') == '#icon-hidden-password'
-        ) {
-          item.getElementsByTagName('use')[1].setAttribute('xlink:href', '#icon-visible-password');
-          item.getElementsByTagName('input')[0].setAttribute('type', 'text');
-        } else {
-          item.getElementsByTagName('use')[1].setAttribute('xlink:href', '#icon-hidden-password');
+    if (item.classList.contains('form-main__wrapper--password')) {
+      item.addEventListener('click', (e) => {
+        if (item.classList.contains('form-main__wrapper--password-visible')) {
+          item.classList.remove('form-main__wrapper--password-visible');
           item.getElementsByTagName('input')[0].setAttribute('type', 'password');
+        } else if ((item.offsetWidth / 100) * 85 < e.layerX) {
+          item.classList.add('form-main__wrapper--password-visible');
+          item.getElementsByTagName('input')[0].setAttribute('type', 'text');
         }
       });
     }
