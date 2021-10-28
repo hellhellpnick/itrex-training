@@ -1,0 +1,26 @@
+.header-wrapper {
+  @include flex(space-between, center, row, nowrap);
+  margin-bottom: 16px;
+
+  @include tablet {
+    margin-bottom: 22px;
+  }
+}
+
+.logo-wrapper {
+  max-width: 130px;
+  width: 100%;
+}
+
+.header-wrapper__column {
+  display: none;
+
+  @include tablet {
+    @include flex(flex-end, flex-end, column);
+    margin-right: 16px;
+  }
+}
+
+.header-wrapper__row {
+  @include flex(flex-start, stretch, row, nowrap);
+}

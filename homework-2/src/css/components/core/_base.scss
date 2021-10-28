@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+a,
+button,
+input {
+  font-family: $font-family-main;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.container {
+  padding: 16px 24px 0;
+  background-color: $color-bg-primary;
+  min-height: 100vh;
+
+  @include tablet {
+    padding: 20px 64px 0;
+  }
+}
