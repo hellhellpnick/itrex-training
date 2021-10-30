@@ -32,11 +32,11 @@ ol {
 }
 
 .container {
-  padding: 16px 24px 0;
+  padding: 16px 0 0;
   background-color: $color-bg-primary;
   min-height: 100vh;
 
   @include tablet {
-    padding: 20px 64px 0;
+    padding: 20px 64px 48px 64px;
   }
 }

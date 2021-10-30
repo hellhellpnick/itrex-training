@@ -1,0 +1,34 @@
+.main-title {
+  @include text($font-size-medium-second, $font-weigth-primary, $color-text-main);
+  line-height: 24px;
+}
+
+.main-btn__icon {
+  cursor: pointer;
+  position: relative;
+  @include size-element(20px, 20px);
+
+  &:first-child {
+    margin-right: 28px;
+  }
+}
+
+.main-btn__menu {
+  position: absolute;
+  @include flex(flex-start, flex-start, column);
+  bottom: -75px;
+  right: -10px;
+  min-width: 180px;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: $color-main;
+  box-shadow: 0px 4px 40px rgba(118, 136, 187, 0.16);
+}
+
+.main-btn__menu-item {
+  padding: 5px 20px;
+  @include text($font-size-small-second, $font-weigth-main, $color-text-main);
+  line-height: 140%;
+  background: $color-bg-main;
+  border-radius: 6px;
+}

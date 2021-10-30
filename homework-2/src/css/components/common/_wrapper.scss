@@ -1,9 +1,11 @@
 .header-wrapper {
   @include flex(space-between, center, row, nowrap);
   margin-bottom: 16px;
+  padding: 0 24px;
 
   @include tablet {
     margin-bottom: 22px;
+    padding: 0;
   }
 }
 
@@ -23,4 +25,67 @@
 
 .header-wrapper__row {
   @include flex(flex-start, stretch, row, nowrap);
+}
+
+.main-wrapper {
+  min-height: calc(100vh - 72px);
+  background: $color-bg-main;
+  box-shadow: 0px 4px 32px rgba(218, 228, 255, 0.32);
+  border-radius: 16px 16px 0px 0px;
+  padding: 40px 24px;
+
+  @include tablet {
+    min-height: calc(100vh - 130px);
+    border-radius: 16px;
+    padding: 40px 48px;
+  }
+}
+
+.main-wrapper__row {
+  @include flex(space-between, stretch, row);
+  margin-bottom: 40px;
+
+  @include tablet {
+    justify-content: flex-start;
+    margin-bottom: 56px;
+  }
+}
+
+.main-wrapper__row--between {
+  justify-content: space-between;
+}
+
+.patients-wrapper {
+  position: relative;
+  min-height: 50vh;
+  @include flex(center, center, column);
+
+  &:after {
+    content: url('./../../../images/icons/medical-history.png');
+    position: absolute;
+    display: block;
+    top: 30%;
+    transform: translateY(-50%);
+
+    @include tablet {
+      top: 50%;
+    }
+  }
+
+  &::before {
+    content: 'You have no patients yet. To create a patient profile, please contact your administrator';
+    max-width: 200px;
+    position: absolute;
+    display: block;
+    top: 70%;
+    transform: translateY(-50%);
+    @include text($font-size-small-second, $font-weigth-main, $color-text-primary);
+    line-height: 140%;
+    text-align: center;
+
+    @include tablet {
+      max-width: 460px;
+      top: 70%;
+    }
+  }
 }

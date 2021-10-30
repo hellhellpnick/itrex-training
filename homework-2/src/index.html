@@ -23,6 +23,28 @@
           </div>
         </div>
       </header>
+      <main class="main-wrapper">
+        <div class="main-wrapper__row">
+          <button type="button" class="btn-main">Patients</button>
+          <button type="button" class="btn-main btn-main--primary">Resolutions</button>
+        </div>
+        <div class="main-wrapper__row main-wrapper__row--between">
+          <h2 class="main-title">My patients</h2>
+          <div>
+            <button type="button" class="main-btn__icon">
+              <img src="./images/icons/search.png" alt="search" />
+            </button>
+            <button type="button" class="main-btn__icon">
+              <img src="./images/icons/filter.png" alt="filter" />
+              <ul class="main-btn__menu is-hidden-menu">
+                <li class="main-btn__menu-item">By name</li>
+                <li class="main-btn__menu-item">By date</li>
+              </ul>
+            </button>
+          </div>
+        </div>
+        <div class="patients-wrapper"></div>
+      </main>
     </div>
   </body>
 </html>
