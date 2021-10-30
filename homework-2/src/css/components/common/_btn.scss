@@ -36,3 +36,15 @@
   background-color: $color-border-main;
   border-radius: 50%;
 }
+
+.btn-password {
+  margin-bottom: -5px;
+}
+
+.form-main__btn-submit {
+  background-color: $color-bg-btn-main;
+  border: none;
+  outline: none;
+  @include text($font-size-small-second, $font-weigth-primary, $color-main);
+  margin-right: 15px;
+}
