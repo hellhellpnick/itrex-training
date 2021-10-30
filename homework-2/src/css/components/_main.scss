@@ -6,10 +6,64 @@
 .main-btn__icon {
   cursor: pointer;
   position: relative;
+  display: flex;
+  flex-direction: row;
   @include size-element(20px, 20px);
 
   &:first-child {
     margin-right: 28px;
+  }
+
+  @include desktop {
+    min-width: 93px;
+
+    &:last-child {
+      min-width: 142px;
+    }
+  }
+}
+
+.main-btn__icon-img {
+  @include desktop {
+    display: none;
+  }
+}
+
+.main-btn__icon-text {
+  display: none;
+
+  @include desktop {
+    display: block;
+    @include text($font-size-small-second, $font-weigth-main, $color-text-primary);
+  }
+}
+
+.main-btn__icon-sort {
+  color: $color-text-second;
+  margin-left: 10px;
+}
+
+.main-btn__icon-arrow {
+  margin-left: 8px;
+}
+
+.main-btn__input {
+  display: none;
+
+  @include desktop {
+    display: block;
+    border: none;
+    outline: none;
+    width: 70%;
+    background-color: transparent;
+    @include text($font-size-small-second, $font-weigth-main, $color-text-primary);
+    line-height: 140%;
+    margin-left: 18px;
+
+    &::placeholder {
+      @include text($font-size-small-second, $font-weigth-main, $color-text-primary);
+      text-transform: capitalize;
+    }
   }
 }
 

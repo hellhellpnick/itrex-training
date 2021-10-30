@@ -22,3 +22,17 @@
   background-color: $color-main;
   color: $color-text-second;
 }
+
+.patient-btn {
+  cursor: pointer;
+  position: relative;
+  @include flex(space-between, center, column);
+  @include size-element(24px, 24px);
+}
+
+.patient-btn__dot {
+  position: relative;
+  @include size-element(4px, 4px);
+  background-color: $color-border-main;
+  border-radius: 50%;
+}

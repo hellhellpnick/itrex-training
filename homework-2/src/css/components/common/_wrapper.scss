@@ -57,10 +57,38 @@
 
 .patients-wrapper {
   position: relative;
-  min-height: 50vh;
-  @include flex(center, center, column);
+  height: 50vh;
+  @include flex(flex-start, flex-start, column);
+  overflow-y: scroll;
+  overflow-x: hidden;
 
-  &:after {
+  @include tablet {
+    padding-right: 20px;
+    &::-webkit-scrollbar {
+      width: 12px;
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgba($color-border-main, 0.3);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $color-border-main;
+      border-radius: 8px;
+      opacity: 0.3;
+    }
+  }
+
+  @include desktop {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+
+  /*  &:after {
     content: url('./../../../images/icons/medical-history.png');
     position: absolute;
     display: block;
@@ -87,5 +115,5 @@
       max-width: 460px;
       top: 70%;
     }
-  }
+  } */
 }
