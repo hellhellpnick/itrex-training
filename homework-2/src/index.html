@@ -2,78 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Sign Up</title>
   </head>
-
   <body>
-    <main class="section-main">
-      <form class="form-main">
-        <div class="form-main__box-content form-main__box-content--height-large">
-          <legend class="form-main__title">Sign up</legend>
-          <div class="form-main__wrapper-input">
-            <input type="text" id="first-name" class="form-main__input" placeholder="First name" />
-          </div>
-          <div class="form-main__wrapper-input">
-            <input type="text" id="last-name" class="form-main__input" placeholder="Last name" />
-          </div>
-          <div class="form-main__wrapper-input form-main__wrapper--email">
-            <input
-              type="email"
-              id="email-name"
-              class="form-main__input"
-              placeholder="Email"
-              minlength="3"
-            />
-            <label
-              for="email-name"
-              class="form-main__error animate__animated animate__backInUp is-hidden-error"
-            >
-              Email not correct. Please check the spelling
-            </label>
-          </div>
-          <div class="form-main__wrapper-input form-main__wrapper--password">
-            <input
-              type="password"
-              id="password-name"
-              class="form-main__input"
-              placeholder="Password"
-            />
-            <label
-              for="password-name"
-              class="form-main__error is-hidden-error animate__animated animate__backInUp"
-            >
-              Password contain unsupported characters
-            </label>
-          </div>
-          <div
-            class="form-main__wrapper-input form-main__wrapper--password form-main__wrapper--lock"
-          >
-            <input
-              type="password"
-              id="check-name"
-              class="form-main__input"
-              placeholder="Password"
-            />
-            <label
-              for="check-name"
-              class="form-main__error is-hidden-error animate__animated animate__backInUp"
-            >
-              Password does not match
-            </label>
-          </div>
-          <button class="form-main__wrapper-btn form-main__btn-submit" type="submit">
-            Sign up
-          </button>
-        </div>
-        <div class="form-main__box-content form-main__box--row">
-          <p class="form-main__text">Already have an account?</p>
-          <a href="./sign-in.html" class="form-main__link">Sign in</a>
-        </div>
-      </form>
-    </main>
-
-    <script src="./js/sign-up.js"></script>
+    <div id="root"></div>
+    <script src="./js/index.js"></script>
   </body>
 </html>
