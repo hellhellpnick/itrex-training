@@ -86,35 +86,6 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-
-  /*  &:after {
-    content: url('./../../../images/icons/medical-history.png');
-    position: absolute;
-    display: block;
-    top: 30%;
-    transform: translateY(-50%);
-
-    @include tablet {
-      top: 50%;
-    }
-  }
-
-  &::before {
-    content: 'You have no patients yet. To create a patient profile, please contact your administrator';
-    max-width: 200px;
-    position: absolute;
-    display: block;
-    top: 70%;
-    transform: translateY(-50%);
-    @include text($font-size-small-second, $font-weigth-main, $color-text-primary);
-    line-height: 140%;
-    text-align: center;
-
-    @include tablet {
-      max-width: 460px;
-      top: 70%;
-    }
-  } */
 }
 
 .form-main__wrapper {
