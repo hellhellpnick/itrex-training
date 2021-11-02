@@ -1,80 +1,24 @@
-class ViewRestorePassword {
-  constructor() {
-    this.app = this.getElement('#root');
+import ViewBasic from './viewBasic';
+
+class ViewRestorePassword extends ViewBasic {
+  constructor(...args) {
+    super(...args);
     this.view = '/restorePassword';
   }
 
-  getElement(selector) {
-    const element = document.querySelector(selector);
-    return element;
-  }
+  localFunction(addUser, onNavClick, checkUser, objData) {
+    const blocks = document.querySelectorAll('.form-main__box-content');
+    const valueInput = blocks[2].getElementsByTagName('input')[0].value;
 
-  getElements(selector) {
-    const element = document.querySelectorAll(selector);
-    return element;
-  }
-
-  getTypeRegulary(input) {
-    if (input.getAttribute('type') == 'email') {
-      return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    } else if (input.getAttribute('type') == 'password') {
-      return /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/;
+    if (blocks[1].getElementsByTagName('input')[0].checkValidity()) {
+      blocks[2].classList.replace('is-visible-block', 'is-hidden-block');
+      blocks[4].classList.replace('is-hidden-block', 'is-visible-block');
+      blocks[4].getElementsByTagName('span')[0].innerHTML = valueInput;
     }
   }
 
-  _initLocalListeners(addUser, onNavClick) {
-    this.getElement('.form-main').addEventListener('submit', (e) => {
-      const boolArr = [];
-      e.preventDefault();
-
-      e.path[0].querySelectorAll('input').forEach((item) => {
-        if (item.type == 'email' || item.type == 'password') {
-          let label = document.querySelector(`[for="${item.id}"]`);
-          const value = item.value;
-          const regul = new RegExp(this.getTypeRegulary(item));
-
-          if (!regul.test(value) || value === '') {
-            item.classList.add('is-error-input');
-            label.classList.replace('is-hidden-error', 'is-visible-error');
-          } else {
-            item.classList.remove('is-error-input');
-            label.classList.replace('animate__backInUp', 'animate__backOutDown');
-
-            setTimeout(() => {
-              label.classList.replace('is-visible-error', 'is-hidden-error');
-              label.classList.replace('animate__backOutDown', 'animate__backInUp');
-            }, 1000);
-          }
-        }
-      });
-
-      e.path[0].querySelectorAll('input').forEach((item) => {
-        if (item.classList.contains('is-error-input')) {
-          boolArr.push(false);
-        } else {
-          boolArr.push(true);
-        }
-      });
-
-      if (boolArr.every((el) => el === true)) {
-        const blocks = document.querySelectorAll('.form-main__box-content');
-        const valueInput = blocks[2].getElementsByTagName('input')[0].value;
-
-        if (blocks[1].getElementsByTagName('input')[0].checkValidity()) {
-          blocks[2].classList.replace('is-visible-block', 'is-hidden-block');
-          blocks[4].classList.replace('is-hidden-block', 'is-visible-block');
-          blocks[4].getElementsByTagName('span')[0].innerHTML = valueInput;
-        }
-      }
-    });
-
-    this.getElements('.router').forEach((el) => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        onNavClick(`/${e.currentTarget.id}`);
-      });
-    });
+  _initLocalListeners(addUser, onNavClick, checkUser) {
+    super._initLocalListeners(addUser, onNavClick, checkUser);
   }
 }
 

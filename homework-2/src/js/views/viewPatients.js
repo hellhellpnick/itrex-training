@@ -1,12 +1,9 @@
-class ViewPatients {
-  constructor() {
-    this.app = this.getElement('#root');
-    this.view = '/patients';
-  }
+import ViewBasic from './viewBasic';
 
-  getElement(selector) {
-    const element = document.querySelector(selector);
-    return element;
+class ViewPatients extends ViewBasic {
+  constructor(...args) {
+    super(...args);
+    this.view = '/patients';
   }
 
   _initLocalListeners() {
