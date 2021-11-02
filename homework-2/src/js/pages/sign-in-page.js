@@ -1,13 +1,4 @@
-const signIn = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Sign In</title>
-  </head>
-
-  <body>
+const signIn = `
     <main class="section-main">
       <form class="form-main">
         <div class="form-main__box-content form-main__box-content--height">
@@ -52,12 +43,6 @@ const signIn = `<!DOCTYPE html>
         </div>
       </form>
     </main>
-
-    <script src="./js/sign-in.js"></script>
-    <script src="./js/index.js"></script>
-  </body>
-</html>
-
 `;
 
 export default signIn;

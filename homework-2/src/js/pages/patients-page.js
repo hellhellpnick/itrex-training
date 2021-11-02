@@ -1,14 +1,5 @@
-const patients = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Sign Up</title>
-  </head>
-
-  <body>
-    <div id="root" class="container">
+const patients = `
+    <div class="container">
       <header class="header-wrapper">
         <div class="logo-wrapper">
           <img src="./images/logo.png" alt="Logo" class="logo" />
@@ -526,8 +517,6 @@ const patients = `<!DOCTYPE html>
         </div>
       </main>
     </div>
-  </body>
-</html>
 `;
 
 export default patients;

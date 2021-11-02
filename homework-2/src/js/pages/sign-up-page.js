@@ -1,14 +1,4 @@
 const signUp = `
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Sign Up</title>
-  </head>
-
-  <body>
     <main class="section-main">
       <form class="form-main router-submit">
         <div class="form-main__box-content form-main__box-content--height-large">
@@ -79,8 +69,6 @@ const signUp = `
         </div>
       </form>
     </main>
-  </body>
-</html>
 
 `;
 
