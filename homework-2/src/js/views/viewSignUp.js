@@ -19,7 +19,7 @@ class ViewSignUp {
               : /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/,
           );
 
-          if (!regul.test(value)) {
+          if (!regul.test(value) || value === '') {
             item.classList.add('is-error-input');
             label.classList.replace('is-hidden-error', 'is-visible-error');
           } else {
