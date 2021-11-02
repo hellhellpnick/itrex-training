@@ -14,6 +14,14 @@ class ViewRestorePassword {
     return element;
   }
 
+  getTypeRegulary(input) {
+    if (input.getAttribute('type') == 'email') {
+      return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    } else if (input.getAttribute('type') == 'password') {
+      return /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/;
+    }
+  }
+
   _initLocalListeners(addUser, onNavClick) {
     this.getElement('.form-main').addEventListener('submit', (e) => {
       const boolArr = [];
@@ -23,11 +31,7 @@ class ViewRestorePassword {
         if (item.type == 'email' || item.type == 'password') {
           let label = document.querySelector(`[for="${item.id}"]`);
           const value = item.value;
-          const regul = new RegExp(
-            item.getAttribute('type') == 'email'
-              ? /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-              : /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/,
-          );
+          const regul = new RegExp(this.getTypeRegulary(item));
 
           if (!regul.test(value) || value === '') {
             item.classList.add('is-error-input');
