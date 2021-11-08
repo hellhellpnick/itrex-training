@@ -1,0 +1,38 @@
+.header-wrapper__img {
+  position: relative;
+  @include size-element(40px, 40px);
+  border-radius: 50%;
+
+  &::after {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    @include size-element(8px, 8px);
+    background-color: $color-bg-second;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    @include size-element(10px, 10px);
+    background-color: $color-bg-primary;
+  }
+}
+
+.header__title {
+  @include text($font-size-small-second, $font-weigth-primary, $color-text-main);
+  margin-bottom: 4px;
+  line-height: 120%;
+}
+
+.header__subtitle {
+  @include text($font-size-small-primary, $font-weigth-main, $color-text-primary);
+  line-height: 130%;
+}
