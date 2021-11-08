@@ -1,8 +1,7 @@
 import React from 'react';
 import { StylBoxMain } from '../components/common/StylBoxMain';
 import FormRestorePassword from '../components/FormRestorePassword';
-import BoxForm from './../components/common/StylBoxForm';
-import BoxContentLink from './../components/BoxContentLink';
+import BoxFormSignIn from './../components/common/StylBoxFormSignIn';
 
 const RestorePassword = ({ title }) => {
   React.useEffect(() => {
@@ -12,14 +11,9 @@ const RestorePassword = ({ title }) => {
   return (
     <>
       <StylBoxMain>
-        <BoxForm>
+        <BoxFormSignIn>
           <FormRestorePassword />
-          <BoxContentLink
-            text='Already have an account?'
-            link='Sign in'
-            path='signIn'
-          />
-        </BoxForm>
+        </BoxFormSignIn>
       </StylBoxMain>
     </>
   );

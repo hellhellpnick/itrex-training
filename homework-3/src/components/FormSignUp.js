@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form, } from 'formik';
 import TitleForm from './common/StylTitleForm';
 import FormInput from './FormInput';
 import BtnSubmitForm from './BtnSubmitForm';
@@ -88,7 +88,6 @@ const FormSignUp = () => {
             '
             changer={handleChange}
           />
-          <ErrorMessage name='email' component='div' />
 
           <FormInput
             type='password'
