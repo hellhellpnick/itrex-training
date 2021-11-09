@@ -7,13 +7,13 @@ import FilterPatients from './common/StylFilterPatients';
 import TextFilterPatient from './common/StylTextFilterPatient';
 import FilterTypePatient from './common/StylFilterTypePatient';
 
-const BoxFilter = () => {
+const BoxFilter = ({ text, filter }) => {
   return (
     <BoxRow>
       <BtnFilter type='button'>
         <FilterPatients src={filterImg} alt='filter' />
         <TextFilterPatient>
-          Sort by: <FilterTypePatient> Date </FilterTypePatient>
+          {text} <FilterTypePatient> {filter} </FilterTypePatient>
           <img src={arrowImg} alt='arrow' />
         </TextFilterPatient>
       </BtnFilter>

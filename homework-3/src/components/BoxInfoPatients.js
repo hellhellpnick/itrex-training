@@ -2,12 +2,11 @@ import React from 'react';
 import BoxDoctor from './common/Boxes/StylBoxDoctor';
 import TextInfo from './common/StylTextInfo';
 import BoxImgInfo from './common/Boxes/StylBoxImgInfo';
-import scheduleImg from './../img/icons/schedule.png';
 
-const BoxInfoPatient = ({ info }) => {
+const BoxInfoPatient = ({ info, imgWay }) => {
   return (
     <BoxDoctor>
-      <BoxImgInfo src={scheduleImg} alt='time icon' />
+      <BoxImgInfo src={imgWay} alt='time icon' />
       <TextInfo>{info}</TextInfo>
     </BoxDoctor>
   );

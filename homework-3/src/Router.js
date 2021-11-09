@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Patients from './views/Patients';
+import DoctorProfile from './views/DoctorProfile';
+import PatientProfile from './views/PatientProfile';
 import SignIn from './views/SignIn';
 import SignUp from './views/SignUp';
 import RestorePassword from './views/RestorePassword';
@@ -17,7 +18,11 @@ const Router = () => (
       <RestorePassword title='Restore Password' />
     </Route>
     <Route path='/patients'>
-      <Patients title='Patients' />
+      <DoctorProfile title='Patients' />
+    </Route>
+
+    <Route path='/patientProfile'>
+      <PatientProfile title='Patient' />
     </Route>
   </Switch>
 );
