@@ -17,7 +17,7 @@ const Router = () => (
     <Route path='/restorePassword'>
       <RestorePassword title='Restore Password' />
     </Route>
-    <Route path='/patients'>
+    <Route path='/patientsDoctor'>
       <DoctorProfile title='Patients' />
     </Route>
 

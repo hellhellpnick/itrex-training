@@ -1,6 +1,6 @@
 import React from 'react';
 import LinkPage from './LinkPage';
-import ArrowFromForm from './common/StylArrowFromForm';
+import ArrowFromForm from './common/partsOfTheForm/StylArrowFromForm';
 import arrowImg from './../img/icons/icon-arrow-right.svg';
 
 const TitleFormArrow = ({ link, path }) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import BoxRow from '../components/common/Boxes/StylBoxRow';
-import BoxSearch from '../components/BoxSearch';
-import BoxFilter from '../components/BoxFilter';
+import BoxSearch from '../components/Boxes/BoxSearch';
+import BoxFilter from '../components/Boxes/BoxFilter';
 import BoxRowPadding from '../components/common/Boxes/StylBoxRowPadding';
 import BoxPatients from '../components/common/Boxes/StylBoxPatients';
 import BoxDoctor from '../components/common/Boxes/StylBoxDoctor';
@@ -13,8 +13,9 @@ import TitleName from '../components/common/Titles/StylTitleName';
 import TitlePatients from '../components/common/Titles/StylTitlePatients';
 import SubTitlePostion from '../components/common/Titles/StylSubTitlePosition';
 import AvatarActive from '../components/AvatarActive';
-import BtnPatients from '../components/BtnPatients';
+import BtnPatients from './../components/BtnsComponents/BtnPatients';
 import CardPatient from '../components/CardPatientProfileDoctor/CardPatient';
+import Loader from './../components/Loader/Loader';
 
 import avatar1 from '../img/avatars/avatar-doctor.png';
 import avatar2 from '../img/avatars/patients-1.png';
@@ -36,190 +37,206 @@ const DoctorProfile = ({ title }) => {
     document.title = title || '';
   }, [title]);
 
-  return (
-    <BoxPatients>
-      <BoxRow>
-        <img src={logo} alt='logo' />
-        <BoxDoctor>
-          <BoxFlexColumn>
-            <TitleName>Alla Robins</TitleName>
-            <SubTitlePostion>Doctor</SubTitlePostion>
-          </BoxFlexColumn>
-          <AvatarActive src={avatar1} alt='avatar-user' />
-        </BoxDoctor>
-      </BoxRow>
-      <BoxPatientContent>
-        <BoxBtnPatients>
-          <BtnPatients active={true} text='Patients' />
-          <BtnPatients active={false} text='Resolutions  ' />
-        </BoxBtnPatients>
-        <BoxRowPadding>
-          <TitlePatients>My patients</TitlePatients>
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const loadData = async () => {
+      await new Promise((r) => setTimeout(r, 2000));
+
+      setLoading((loading) => !loading);
+    };
+
+    loadData();
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  } else {
+    return (
+      <BoxPatients>
+        <BoxRow>
+          <img src={logo} alt='logo' />
           <BoxDoctor>
-            <BoxSearch />
-            <BoxFilter text="Sort by:" filter='Date'/>
+            <BoxFlexColumn>
+              <TitleName>Alla Robins</TitleName>
+              <SubTitlePostion>Doctor</SubTitlePostion>
+            </BoxFlexColumn>
+            <AvatarActive src={avatar1} alt='avatar-user' />
           </BoxDoctor>
-        </BoxRowPadding>
-        <BoxPatientsList>
-          <CardPatient
-            name='Jane Cooper'
-            statusText='Appointment is confirmed'
-            status='success'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar2'
-            img={avatar2}
-            info='
+        </BoxRow>
+        <BoxPatientContent>
+          <BoxBtnPatients>
+            <BtnPatients active={true} text='Patients' />
+            <BtnPatients active={false} text='Resolutions  ' />
+          </BoxBtnPatients>
+          <BoxRowPadding>
+            <TitlePatients>My patients</TitlePatients>
+            <BoxDoctor>
+              <BoxSearch />
+              <BoxFilter text='Sort by:' filter='Date' />
+            </BoxDoctor>
+          </BoxRowPadding>
+          <BoxPatientsList>
+            <CardPatient
+              name='Jane Cooper'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar2'
+              img={avatar2}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Eleanor Pena'
-            statusText='Appointment is confirmed'
-            status='success'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar3'
-            img={avatar3}
-            info='
+            <CardPatient
+              name='Eleanor Pena'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar3'
+              img={avatar3}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Devon Lane'
-            statusText='Appointment is confirmed'
-            status='success'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar4'
-            img={avatar4}
-            info='
+            <CardPatient
+              name='Devon Lane'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar4'
+              img={avatar4}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Jenny Wilson'
-            statusText='Appointment is confirmed'
-            status='success'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar5'
-            img={avatar5}
-            info='
+            <CardPatient
+              name='Jenny Wilson'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar5'
+              img={avatar5}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Courtney Henry'
-            statusText='Appointment is confirmed'
-            status='success'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar6'
-            img={avatar6}
-            info='
+            <CardPatient
+              name='Courtney Henry'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar6'
+              img={avatar6}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Arlene McCoy'
-            statusText='Appointment is canceled'
-            status='cancel'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar7'
-            img={avatar7}
-            info='
+            <CardPatient
+              name='Arlene McCoy'
+              statusText='Appointment is canceled'
+              status='cancel'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar7'
+              img={avatar7}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Annette Black'
-            statusText='Waiting for confirmation...'
-            status='wait'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar8'
-            img={avatar8}
-            info='
+            <CardPatient
+              name='Annette Black'
+              statusText='Waiting for confirmation...'
+              status='wait'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar8'
+              img={avatar8}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Cameron Williamson'
-            statusText='Appointment is confirmed'
-            status='wait'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar9'
-            img={avatar9}
-            info='
+            <CardPatient
+              name='Cameron Williamson'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar9'
+              img={avatar9}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Bessie Cooper'
-            statusText='Appointment is confirmed'
-            status='wait'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar10'
-            img={avatar10}
-            info='
+            <CardPatient
+              name='Bessie Cooper'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar10'
+              img={avatar10}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Savannah Nguyen'
-            statusText='Appointment is confirmed'
-            status='wait'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar11'
-            img={avatar11}
-            info='
+            <CardPatient
+              name='Savannah Nguyen'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar11'
+              img={avatar11}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Esther Howard'
-            statusText='Appointment is confirmed'
-            status='wait'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar12'
-            img={avatar12}
-            info='
+            <CardPatient
+              name='Esther Howard'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar12'
+              img={avatar12}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
+            />
 
-          <CardPatient
-            name='Jerome Bell'
-            statusText='Appointment is confirmed'
-            status='wait'
-            data='Thu Sept 10, 2021 4 pm – 5 pm'
-            alt='avatar13'
-            img={avatar13}
-            info='
+            <CardPatient
+              name='Jerome Bell'
+              statusText='Appointment is confirmed'
+              status='success'
+              data='Thu Sept 10, 2021 4 pm – 5 pm'
+              alt='avatar13'
+              img={avatar13}
+              info='
             We will invite you in for a full review every year and more frequently if you
             are struggling with blood sugar levels
           '
-          />
-        </BoxPatientsList>
-      </BoxPatientContent>
-    </BoxPatients>
-  );
+            />
+          </BoxPatientsList>
+        </BoxPatientContent>
+      </BoxPatients>
+    );
+  }
 };
 
 export default DoctorProfile;

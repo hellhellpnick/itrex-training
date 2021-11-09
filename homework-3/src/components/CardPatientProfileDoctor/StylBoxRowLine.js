@@ -23,10 +23,10 @@ const StylBoxRowLine = styled(StylBoxRow)`
   }
 
   @media (min-width: 1024px) {
-    margin-bottom: 50px;
+    margin-bottom: 48px;
 
     ::after {
-      bottom: -20px;
+      bottom: -24px;
     }
   }
 `;

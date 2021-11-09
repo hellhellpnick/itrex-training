@@ -1,5 +1,5 @@
 import React from 'react';
-import StylLabelFromInput from './common/StylLabelFromInput';
+import StylLabelFromInput from './common/partsOfTheForm/StylLabelFromInput';
 
 const LabelFromInput = ({ text }) => {
   return <StylLabelFromInput>{text}</StylLabelFromInput>;

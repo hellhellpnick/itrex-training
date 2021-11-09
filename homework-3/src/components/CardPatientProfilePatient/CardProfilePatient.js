@@ -1,14 +1,14 @@
 import React from 'react';
 import BoxCardPatient from './../CardPatientProfileDoctor/StylBoxCardPatient';
 import BoxDoctor from '../common/Boxes/StylBoxDoctor';
-import BoxDataPatient from '../BoxDataPatient';
-import BoxInfoPatient from '../BoxInfoPatients';
+import BoxDataPatient from '../Boxes/BoxDataPatient';
+import BoxInfoPatient from '../Boxes/BoxInfoPatients';
 import BoxRow from './../CardPatientProfileDoctor/StylBoxRowLine';
 import BoxColumnInfo from './../CardPatientProfileDoctor/StylBoxColumnInfo';
 import BoxImgPatient from './../CardPatientProfileDoctor/StylBoxImgPatient';
 import TitleCard from './../CardPatientProfileDoctor/StylTitleCard';
 import SubTitleCard from './StylSubTitleCardPatient';
-import BtnMore from './../BtnMore';
+import BtnMore from './../BtnsComponents/BtnMore';
 import heartImg from './../../img/icons/heart.png';
 
 const CardProfilePatient = ({ name, data, info, img, statusText, alt }) => {

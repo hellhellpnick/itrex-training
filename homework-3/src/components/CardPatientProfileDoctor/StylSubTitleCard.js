@@ -19,7 +19,12 @@ const StylSubTitleCard = styled.h2`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: ${(props) => props.theme.palette.backgroundColor.second};
+    background-color: ${(props) =>
+      props.status === 'success'
+        ? props.theme.palette.backgroundColor.second
+        : props.status === 'cancel'
+        ? props.theme.palette.error.text
+        : props.theme.palette.text.second};
   }
 
   @media (min-width: 768px) {

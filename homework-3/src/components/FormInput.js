@@ -1,8 +1,8 @@
 import React from 'react';
 import WrapperFormInput from './common/StylWrapperFormInput';
-import IconInputStart from './common/StylIconInputStart';
-import InputForm from './common/StylInputForm';
-import BtnEyePassword from './BtnEyePassword';
+import IconInputStart from './common/icons/StylIconInputStart';
+import InputForm from './common/partsOfTheForm/StylInputForm';
+import BtnEyePassword from './BtnsComponents/BtnEyePassword';
 import LabelFromInput from './LabelFromInput';
 
 const FormInput = ({

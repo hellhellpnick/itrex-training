@@ -5,12 +5,11 @@ const StylWrapperFormInput = styled.div`
   width: 100%;
   min-width: 256px;
   transition: all 0.2s ease;
-  margin-bottom: ${(props) => (props.err ? '40px' : '24px')};
+  margin-bottom: ${(props) => (props.err ? '60px' : '24px')};
+  transition: all 0.2s ease;
 
   @media (min-width: 768px) {
-    margin-bottom: 40px;
-
-    margin-bottom: ${(props) => (props.err ? '48px' : '40px')};
+    margin-bottom: ${(props) => (props.err ? '70px' : '40px')};
   }
 `;
 
