@@ -1,5 +1,5 @@
 import React from 'react';
-import BtnForm from './common/StylBtnForm';
+import BtnForm from './common/Btns/StylBtnForm';
 import IconArrowBtn from './common/StylIconArrowBtn';
 
 const BtnSubmitForm = ({ text }) => {

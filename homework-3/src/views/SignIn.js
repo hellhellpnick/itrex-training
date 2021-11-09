@@ -1,7 +1,7 @@
 import React from 'react';
-import { StylBoxMain } from '../components/common/StylBoxMain';
+import { StylBoxMain } from '../components/common/Boxes/StylBoxMain';
 import FormSignIn from '../components/FormSignIn';
-import BoxFormSignIn from './../components/common/StylBoxFormSignIn';
+import BoxFormSignIn from './../components/common/Boxes/StylBoxFormSignIn';
 import BoxContentLink from './../components/BoxContentLink';
 
 const SignUp = ({ title }) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import StylBtnForm from './common/StylBtnForm';
+import StylBtnForm from './common/Btns/StylBtnForm';
 import IconArrowBtn from './common/StylIconArrowBtn';
 import styled from 'styled-components';
 

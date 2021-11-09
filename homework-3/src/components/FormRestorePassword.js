@@ -9,7 +9,7 @@ import InformationText from './common/StylInformationText';
 import InformationTextForm from './InformationTextForm';
 import emailImg from './../img/icons/icon-email.svg';
 import LinkPage from './common/StylLinkPage';
-import BoxViewContent from './common/StylBoxViewContent';
+import BoxViewContent from './common/Boxes/StylBoxViewContent';
 
 const FormRestorePassword = () => {
   let [isEmail, setEmail] = React.useState(false);

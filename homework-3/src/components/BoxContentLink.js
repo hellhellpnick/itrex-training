@@ -1,5 +1,5 @@
 import React from 'react';
-import BoxColumn from './common/StylBoxColumn';
+import BoxColumn from './common/Boxes/StylBoxColumn';
 import TextContent from './common/StylTextContent';
 import LinkPage from './LinkPage';
 
