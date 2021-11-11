@@ -1,14 +1,14 @@
 import React from 'react';
-import BoxColumn from './../common/Boxes/StylBoxColumn';
-import TextContent from './../common/Text/StylTextContent';
+import { StylBoxColumn } from './../common/Boxes/';
+import { StylTextContent } from './../common/Text/';
 import LinkPage from '../LinkPage';
 
 const BoxContentLink = ({ text, link, path }) => {
   return (
-    <BoxColumn>
-      <TextContent>{text}</TextContent>
+    <StylBoxColumn>
+      <StylTextContent>{text}</StylTextContent>
       <LinkPage path={path} link={link} />
-    </BoxColumn>
+    </StylBoxColumn>
   );
 };
 

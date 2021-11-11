@@ -1,7 +1,7 @@
 import React from 'react';
-import StylBtnForm from './../common/Btns/StylBtnForm';
-import IconArrowBtn from './../common/icons/StylIconArrowBtn';
 import styled from 'styled-components';
+import { StylBtnForm } from './../common/Btns/';
+import { StylIconArrowBtn } from './../common/icons/';
 
 const BtnForm = styled(StylBtnForm)`
   margin-bottom: 32px;
@@ -11,7 +11,7 @@ const BtnSubmitForm = ({ text }) => {
   return (
     <BtnForm>
       {text}
-      <IconArrowBtn />
+      <StylIconArrowBtn />
     </BtnForm>
   );
 };

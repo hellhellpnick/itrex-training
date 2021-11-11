@@ -1,8 +1,8 @@
 import React from 'react';
-import InformationText from './common/StylInformationText';
+import { StylInformationText } from './common/';
 
-const InformationTextForm = ({ text, link = ''}) => {
-  return <InformationText>{text}</InformationText>;
+const InformationTextForm = ({ text, link = '' }) => {
+  return <StylInformationText>{text}</StylInformationText>;
 };
 
 export default InformationTextForm;

@@ -1,14 +1,13 @@
 import React from 'react';
-import BoxDoctor from './../common/Boxes/StylBoxDoctor';
-import TextInfo from './../common/Text/StylTextInfo';
-import BoxImgInfo from './../common/Boxes/StylBoxImgInfo';
+import { StylTextInfo } from './../common/Text/';
+import { StylBoxImgInfo, StylBoxDoctor } from './../common/Boxes/';
 
 const BoxInfoPatient = ({ info, imgWay }) => {
   return (
-    <BoxDoctor>
-      <BoxImgInfo src={imgWay} alt='time icon' />
-      <TextInfo>{info}</TextInfo>
-    </BoxDoctor>
+    <StylBoxDoctor>
+      <StylBoxImgInfo src={imgWay} alt='time icon' />
+      <StylTextInfo>{info}</StylTextInfo>
+    </StylBoxDoctor>
   );
 };
 

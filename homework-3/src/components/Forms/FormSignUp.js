@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import TitleForm from '../common/Titles/StylTitleForm';
-import FormInput from '../FormInput';
-import BtnSubmitForm from '../BtnsComponents/BtnSubmitForm';
+import { StylTitleForm } from '../common/Titles/';
+import { FormInput } from '../';
+import { BtnSubmitForm } from '../BtnsComponents/';
 import userImg from './../../img/icons/icon-user.svg';
 import emailImg from './../../img/icons/icon-email.svg';
 import passwordlImg from './../../img/icons/icon-lock.svg';
 import checkImg from './../../img/icons/icon-check.svg';
 
 const FormSignUp = () => {
-  let [isEmail, setEmail] = React.useState(false);
-  let [isPassword, setPassword] = React.useState(false);
-  let [isCheckPassowrd, setCheckPassowrd] = React.useState(false);
+  const [isEmail, setEmail] = useState(false),
+    [isPassword, setPassword] = useState(false),
+    [isCheckPassowrd, setCheckPassowrd] = useState(false),
+    regulPassword = /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/,
+    regulEmail =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return (
     <Formik
@@ -23,41 +26,31 @@ const FormSignUp = () => {
         checkPassword: '',
       }}
       validate={(values) => {
-        const errors = {};
-        const regulPassword = /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/;
-        const regulEmail =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
         if (values.password !== values.checkPassword) {
-          setCheckPassowrd((isCheckPassowrd = true));
+          setCheckPassowrd(!isCheckPassowrd);
         } else {
-          setCheckPassowrd((isCheckPassowrd = false));
+          setCheckPassowrd(!isCheckPassowrd);
         }
 
         if (!regulPassword.test(values.password)) {
-          setPassword((isPassword = true));
+          setPassword(!isPassword);
         } else {
-          setPassword((isPassword = false));
+          setPassword(!isPassword);
         }
 
         if (!regulEmail.test(values.email)) {
-          setEmail((isEmail = true));
+          setEmail(!isEmail);
         } else {
-          setEmail((isEmail = false));
+          setEmail(!isEmail);
         }
-
-        return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          console.log(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={({ setSubmitting }) => {
+        setSubmitting(false);
       }}
     >
       {({ values, isSubmitting, handleChange, handleSubmit }) => (
         <Form onSubmit={handleSubmit}>
-          <TitleForm>Sign up</TitleForm>
+          <StylTitleForm>Sign up</StylTitleForm>
           <FormInput
             type='text'
             name='firstName'

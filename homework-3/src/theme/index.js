@@ -6,4 +6,4 @@ const theme = {
   typography,
 };
 
-export default theme;
+export { theme };

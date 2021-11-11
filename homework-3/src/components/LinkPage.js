@@ -1,5 +1,5 @@
 import React from 'react';
-import StylLinkPage from './common/StylLinkPage';
+import { StylLinkPage } from './common/';
 
 const LinkPage = ({ link, path }) => {
   return <StylLinkPage href={path}>{link}</StylLinkPage>;

@@ -1,9 +1,9 @@
-import React from 'react';
-import WrapperFormInput from './common/StylWrapperFormInput';
-import IconInputStart from './common/icons/StylIconInputStart';
-import InputForm from './common/partsOfTheForm/StylInputForm';
-import BtnEyePassword from './BtnsComponents/BtnEyePassword';
-import LabelFromInput from './LabelFromInput';
+import React, { useState } from 'react';
+import { StylWrapperFormInput } from './common/';
+import { StylIconInputStart } from './common/icons/';
+import { StylInputForm } from './common/partsOfTheForm/';
+import { BtnEyePassword } from './BtnsComponents/';
+import { LabelFromInput } from './';
 
 const FormInput = ({
   type,
@@ -16,7 +16,7 @@ const FormInput = ({
   valueInput,
   changer,
 }) => {
-  let [isType, setType] = React.useState(type);
+  let [isType, setType] = useState(type);
 
   const changeTypeInput = () => {
     if (isType === 'text') {
@@ -27,9 +27,9 @@ const FormInput = ({
   };
 
   return (
-    <WrapperFormInput err={err}>
-      <IconInputStart src={imgStart} />
-      <InputForm
+    <StylWrapperFormInput err={err}>
+      <StylIconInputStart src={imgStart} />
+      <StylInputForm
         type={isType}
         name={name}
         placeholder={placeholder}
@@ -38,9 +38,9 @@ const FormInput = ({
         onChange={changer}
         err={err}
       />
-      {password ? <BtnEyePassword func={changeTypeInput} /> : null}
+      {password ? <BtnEyePassword changeEye={changeTypeInput} /> : null}
       {err ? <LabelFromInput text={errText} /> : null}
-    </WrapperFormInput>
+    </StylWrapperFormInput>
   );
 };
 

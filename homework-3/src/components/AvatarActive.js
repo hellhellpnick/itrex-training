@@ -1,5 +1,5 @@
 import React from 'react';
-import StylAvatarActive from './common/StylAvatarActive';
+import { StylAvatarActive } from './common/';
 
 const AvatarActive = ({ src, alt }) => {
   return (

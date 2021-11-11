@@ -1,11 +1,14 @@
 import React from 'react';
-import LinkPage from './LinkPage';
-import ArrowFromForm from './common/partsOfTheForm/StylArrowFromForm';
+import { LinkPage } from './';
+import { StylArrowFromForm } from './common/partsOfTheForm/';
 import arrowImg from './../img/icons/icon-arrow-right.svg';
 
 const TitleFormArrow = ({ link, path }) => {
   return (
-    <LinkPage path='/signIn' link={<ArrowFromForm src={arrowImg} />}></LinkPage>
+    <LinkPage
+      path='/signIn'
+      link={<StylArrowFromForm src={arrowImg} />}
+    ></LinkPage>
   );
 };
 

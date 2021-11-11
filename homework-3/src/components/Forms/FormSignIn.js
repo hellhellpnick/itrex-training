@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
-import TitleForm from '../common/Titles/StylTitleForm';
-import FormInput from '../FormInput';
-import FormSign from '../common/partsOfTheForm/StylFormSign';
-import BtnSubmitFormSignIn from './../BtnsComponents/BtnSubmitFormSignIn';
+import { StylTitleForm } from '../common/Titles/';
+import { StylFormSign } from '../common/partsOfTheForm/';
+import { BtnSubmitFormSignIn } from './../BtnsComponents/';
+import { FormInput, LinkPage } from '../';
+import { routes } from './../../Router';
 import emailImg from './../../img/icons/icon-email.svg';
 import passwordlImg from './../../img/icons/icon-lock.svg';
-import LinkPage from '../LinkPage';
 
 const FormSignUp = () => {
-  let [isEmail, setEmail] = React.useState(false);
-  let [isPassword, setPassword] = React.useState(false);
+  const [isEmail, setEmail] = useState(false),
+    [isPassword, setPassword] = useState(false),
+    regulPassword = /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/,
+    regulEmail =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return (
     <Formik
@@ -19,35 +22,25 @@ const FormSignUp = () => {
         password: '',
       }}
       validate={(values) => {
-        const errors = {};
-        const regulPassword = /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/;
-        const regulEmail =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
         if (!regulPassword.test(values.password)) {
-          setPassword((isPassword = true));
+          setPassword(!isPassword);
         } else {
-          setPassword((isPassword = false));
+          setPassword(!isPassword);
         }
 
         if (!regulEmail.test(values.email)) {
-          setEmail((isEmail = true));
+          setEmail(!isEmail);
         } else {
-          setEmail((isEmail = false));
+          setEmail(!isEmail);
         }
-
-        return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          console.log(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={({ setSubmitting }) => {
+        setSubmitting(false);
       }}
     >
       {({ values, isSubmitting, handleChange, handleSubmit }) => (
-        <FormSign onSubmit={handleSubmit}>
-          <TitleForm>Sign in</TitleForm>
+        <StylFormSign onSubmit={handleSubmit}>
+          <StylTitleForm>Sign in</StylTitleForm>
 
           <FormInput
             type='email'
@@ -79,8 +72,11 @@ const FormSignUp = () => {
             text='Sign in'
           />
 
-          <LinkPage path='/restorePassword' link='Forgot Password?'></LinkPage>
-        </FormSign>
+          <LinkPage
+            path={routes.restorePasswordPage}
+            link='Forgot Password?'
+          ></LinkPage>
+        </StylFormSign>
       )}
     </Formik>
   );

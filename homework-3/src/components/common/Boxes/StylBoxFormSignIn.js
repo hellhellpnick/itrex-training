@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import StylBoxForm from './StylBoxForm';
+import { StylBoxForm } from './';
 
 const StylBoxFormSignIn = styled(StylBoxForm)`
   @media (min-width: 768px) {

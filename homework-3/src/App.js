@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Switch, BrowserRouter } from 'react-router-dom';
-import Router from './Router';
 import { ThemeProvider } from 'styled-components';
-import theme from './theme/index';
+import { theme } from './theme';
+import { Loader } from './components/Loader';
+import { Router } from './Router';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <div className='App'>
-          <Switch>
-            <Router />
-          </Switch>
+          <Suspense fallback={<Loader />}>
+            <Switch>
+              <Router />
+            </Switch>
+          </Suspense>
         </div>
       </BrowserRouter>
     </ThemeProvider>

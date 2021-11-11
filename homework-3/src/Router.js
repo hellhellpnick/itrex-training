@@ -1,30 +1,33 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import DoctorProfile from './views/DoctorProfile';
-import PatientProfile from './views/PatientProfile';
-import SignIn from './views/SignIn';
-import SignUp from './views/SignUp';
-import RestorePassword from './views/RestorePassword';
+import {
+  RestorePassword,
+  SignUp,
+  SignIn,
+  PatientProfile,
+  DoctorProfile,
+} from './views';
+import routes from './Routes';
 
 const Router = () => (
   <Switch>
-    <Route exact path='/'>
+    <Route exact path={routes.signUpPage}>
       <SignUp title='Sign Up' />
     </Route>
-    <Route path='/signIn'>
+    <Route path={routes.signInPage}>
       <SignIn title='Sign In' />
     </Route>
-    <Route path='/restorePassword'>
+    <Route path={routes.restorePasswordPage}>
       <RestorePassword title='Restore Password' />
     </Route>
-    <Route path='/patientsDoctor'>
+    <Route path={routes.DoctorProfile}>
       <DoctorProfile title='Patients' />
     </Route>
 
-    <Route path='/patientProfile'>
+    <Route path={routes.PatientProfile}>
       <PatientProfile title='Patient' />
     </Route>
   </Switch>
 );
 
-export default Router;
+export { Router, routes };

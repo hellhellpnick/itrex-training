@@ -1,15 +1,14 @@
 import React from 'react';
-import BoxDoctor from './../common/Boxes/StylBoxDoctor';
-import TextData from './../common/Text/StylTextData';
-import BoxImgInfo from './../common/Boxes/StylBoxImgInfo';
+import { StylTextData } from './../common/Text/';
+import { StylBoxDoctor, StylBoxImgInfo } from './../common/Boxes/';
 import timeImg from './../../img/icons/time.png';
 
 const BoxDataPatient = ({ data }) => {
   return (
-    <BoxDoctor>
-      <BoxImgInfo src={timeImg} alt='time icon' />
-      <TextData>{data}</TextData>
-    </BoxDoctor>
+    <StylBoxDoctor>
+      <StylBoxImgInfo src={timeImg} alt='time icon' />
+      <StylTextData>{data}</StylTextData>
+    </StylBoxDoctor>
   );
 };
 

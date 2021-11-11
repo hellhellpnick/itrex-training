@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
-import TitleForm from '../common/Titles/StylTitleForm';
-import FormInput from '../FormInput';
-import FormSign from '../common/partsOfTheForm/StylFormSign';
-import BtnSubmitFormReset from './../BtnsComponents/BtnSubmitFormReset';
-import TitleFormArrow from '../TitleFormArrow';
-import InformationText from '../common/StylInformationText';
-import InformationTextForm from '../InformationTextForm';
+import { StylTitleForm } from '../common/Titles/';
+import { StylFormSign } from '../common/partsOfTheForm/';
+import { BtnSubmitFormReset } from './../BtnsComponents/';
+import { FormInput, InformationTextForm, TitleFormArrow } from '../';
+import { StylBoxViewContent } from '../common/Boxes/';
+import { StylInformationText, StylLinkPage } from '../common/';
 import emailImg from './../../img/icons/icon-email.svg';
-import LinkPage from '../common/StylLinkPage';
-import BoxViewContent from '../common/Boxes/StylBoxViewContent';
 
 const FormRestorePassword = () => {
-  let [isEmail, setEmail] = React.useState(false);
-  let [isHiddenForm, setHiddenForm] = React.useState(true);
+  const [isEmail, setEmail] = useState(false),
+    [isHiddenForm, setHiddenForm] = useState(true),
+    regulEmail =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const handleForm = () => {
     setHiddenForm(!isHiddenForm);
@@ -25,31 +24,25 @@ const FormRestorePassword = () => {
         email: '',
       }}
       validate={(values) => {
-        const regulEmail =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
         if (!regulEmail.test(values.email)) {
-          setEmail((isEmail = true));
+          setEmail(!isEmail);
         } else {
-          setEmail((isEmail = false));
+          setEmail(!isEmail);
         }
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          console.log(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-          handleForm();
-        }, 400);
+      onSubmit={({ setSubmitting }) => {
+        setSubmitting(false);
+        handleForm();
       }}
     >
       {({ values, isSubmitting, handleChange, handleSubmit }) => (
-        <FormSign onSubmit={handleSubmit}>
-          <TitleForm>
+        <StylFormSign onSubmit={handleSubmit}>
+          <StylTitleForm>
             <TitleFormArrow />
             Restore password
-          </TitleForm>
+          </StylTitleForm>
 
-          <BoxViewContent view={isHiddenForm}>
+          <StylBoxViewContent view={isHiddenForm}>
             <InformationTextForm text='Please use your email address, and we’ll send you the link to reset your password' />
             <FormInput
               type='email'
@@ -68,14 +61,15 @@ const FormRestorePassword = () => {
               disabled={isSubmitting}
               text='Send Reset Link'
             />
-          </BoxViewContent>
-          <BoxViewContent view={!isHiddenForm}>
-            <InformationText>
-              An email has been sent to <LinkPage>{values.email}</LinkPage>.
-              Check your inbox, and click the reset link provided.
-            </InformationText>
-          </BoxViewContent>
-        </FormSign>
+          </StylBoxViewContent>
+          <StylBoxViewContent view={!isHiddenForm}>
+            <StylInformationText>
+              An email has been sent to{' '}
+              <StylLinkPage>{values.email}</StylLinkPage>. Check your inbox, and
+              click the reset link provided.
+            </StylInformationText>
+          </StylBoxViewContent>
+        </StylFormSign>
       )}
     </Formik>
   );

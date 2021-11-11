@@ -1,97 +1,67 @@
-import React from 'react';
-import BoxRow from '../components/common/Boxes/StylBoxRow';
-import BoxFilter from '../components/Boxes/BoxFilter';
-import BoxRowPadding from '../components/common/Boxes/StylBoxRowPadding';
-import BoxPatients from '../components/common/Boxes/StylBoxPatients';
-import BoxDoctor from '../components/common/Boxes/StylBoxDoctor';
-import BoxFlexColumn from '../components/common/Boxes/StylBoxFlexColumn';
-import BoxPatientContent from '../components/common/Boxes/StylBoxPatientContent';
-import BoxBtnPatients from '../components/common/Boxes/StylBoxBtnPatients';
-import BoxPatientsList from '../components/common/Boxes/StylBoxPatientsList';
-import TitleName from '../components/common/Titles/StylTitleName';
-import TitlePatients from '../components/common/Titles/StylTitlePatients';
-import SubTitlePostion from '../components/common/Titles/StylSubTitlePosition';
-import AvatarActive from '../components/AvatarActive';
-import BtnPatients from './../components/BtnsComponents/BtnPatients';
-import BtnCreateAppointment from './../components/BtnsComponents/BtnCreateAppointment';
-import BtnPatientsHiddenMob from './../components/BtnsComponents/BtnPatientsHiddenMob';
-import CardPatient from '../components/CardPatientProfilePatient/CardProfilePatient';
-import Loader from './../components/Loader/Loader';
+import React, { useEffect, useState } from 'react';
+import { BoxFilter } from '../components/Boxes/';
+import {
+  StylBoxRowPadding,
+  StylBoxPatients,
+  StylBoxDoctor,
+  StylBoxFlexColumn,
+  StylBoxPatientContent,
+  StylBoxBtnPatients,
+  StylBoxRow,
+} from '../components/common/Boxes/';
+import {
+  StylSubTitlePosition,
+  StylTitlePatients,
+  StylTitleName,
+} from '../components/common/Titles/';
+import { AvatarActive } from '../components/';
+import {
+  BtnPatientsHiddenMob,
+  BtnCreateAppointment,
+  BtnPatients,
+} from './../components/BtnsComponents/';
+import { CardProfilePatient } from '../components/CardPatientProfilePatient';
 
 import patient from '../img/avatars/avatar-patient.png';
-import avatar2 from '../img/avatars/patients-13.png';
 import logo from '../img/logo.png';
+import data from './../db/dbProfilePatient.json';
 
 const DoctorProfile = ({ title }) => {
-  React.useEffect(() => {
+  const [dbData, setdbData] = useState([data]);
+
+  useEffect(() => {
     document.title = title || '';
   }, [title]);
 
-  const [loading, setLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    const loadData = async () => {
-      await new Promise((r) => setTimeout(r, 2000));
-
-      setLoading((loading) => !loading);
-    };
-
-    loadData();
-  }, []);
-
-  if (loading) {
-    return <Loader />;
-  } else {
-    return (
-      <BoxPatients>
-        <BoxRow>
-          <img src={logo} alt='logo' />
-          <BoxDoctor>
-            <BoxFlexColumn>
-              <TitleName>Larry Prinston</TitleName>
-              <SubTitlePostion>Patient</SubTitlePostion>
-            </BoxFlexColumn>
-            <AvatarActive src={patient} alt='avatar-user' />
-          </BoxDoctor>
-        </BoxRow>
-        <BoxPatientContent>
-          <BoxBtnPatients>
-            <BtnPatients active={false} text='Profile' />
-            <BtnPatients active={true} text='Appointments  ' />
-            <BtnPatientsHiddenMob active={false} text='Resolutions  ' />
-          </BoxBtnPatients>
-          <BoxRowPadding>
-            <TitlePatients>My Appointments</TitlePatients>
-            <BoxDoctor>
-              <BoxFilter text='Show: ' filter='Upcoming' />
-              <BtnCreateAppointment />
-            </BoxDoctor>
-          </BoxRowPadding>
-          <BoxPatientsList>
-            <CardPatient
-              name='Jane Cooper'
-              statusText='Therapist'
-              data='Thu Sept 10, 2021 4 pm – 5 pm'
-              alt='avatar2'
-              img={avatar2}
-              info='Headache, pant
-          '
-            />
-
-            <CardPatient
-              name='Jane Cooper'
-              statusText='Therapist'
-              data='Thu Sept 10, 2021 4 pm – 5 pm'
-              alt='avatar2'
-              img={avatar2}
-              info='Headache, pant
-          '
-            />
-          </BoxPatientsList>
-        </BoxPatientContent>
-      </BoxPatients>
-    );
-  }
+  return (
+    <StylBoxPatients>
+      <StylBoxRow>
+        <img src={logo} alt='logo' />
+        <StylBoxDoctor>
+          <StylBoxFlexColumn>
+            <StylTitleName>Larry Prinston</StylTitleName>
+            <StylSubTitlePosition>Patient</StylSubTitlePosition>
+          </StylBoxFlexColumn>
+          <AvatarActive src={patient} alt='avatar-user' />
+        </StylBoxDoctor>
+      </StylBoxRow>
+      <StylBoxPatientContent>
+        <StylBoxBtnPatients>
+          <BtnPatients active={false} text='Profile' />
+          <BtnPatients active={true} text='Appointments  ' />
+          <BtnPatientsHiddenMob active={false} text='Resolutions  ' />
+        </StylBoxBtnPatients>
+        <StylBoxRowPadding>
+          <StylTitlePatients>My Appointments</StylTitlePatients>
+          <StylBoxDoctor>
+            <BoxFilter text='Show: ' filter='Upcoming' />
+            <BtnCreateAppointment />
+          </StylBoxDoctor>
+        </StylBoxRowPadding>
+        {!dbData.length ? '' : <CardProfilePatient data={dbData} />}
+      </StylBoxPatientContent>
+    </StylBoxPatients>
+  );
 };
 
 export default DoctorProfile;

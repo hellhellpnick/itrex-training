@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import StylSubTitleCard from '../CardPatientProfileDoctor/StylSubTitleCard';
+import { StylSubTitleCard } from '../CardPatientProfileDoctor/';
 
 const StylSubTitleCardPatient = styled(StylSubTitleCard)`
   padding: 0;

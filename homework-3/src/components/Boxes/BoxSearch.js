@@ -1,17 +1,17 @@
 import React from 'react';
-import BoxRow from './../common/Boxes/StylBoxRowMargin';
+import {StylBoxRowMargin} from './../common/Boxes/';
+import {StylBtnSearch} from './../common/Btns/';
+import {StylInputSearchPatient} from './../common/partsOfTheForm/';
 import searchImg from './../../img/icons/search.png';
-import BtnSearch from './../common/Btns/StylBtnSearch';
-import InputSearchPatient from './../common/partsOfTheForm/StylInputSearchPatient';
 
 const BoxSearch = () => {
   return (
-    <BoxRow>
-      <BtnSearch type='button'>
+    <StylBoxRowMargin>
+      <StylBtnSearch type='button'>
         <img src={searchImg} alt='search' />
-        <InputSearchPatient type='text' placeholder='Search' />
-      </BtnSearch>
-    </BoxRow>
+        <StylInputSearchPatient type='text' placeholder='Search' />
+      </StylBtnSearch>
+    </StylBoxRowMargin>
   );
 };
 

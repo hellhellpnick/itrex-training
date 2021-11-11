@@ -1,32 +1,40 @@
 import React from 'react';
-import BoxCardPatient from './../CardPatientProfileDoctor/StylBoxCardPatient';
-import BoxDoctor from '../common/Boxes/StylBoxDoctor';
-import BoxDataPatient from '../Boxes/BoxDataPatient';
-import BoxInfoPatient from '../Boxes/BoxInfoPatients';
-import BoxRow from './../CardPatientProfileDoctor/StylBoxRowLine';
-import BoxColumnInfo from './../CardPatientProfileDoctor/StylBoxColumnInfo';
-import BoxImgPatient from './../CardPatientProfileDoctor/StylBoxImgPatient';
-import TitleCard from './../CardPatientProfileDoctor/StylTitleCard';
-import SubTitleCard from './StylSubTitleCardPatient';
-import BtnMore from './../BtnsComponents/BtnMore';
+import { BoxInfoPatient, BoxDataPatient } from '../Boxes/';
+import {
+  StylBoxCardPatient,
+  StylBoxImgPatient,
+  StylBoxColumnInfo,
+  StylBoxRowLine,
+  StylTitleCard,
+} from './../CardPatientProfileDoctor/';
+import { StylSubTitleCardPatient } from './index';
+import { BtnMore } from './../BtnsComponents/';
+import { StylBoxDoctor } from '../common/Boxes/';
+import { StylBoxPatientsList } from './../../components/common/Boxes/';
 import heartImg from './../../img/icons/heart.png';
 
-const CardProfilePatient = ({ name, data, info, img, statusText, alt }) => {
+const CardProfilePatient = ({ data }) => {
   return (
-    <BoxCardPatient>
-      <BoxRow>
-        <BoxDoctor>
-          <BoxImgPatient src={img} alt={alt} />
-          <BoxColumnInfo>
-            <TitleCard>{name}</TitleCard>
-            <SubTitleCard>{statusText}</SubTitleCard>
-          </BoxColumnInfo>
-        </BoxDoctor>
-        <BtnMore />
-      </BoxRow>
-      <BoxDataPatient data={data} />
-      <BoxInfoPatient info={info} imgWay={heartImg} />
-    </BoxCardPatient>
+    <StylBoxPatientsList>
+      {data[0].map((item) => (
+        <StylBoxCardPatient>
+          <StylBoxRowLine>
+            <StylBoxDoctor>
+              <StylBoxImgPatient src={item.img} alt={item.alt} />
+              <StylBoxColumnInfo>
+                <StylTitleCard>{item.name}</StylTitleCard>
+                <StylSubTitleCardPatient>
+                  {item.statusText}
+                </StylSubTitleCardPatient>
+              </StylBoxColumnInfo>
+            </StylBoxDoctor>
+            <BtnMore />
+          </StylBoxRowLine>
+          <BoxDataPatient data={item.data} />
+          <BoxInfoPatient info={item.info} imgWay={heartImg} />
+        </StylBoxCardPatient>
+      ))}
+    </StylBoxPatientsList>
   );
 };
 
