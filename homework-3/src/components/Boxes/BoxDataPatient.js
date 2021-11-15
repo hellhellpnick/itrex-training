@@ -1,6 +1,5 @@
 import React from 'react';
-import { StylTextData } from './../common/Text/';
-import { StylBoxDoctor, StylBoxImgInfo } from './../common/Boxes/';
+import { StylBoxDoctor, StylBoxImgInfo, StylTextData } from './../index';
 import timeImg from './../../img/icons/time.png';
 
 const BoxDataPatient = ({ data }) => {

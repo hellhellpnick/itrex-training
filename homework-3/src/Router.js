@@ -7,7 +7,14 @@ import {
   PatientProfile,
   DoctorProfile,
 } from './views';
-import routes from './Routes';
+
+const routes = {
+  signUpPage: '/',
+  signInPage: '/signIn',
+  restorePasswordPage: '/restorePassword',
+  patientsDoctor: '/patient',
+  patientProfile: '/patientProfile',
+};
 
 const Router = () => (
   <Switch>
@@ -20,12 +27,11 @@ const Router = () => (
     <Route path={routes.restorePasswordPage}>
       <RestorePassword title='Restore Password' />
     </Route>
-    <Route path={routes.DoctorProfile}>
-      <DoctorProfile title='Patients' />
-    </Route>
-
-    <Route path={routes.PatientProfile}>
+    <Route path={routes.patientProfile}>
       <PatientProfile title='Patient' />
+    </Route>
+    <Route path={routes.doctorProfile}>
+      <DoctorProfile title='Patients' />
     </Route>
   </Switch>
 );

@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { StylTitleForm } from '../common/Titles/';
-import { StylFormSign } from '../common/partsOfTheForm/';
-import { BtnSubmitFormReset } from './../BtnsComponents/';
-import { FormInput, InformationTextForm, TitleFormArrow } from '../';
-import { StylBoxViewContent } from '../common/Boxes/';
-import { StylInformationText, StylLinkPage } from '../common/';
+import {
+  StylInformationText,
+  StylLinkPage,
+  StylBoxViewContent,
+  FormInput,
+  InformationTextForm,
+  TitleFormArrow,
+  BtnSubmitFormReset,
+  StylFormSign,
+  StylTitleForm,
+} from './../index';
 import emailImg from './../../img/icons/icon-email.svg';
+import { regulEmail } from '../../constants';
 
 const FormRestorePassword = () => {
   const [isEmail, setEmail] = useState(false),
-    [isHiddenForm, setHiddenForm] = useState(true),
-    regulEmail =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    [isHiddenForm, setHiddenForm] = useState(true);
 
   const handleForm = () => {
     setHiddenForm(!isHiddenForm);
@@ -25,9 +29,9 @@ const FormRestorePassword = () => {
       }}
       validate={(values) => {
         if (!regulEmail.test(values.email)) {
-          setEmail(!isEmail);
+          setEmail(true);
         } else {
-          setEmail(!isEmail);
+          setEmail(false);
         }
       }}
       onSubmit={({ setSubmitting }) => {
@@ -35,7 +39,7 @@ const FormRestorePassword = () => {
         handleForm();
       }}
     >
-      {({ values, isSubmitting, handleChange, handleSubmit }) => (
+      {({ values, isSubmitting, handleChange, handleSubmit, handleBlur }) => (
         <StylFormSign onSubmit={handleSubmit}>
           <StylTitleForm>
             <TitleFormArrow />
@@ -51,9 +55,8 @@ const FormRestorePassword = () => {
               valueInput={values.email}
               imgStart={emailImg}
               err={isEmail}
-              errText='
-              Email not correct. Please check the spelling
-            '
+              errText='Email not correct. Please check the spelling'
+              blur={handleBlur}
               changer={handleChange}
             />
             <BtnSubmitFormReset

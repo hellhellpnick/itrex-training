@@ -6,7 +6,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar2",
-    "img": "./../../img/avatars/patients-1.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
   {
@@ -16,7 +15,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar3",
-    "img": "./../../img/avatars/patients-2.png",
     "info": "We will invite you in for a full review every year and more frequently if you are struggling with blood sugar levels"
   },
 
@@ -27,7 +25,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar4",
-    "img": "./../../img/avatars/patients-3.png",
     "info": "We will invite you in for a full review every year and more frequently if you are struggling with blood sugar levels"
   },
 
@@ -38,7 +35,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar5",
-    "img": "./../../img/avatars/patients-4.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
   {
@@ -48,7 +44,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar6",
-    "img": "./../../img/avatars/patients-5.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
   {
@@ -58,7 +53,6 @@
     "status": "cancel",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar7",
-    "img": "./../../img/avatars/patients-6.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
 
@@ -69,7 +63,6 @@
     "status": "wait",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar8",
-    "img": "./../../img/avatars/patients-7.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
   {
@@ -79,7 +72,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar9",
-    "img": "./../../img/avatars/patients-8.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
   {
@@ -89,7 +81,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar10",
-    "img": "./../../img/avatars/patients-9.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
   {
@@ -99,7 +90,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar11",
-    "img": "./../../img/avatars/patients-10.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
   {
@@ -109,7 +99,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar12",
-    "img": "./../../img/avatars/patients-11.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
   {
@@ -119,7 +108,6 @@
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
     "alt": "avatar13",
-    "img": "./../../img/avatars/patients-12.png",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   }
 ]

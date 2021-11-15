@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { StylWrapperFormInput } from './common/';
-import { StylIconInputStart } from './common/icons/';
-import { StylInputForm } from './common/partsOfTheForm/';
-import { BtnEyePassword } from './BtnsComponents/';
-import { LabelFromInput } from './';
+import {
+  LabelFromInput,
+  BtnEyePassword,
+  StylIconInputStart,
+  StylWrapperFormInput,
+  StylInputForm,
+} from './index.js';
 
 const FormInput = ({
   type,
@@ -15,6 +17,7 @@ const FormInput = ({
   errText = '',
   valueInput,
   changer,
+  blur,
 }) => {
   let [isType, setType] = useState(type);
 
@@ -37,6 +40,7 @@ const FormInput = ({
         value={valueInput}
         onChange={changer}
         err={err}
+        onBlur={blur}
       />
       {password ? <BtnEyePassword changeEye={changeTypeInput} /> : null}
       {err ? <LabelFromInput text={errText} /> : null}

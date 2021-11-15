@@ -1,7 +1,5 @@
 import React from 'react';
-import { StylBoxColumn } from './../common/Boxes/';
-import { StylTextContent } from './../common/Text/';
-import LinkPage from '../LinkPage';
+import { StylTextContent, StylBoxColumn, LinkPage } from './../index';
 
 const BoxContentLink = ({ text, link, path }) => {
   return (

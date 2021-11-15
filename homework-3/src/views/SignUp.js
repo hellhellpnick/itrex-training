@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { StylBoxMain } from '../components/common/Boxes/StylBoxMain';
-import { FormSignUp } from '../components/Forms';
-import { StylBoxForm } from './../components/common/Boxes';
-import { BoxContentLink } from './../components/Boxes';
+import { FormSignUp, BoxContentLink, StylBoxForm } from '../components/';
 import { routes } from './../Router';
 
 const SignUp = ({ title }) => {

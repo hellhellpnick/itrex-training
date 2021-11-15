@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import { Switch, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { theme } from './theme';
-import { Loader } from './components/Loader';
+import { Loader } from './components/';
 import { Router } from './Router';
+import theme from './theme';
 
 function App() {
   return (

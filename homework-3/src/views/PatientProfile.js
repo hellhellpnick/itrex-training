@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BoxFilter } from '../components/Boxes/';
 import {
   StylBoxRowPadding,
@@ -8,26 +8,24 @@ import {
   StylBoxPatientContent,
   StylBoxBtnPatients,
   StylBoxRow,
-} from '../components/common/Boxes/';
-import {
-  StylSubTitlePosition,
-  StylTitlePatients,
-  StylTitleName,
-} from '../components/common/Titles/';
-import { AvatarActive } from '../components/';
-import {
   BtnPatientsHiddenMob,
   BtnCreateAppointment,
   BtnPatients,
-} from './../components/BtnsComponents/';
-import { CardProfilePatient } from '../components/CardPatientProfilePatient';
+  StylSubTitlePosition,
+  StylTitlePatients,
+  StylTitleName,
+  AvatarActive,
+  CardProfilePatient,
+} from '../components/';
 
 import patient from '../img/avatars/avatar-patient.png';
+import patient1 from '../img/avatars/patients-13.png';
 import logo from '../img/logo.png';
 import data from './../db/dbProfilePatient.json';
 
-const DoctorProfile = ({ title }) => {
-  const [dbData, setdbData] = useState([data]);
+const PatientProfile = ({ title }) => {
+  const dbData = [data],
+    imgArr = [patient1, patient1, patient1];
 
   useEffect(() => {
     document.title = title || '';
@@ -58,10 +56,17 @@ const DoctorProfile = ({ title }) => {
             <BtnCreateAppointment />
           </StylBoxDoctor>
         </StylBoxRowPadding>
-        {!dbData.length ? '' : <CardProfilePatient data={dbData} />}
+        {!dbData.length ? (
+          ''
+        ) : (
+          <CardProfilePatient
+            dataPatients={dbData[0]}
+            imgPatientsArr={imgArr}
+          />
+        )}
       </StylBoxPatientContent>
     </StylBoxPatients>
   );
 };
 
-export default DoctorProfile;
+export default PatientProfile;

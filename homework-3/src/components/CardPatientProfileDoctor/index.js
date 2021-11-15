@@ -1,4 +1,4 @@
-import CardPatient from './CardPatient';
+import CardPatientProfileDoctor from './CardPatientProfileDoctor';
 import StylBoxCardPatient from './StylBoxCardPatient';
 import StylBoxColumnInfo from './StylBoxColumnInfo';
 import StylBoxImgPatient from './StylBoxImgPatient';
@@ -7,7 +7,7 @@ import StylSubTitleCard from './StylSubTitleCard';
 import StylTitleCard from './StylTitleCard';
 
 export {
-  CardPatient,
+  CardPatientProfileDoctor,
   StylBoxCardPatient,
   StylBoxColumnInfo,
   StylBoxImgPatient,

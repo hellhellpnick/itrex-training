@@ -1,12 +1,11 @@
 import React from 'react';
-import { StylBtnForm } from './../common/Btns/';
-import IconArrowBtn from './../common/icons/StylIconArrowBtn';
+import { StylBtnForm, StylIconArrowBtn } from './../index';
 
 const BtnSubmitForm = ({ text }) => {
   return (
     <StylBtnForm>
       {text}
-      <IconArrowBtn />
+      <StylIconArrowBtn />
     </StylBtnForm>
   );
 };

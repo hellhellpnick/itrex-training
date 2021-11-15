@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { StylBoxMain } from '../components/common/Boxes/StylBoxMain';
-import { FormRestorePassword } from '../components/Forms/';
-import { StylBoxFormSignIn } from './../components/common/Boxes/';
+import { FormRestorePassword, StylBoxFormSignIn } from '../components/';
 
 const RestorePassword = ({ title }) => {
   useEffect(() => {

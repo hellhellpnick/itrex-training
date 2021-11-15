@@ -1,7 +1,9 @@
 import React from 'react';
-import {StylBoxRowMargin} from './../common/Boxes/';
-import {StylBtnSearch} from './../common/Btns/';
-import {StylInputSearchPatient} from './../common/partsOfTheForm/';
+import {
+  StylBoxRowMargin,
+  StylBtnSearch,
+  StylInputSearchPatient,
+} from './../index';
 import searchImg from './../../img/icons/search.png';
 
 const BoxSearch = () => {

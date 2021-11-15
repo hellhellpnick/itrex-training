@@ -7,13 +7,11 @@ import { FormInput, LinkPage } from '../';
 import { routes } from './../../Router';
 import emailImg from './../../img/icons/icon-email.svg';
 import passwordlImg from './../../img/icons/icon-lock.svg';
+import { regulEmail, regulPassword } from '../../constants';
 
 const FormSignUp = () => {
   const [isEmail, setEmail] = useState(false),
-    [isPassword, setPassword] = useState(false),
-    regulPassword = /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/,
-    regulEmail =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    [isPassword, setPassword] = useState(false);
 
   return (
     <Formik
@@ -23,22 +21,22 @@ const FormSignUp = () => {
       }}
       validate={(values) => {
         if (!regulPassword.test(values.password)) {
-          setPassword(!isPassword);
+          setPassword(true);
         } else {
-          setPassword(!isPassword);
+          setPassword(false);
         }
 
         if (!regulEmail.test(values.email)) {
-          setEmail(!isEmail);
+          setEmail(true);
         } else {
-          setEmail(!isEmail);
+          setEmail(false);
         }
       }}
       onSubmit={({ setSubmitting }) => {
         setSubmitting(false);
       }}
     >
-      {({ values, isSubmitting, handleChange, handleSubmit }) => (
+      {({ values, isSubmitting, handleChange, handleSubmit, handleBlur }) => (
         <StylFormSign onSubmit={handleSubmit}>
           <StylTitleForm>Sign in</StylTitleForm>
 
@@ -49,6 +47,7 @@ const FormSignUp = () => {
             valueInput={values.email}
             imgStart={emailImg}
             err={isEmail}
+            blur={handleBlur}
             errText='
               Email not correct. Please check the spelling
             '
@@ -65,6 +64,7 @@ const FormSignUp = () => {
             err={isPassword}
             errText='Password contain unsupported characters'
             changer={handleChange}
+            blur={handleBlur}
           />
           <BtnSubmitFormSignIn
             type='submit'

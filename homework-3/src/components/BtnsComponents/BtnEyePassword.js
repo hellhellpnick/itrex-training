@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StylIconInputEnd } from './../common/icons/';
+import { StylIconInputEnd } from './../index.js';
 import visibleEyeImg from './../../img/icons/icon-visible-password.svg';
 import closeEyeImg from './../../img/icons/icon-hidden-password.svg';
 import BtnEyePasswordStyle from '../common/Btns/StylBtnEyePasswordStyle';

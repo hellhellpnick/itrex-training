@@ -1,22 +1,23 @@
 import React from 'react';
 import {
-  BoxInfoPatient,
-  BoxDataPatient,
-  StylBoxCardPatient,
+  StylSubTitleCard,
+  StylTitleCard,
   StylBoxImgPatient,
   StylBoxColumnInfo,
   StylBoxRowLine,
-  StylTitleCard,
-  StylSubTitleCardPatient,
-  BtnMore,
+  StylBoxCardPatient,
   StylBoxDoctor,
-  StylBoxPatientsList,
-} from '../index.js';
-import heartImg from './../../img/icons/heart.png';
+  BoxDataPatient,
+  BoxInfoPatient,
+  BtnMore,
+} from './../index';
 
-const CardProfilePatient = ({ dataPatients, imgPatientsArr }) => {
+import scheduleImg from './../../img/icons/schedule.png';
+import BoxPatientsList from '../common/Boxes/StylBoxPatientsList';
+
+const CardPatientProfileDoctor = ({ dataPatients, imgPatientsArr }) => {
   return (
-    <StylBoxPatientsList>
+    <BoxPatientsList>
       {dataPatients.map((item) => (
         <StylBoxCardPatient key={item.id}>
           <StylBoxRowLine>
@@ -27,19 +28,19 @@ const CardProfilePatient = ({ dataPatients, imgPatientsArr }) => {
               />
               <StylBoxColumnInfo>
                 <StylTitleCard>{item.name}</StylTitleCard>
-                <StylSubTitleCardPatient>
+                <StylSubTitleCard status={item.status}>
                   {item.statusText}
-                </StylSubTitleCardPatient>
+                </StylSubTitleCard>
               </StylBoxColumnInfo>
             </StylBoxDoctor>
             <BtnMore />
           </StylBoxRowLine>
           <BoxDataPatient data={item.data} />
-          <BoxInfoPatient info={item.info} imgWay={heartImg} />
+          <BoxInfoPatient info={item.info} imgWay={scheduleImg} />
         </StylBoxCardPatient>
       ))}
-    </StylBoxPatientsList>
+    </BoxPatientsList>
   );
 };
 
-export default CardProfilePatient;
+export default CardPatientProfileDoctor;

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { StylBtnFilter } from './../common/Btns/';
-import { StylTextFilterPatient } from './../common/Text/';
-
 import {
   StylFilterTypePatient,
   StylElementSelect,
   StylFilterPatients,
-} from './../common/';
-
-import { StylBoxSelect, StylBoxRowMargin } from './../common/Boxes/';
+  StylBoxSelect,
+  StylBoxRowMargin,
+  StylBtnFilter,
+  StylTextFilterPatient,
+} from './../index';
 
 import filterImg from './../../img/icons/filter.png';
 import arrowImg from './../../img/icons/arrow-up.png';

@@ -7,14 +7,12 @@ import userImg from './../../img/icons/icon-user.svg';
 import emailImg from './../../img/icons/icon-email.svg';
 import passwordlImg from './../../img/icons/icon-lock.svg';
 import checkImg from './../../img/icons/icon-check.svg';
+import { regulEmail, regulPassword } from '../../constants';
 
 const FormSignUp = () => {
   const [isEmail, setEmail] = useState(false),
     [isPassword, setPassword] = useState(false),
-    [isCheckPassowrd, setCheckPassowrd] = useState(false),
-    regulPassword = /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/,
-    regulEmail =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    [isCheckPassowrd, setCheckPassowrd] = useState(false);
 
   return (
     <Formik
@@ -27,28 +25,28 @@ const FormSignUp = () => {
       }}
       validate={(values) => {
         if (values.password !== values.checkPassword) {
-          setCheckPassowrd(!isCheckPassowrd);
+          setCheckPassowrd(true);
         } else {
-          setCheckPassowrd(!isCheckPassowrd);
+          setCheckPassowrd(false);
         }
 
         if (!regulPassword.test(values.password)) {
-          setPassword(!isPassword);
+          setPassword(true);
         } else {
-          setPassword(!isPassword);
+          setPassword(false);
         }
 
         if (!regulEmail.test(values.email)) {
-          setEmail(!isEmail);
+          setEmail(true);
         } else {
-          setEmail(!isEmail);
+          setEmail(false);
         }
       }}
       onSubmit={({ setSubmitting }) => {
         setSubmitting(false);
       }}
     >
-      {({ values, isSubmitting, handleChange, handleSubmit }) => (
+      {({ values, isSubmitting, handleChange, handleSubmit, handleBlur }) => (
         <Form onSubmit={handleSubmit}>
           <StylTitleForm>Sign up</StylTitleForm>
           <FormInput
@@ -58,6 +56,7 @@ const FormSignUp = () => {
             placeholder='First name'
             imgStart={userImg}
             changer={handleChange}
+            blur={handleBlur}
           />
 
           <FormInput
@@ -67,6 +66,7 @@ const FormSignUp = () => {
             valueInput={values.lastName}
             imgStart={userImg}
             changer={handleChange}
+            blur={handleBlur}
           />
 
           <FormInput
@@ -80,6 +80,7 @@ const FormSignUp = () => {
               Email not correct. Please check the spelling
             '
             changer={handleChange}
+            blur={handleBlur}
           />
 
           <FormInput
@@ -92,6 +93,7 @@ const FormSignUp = () => {
             err={isPassword}
             errText='Password contain unsupported characters'
             changer={handleChange}
+            blur={handleBlur}
           />
 
           <FormInput
@@ -104,6 +106,7 @@ const FormSignUp = () => {
             err={isCheckPassowrd}
             errText='Password does not match'
             changer={handleChange}
+            blur={handleBlur}
           />
           <BtnSubmitForm type='submit' disabled={isSubmitting} text='Sign up' />
         </Form>
