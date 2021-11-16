@@ -4,7 +4,7 @@ const StylChooseDateAndTimeVisitDoctor = styled.li`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   list-style: none;
   padding-top: 70px;

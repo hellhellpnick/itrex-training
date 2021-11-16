@@ -137,7 +137,25 @@ import {
   StylBoxColumnFlexMargin,
 } from './common/VisitDoctor';
 
+//common calendar visit doctor
+import {
+  CalendarVisitDoctor,
+  StylBtnVisitDoctor,
+  StylDayVisitDoctor,
+  StylBoxCalendar,
+  StylDayWeekVisitDoctor,
+  StylHeaderCalendarVisitDoctor,
+  StylBodyCalendarVisitDoctor,
+} from './common/CalendarVisitDoctor';
+
 export {
+  CalendarVisitDoctor,
+  StylBtnVisitDoctor,
+  StylDayVisitDoctor,
+  StylBoxCalendar,
+  StylDayWeekVisitDoctor,
+  StylHeaderCalendarVisitDoctor,
+  StylBodyCalendarVisitDoctor,
   StylSubTitlePosition,
   StylTitleForm,
   StylTitleName,

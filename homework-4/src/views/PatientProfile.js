@@ -28,6 +28,7 @@ import {
   StylBoxMenuSelectVisitDoctor,
   StylElementSelectVisitDoctor,
   StylBoxColumnFlexMargin,
+  CalendarVisitDoctor,
 } from '../components/';
 
 import patient from '../img/avatars/avatar-patient.png';
@@ -46,9 +47,14 @@ const PatientProfile = ({ title }) => {
     [isValueInputOccupation, setValueInputOccupation] = useState(''),
     [isValueInputName, setValueInputName] = useState(''),
     [isFilledData, setFilledData] = useState(false);
+  let isDataChoose = '';
 
   const handleContent = () => {
     setHiddenAppointment(!isHiddenAppointment);
+  };
+
+  const changeDataChoose = (data) => {
+    isDataChoose = data;
   };
 
   const chooseOccupationDoctor = (e) => {
@@ -195,9 +201,9 @@ const PatientProfile = ({ title }) => {
             </StylBoxColumnFlexMargin>
           </StylItemChooseDoctor>
           <StylItemChooseDoctor contentText='Choose a day for an appointment'>
-            <StylBoxColumnFlexMargin
-              dataReady={isFilledData}
-            ></StylBoxColumnFlexMargin>
+            <StylBoxColumnFlexMargin dataReady={isFilledData}>
+              <CalendarVisitDoctor changeData={changeDataChoose} />
+            </StylBoxColumnFlexMargin>
           </StylItemChooseDoctor>
           <StylItemChooseDoctor contentText='Select an available timeslot'></StylItemChooseDoctor>
         </StylChooseDateAndTimeVisitDoctor>
