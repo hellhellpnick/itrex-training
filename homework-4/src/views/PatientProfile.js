@@ -38,24 +38,15 @@ import patient from '../img/avatars/avatar-patient.png';
 import patient1 from '../img/avatars/patients-13.png';
 import logo from '../img/logo.png';
 import data from './../db/dbProfilePatient.json';
+import {
+  nameDoctorsArr,
+  ocuppationDoctorArr,
+  possibleTimeArr,
+} from './../constants/index';
 
 const PatientProfile = ({ title }) => {
   const dbData = [data],
     imgArr = [patient1, patient1, patient1],
-    nameDoctorsArr = ['John Milton', 'Joe Charles', 'Jonathan Meyers'],
-    ocuppationDoctorArr = ['Therapist', 'Surgeon'],
-    possibleTimeArr = [
-      '12:00 am',
-      '1:00 pm',
-      '2:00 pm',
-      '3:00 pm',
-      '4:00 pm',
-      '5:00 pm',
-      '6:00 pm',
-      '7:00 pm',
-      '8:00 pm',
-      '9:00 pm',
-    ],
     [isHiddenAppointment, setHiddenAppointment] = useState(false),
     [isFocusInput, setFocusInput] = useState(false),
     [isFocusInputName, setFocusInputName] = useState(false),
@@ -66,6 +57,22 @@ const PatientProfile = ({ title }) => {
     [isChooseAllData, setChooseAllData] = useState(false);
 
   let isDataChoose = '';
+
+  useEffect(() => {
+    document.title = title || '';
+  }, [title]);
+
+  useEffect(() => {
+    isValueInputName && isValueInputOccupation
+      ? setFilledData(true)
+      : setFilledData(false);
+  }, [isValueInputOccupation, isValueInputName]);
+
+  useEffect(() => {
+    isFilledData && isTimeSelect && isDataChoose
+      ? setChooseAllData(true)
+      : setChooseAllData(false);
+  }, [isFilledData, isTimeSelect, isDataChoose]);
 
   const handleContent = () => {
     setHiddenAppointment(!isHiddenAppointment);
@@ -92,22 +99,6 @@ const PatientProfile = ({ title }) => {
       setFocusInputName(false);
     }, 200);
   };
-
-  useEffect(() => {
-    document.title = title || '';
-  }, [title]);
-
-  useEffect(() => {
-    isValueInputName && isValueInputOccupation
-      ? setFilledData(true)
-      : setFilledData(false);
-  }, [isValueInputOccupation, isValueInputName]);
-
-  useEffect(() => {
-    isFilledData && isTimeSelect && isDataChoose
-      ? setChooseAllData(true)
-      : setChooseAllData(false);
-  }, [isFilledData, isTimeSelect, isDataChoose]);
 
   return (
     <StylBoxPatients>
