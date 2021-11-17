@@ -15,9 +15,9 @@ const StylHeaderCalendarVisitDoctor = styled.div`
     content: '';
     position: absolute;
     bottom: 0;
-    left: -40px;
+    left: -32px;
     height: 1px;
-    width: calc(100% + 80px);
+    width: calc(100% + 62px);
     background-color: ${(props) => props.theme.palette.border.main};
     background-repeat: no-repeat;
     z-index: 1;

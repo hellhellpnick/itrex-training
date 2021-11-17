@@ -29,6 +29,9 @@ import {
   StylElementSelectVisitDoctor,
   StylBoxColumnFlexMargin,
   CalendarVisitDoctor,
+  StylBoxChooseTime,
+  StylBtnChooseTimeVisitDoctor,
+  StylBtnSubmitFormVisitDoctor,
 } from '../components/';
 
 import patient from '../img/avatars/avatar-patient.png';
@@ -41,12 +44,27 @@ const PatientProfile = ({ title }) => {
     imgArr = [patient1, patient1, patient1],
     nameDoctorsArr = ['John Milton', 'Joe Charles', 'Jonathan Meyers'],
     ocuppationDoctorArr = ['Therapist', 'Surgeon'],
+    possibleTimeArr = [
+      '12:00 am',
+      '1:00 pm',
+      '2:00 pm',
+      '3:00 pm',
+      '4:00 pm',
+      '5:00 pm',
+      '6:00 pm',
+      '7:00 pm',
+      '8:00 pm',
+      '9:00 pm',
+    ],
     [isHiddenAppointment, setHiddenAppointment] = useState(false),
     [isFocusInput, setFocusInput] = useState(false),
     [isFocusInputName, setFocusInputName] = useState(false),
     [isValueInputOccupation, setValueInputOccupation] = useState(''),
     [isValueInputName, setValueInputName] = useState(''),
-    [isFilledData, setFilledData] = useState(false);
+    [isFilledData, setFilledData] = useState(false),
+    [isTimeSelect, setTimeSelect] = useState(''),
+    [isChooseAllData, setChooseAllData] = useState(false);
+
   let isDataChoose = '';
 
   const handleContent = () => {
@@ -84,6 +102,12 @@ const PatientProfile = ({ title }) => {
       ? setFilledData(true)
       : setFilledData(false);
   }, [isValueInputOccupation, isValueInputName]);
+
+  useEffect(() => {
+    isFilledData && isTimeSelect && isDataChoose
+      ? setChooseAllData(true)
+      : setChooseAllData(false);
+  }, [isFilledData, isTimeSelect, isDataChoose]);
 
   return (
     <StylBoxPatients>
@@ -205,8 +229,32 @@ const PatientProfile = ({ title }) => {
               <CalendarVisitDoctor changeData={changeDataChoose} />
             </StylBoxColumnFlexMargin>
           </StylItemChooseDoctor>
-          <StylItemChooseDoctor contentText='Select an available timeslot'></StylItemChooseDoctor>
+          <StylItemChooseDoctor contentText='Select an available timeslot'>
+            <StylBoxColumnFlexMargin dataReady={isFilledData}>
+              <StylBoxChooseTime>
+                {possibleTimeArr.map((item, index) => (
+                  <StylBtnChooseTimeVisitDoctor
+                    key={index}
+                    type='button'
+                    isSelected={isTimeSelect === item}
+                    isDisabled={
+                      item === '2:00 pm' || item === '6:00 pm' ? true : false
+                    }
+                    onClick={(e) => setTimeSelect(e.currentTarget.innerHTML)}
+                  >
+                    {item}
+                  </StylBtnChooseTimeVisitDoctor>
+                ))}
+              </StylBoxChooseTime>
+            </StylBoxColumnFlexMargin>
+          </StylItemChooseDoctor>
         </StylChooseDateAndTimeVisitDoctor>
+        <StylBtnSubmitFormVisitDoctor
+          isDisabled={isChooseAllData === false}
+          onClick={handleContent}
+        >
+          Submit
+        </StylBtnSubmitFormVisitDoctor>
       </StylBoxPatientContent>
     </StylBoxPatients>
   );

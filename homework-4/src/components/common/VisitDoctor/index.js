@@ -7,6 +7,9 @@ import StylArrowVisitDoctor from './StylArrowVisitDoctor';
 import StylBoxMenuSelectVisitDoctor from './StylBoxMenuSelectVisitDoctor';
 import StylElementSelectVisitDoctor from './StylElementSelectVisitDoctor';
 import StylBoxColumnFlexMargin from './StylBoxColumnFlexMargin';
+import StylBtnChooseTimeVisitDoctor from './StylBtnChooseTimeVisitDoctor';
+import StylBoxChooseTime from './StylBoxChooseTime';
+import StylBtnSubmitFormVisitDoctor from './StylBtnSubmitFormVisitDoctor';
 
 export {
   StylChooseDateAndTimeVisitDoctor,
@@ -18,4 +21,7 @@ export {
   StylBoxMenuSelectVisitDoctor,
   StylElementSelectVisitDoctor,
   StylBoxColumnFlexMargin,
+  StylBtnChooseTimeVisitDoctor,
+  StylBoxChooseTime,
+  StylBtnSubmitFormVisitDoctor,
 };

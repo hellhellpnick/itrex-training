@@ -27,6 +27,11 @@ const StylDayVisitDoctor = styled(StylDayWeekVisitDoctor)`
       border: 1px solid ${(props) => props.theme.palette.backgroundBtn.main};
       background-color: ${(props) => props.theme.palette.backgroundBtn.main};
       color: ${(props) => props.theme.palette.main};
+
+      &:hover {
+        color: ${(props) => props.theme.palette.main};
+        background-color: ${(props) => props.theme.palette.backgroundBtn.main};
+      }
     `}
 `;
 

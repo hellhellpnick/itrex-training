@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StylBoxPatientContent = styled.div`
+  position: relative;
   display: ${(props) => (props.hiddenMode ? 'none' : 'block')};
   min-height: calc(100vh - 72px);
   background: ${(props) => props.theme.palette.backgroundColor.main};

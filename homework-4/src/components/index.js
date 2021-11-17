@@ -135,6 +135,9 @@ import {
   StylBoxMenuSelectVisitDoctor,
   StylElementSelectVisitDoctor,
   StylBoxColumnFlexMargin,
+  StylBtnChooseTimeVisitDoctor,
+  StylBoxChooseTime,
+  StylBtnSubmitFormVisitDoctor,
 } from './common/VisitDoctor';
 
 //common calendar visit doctor
@@ -149,6 +152,9 @@ import {
 } from './common/CalendarVisitDoctor';
 
 export {
+  StylBtnSubmitFormVisitDoctor,
+  StylBoxChooseTime,
+  StylBtnChooseTimeVisitDoctor,
   CalendarVisitDoctor,
   StylBtnVisitDoctor,
   StylDayVisitDoctor,

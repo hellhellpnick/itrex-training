@@ -4,7 +4,7 @@ const StylChooseDateAndTimeVisitDoctor = styled.li`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   list-style: none;
   padding-top: 70px;
@@ -23,6 +23,7 @@ const StylChooseDateAndTimeVisitDoctor = styled.li`
 
   @media (min-width: 728px) {
     max-width: 550px;
+    justify-content: flex-start;
   }
 
   @media (min-width: 1024) {

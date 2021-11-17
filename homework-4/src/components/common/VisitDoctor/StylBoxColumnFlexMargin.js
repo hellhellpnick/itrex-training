@@ -7,7 +7,9 @@ const StylBoxColumnFlexMargin = styled(StylBoxColumnFlex)`
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: nowrap;
-  opacity: ${(props) => (props.dataReady ? '1' : '0.8')};
+
+  pointer-events: ${(props) => (props.dataReady ? 'auto' : 'none')};
+  opacity: ${(props) => (props.dataReady ? '1' : '0.5')};
   margin-bottom: 40px;
 `;
 
