@@ -22,11 +22,9 @@ const FormInput = ({
   let [isType, setType] = useState(type);
 
   const changeTypeInput = () => {
-    if (isType === 'text') {
-      setType((isType = 'password'));
-    } else {
-      setType((isType = 'text'));
-    }
+    isType === 'text'
+      ? setType((isType = 'password'))
+      : setType((isType = 'text'));
   };
 
   return (
@@ -36,14 +34,14 @@ const FormInput = ({
         type={isType}
         name={name}
         placeholder={placeholder}
-        className={err ? 'is-error-input' : ''}
+        className={err && 'is-error-input'}
         value={valueInput}
         onChange={changer}
         err={err}
         onBlur={blur}
       />
-      {password ? <BtnEyePassword changeEye={changeTypeInput} /> : null}
-      {err ? <LabelFromInput text={errText} /> : null}
+      {password && <BtnEyePassword changeEye={changeTypeInput} />}
+      {err && <LabelFromInput text={errText} />}
     </StylWrapperFormInput>
   );
 };
