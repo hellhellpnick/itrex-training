@@ -7,12 +7,13 @@ import {
   FormInput,
   InformationTextForm,
   TitleFormArrow,
-  BtnSubmitFormReset,
+  BtnSubmitForm,
   StylFormSign,
   StylTitleForm,
 } from './../index';
-import emailImg from './../../img/icons/icon-email.svg';
+import emailImgSvg from './../../img/icons/icon-email.svg';
 import { regulEmail } from '../../constants';
+import { routes } from '../../Router';
 
 const FormRestorePassword = () => {
   const [isEmail, setEmail] = useState(false),
@@ -24,13 +25,16 @@ const FormRestorePassword = () => {
 
   return (
     <Formik
+      validateOnChange={false}
+      validateOnBlur={false}
       initialValues={{
         email: '',
       }}
       validate={(values) => {
         !regulEmail.test(values.email) ? setEmail(true) : setEmail(false);
       }}
-      onSubmit={({ setSubmitting }) => {
+      onSubmit={(values, { validate, setSubmitting }) => {
+        validate(values);
         setSubmitting(false);
         handleForm();
       }}
@@ -38,7 +42,7 @@ const FormRestorePassword = () => {
       {({ values, isSubmitting, handleChange, handleSubmit, handleBlur }) => (
         <StylFormSign onSubmit={handleSubmit}>
           <StylTitleForm>
-            <TitleFormArrow />
+            <TitleFormArrow path={routes.signInPage} />
             Restore password
           </StylTitleForm>
 
@@ -49,13 +53,13 @@ const FormRestorePassword = () => {
               name='email'
               placeholder='Email'
               valueInput={values.email}
-              imgStart={emailImg}
+              imgStart={emailImgSvg}
               err={isEmail}
               errText='Email not correct. Please check the spelling'
               blur={handleBlur}
               changer={handleChange}
             />
-            <BtnSubmitFormReset
+            <BtnSubmitForm
               type='submit'
               disabled={isSubmitting}
               text='Send Reset Link'

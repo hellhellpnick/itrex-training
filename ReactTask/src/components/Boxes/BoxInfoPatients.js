@@ -3,8 +3,7 @@ import { StylBoxImgInfo, StylBoxDoctor, StylTextInfo } from './../index';
 
 const BoxInfoPatient = ({ info, imgWay }) => {
   return (
-    <StylBoxDoctor>
-      <StylBoxImgInfo src={imgWay} alt='time icon' />
+    <StylBoxDoctor imgWay={imgWay}>
       <StylTextInfo>{info}</StylTextInfo>
     </StylBoxDoctor>
   );

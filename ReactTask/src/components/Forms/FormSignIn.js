@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { StylTitleForm } from '../common/Titles/';
-import { StylFormSign } from '../common/partsOfTheForm/';
-import { BtnSubmitFormSignIn } from './../BtnsComponents/';
-import { FormInput, LinkPage } from '../';
+import {
+  FormInput,
+  LinkPage,
+  BtnSubmitForm,
+  StylFormSign,
+  StylTitleForm,
+} from '../';
+
 import { routes } from './../../Router';
-import emailImg from './../../img/icons/icon-email.svg';
-import passwordlImg from './../../img/icons/icon-lock.svg';
+import emailImgSvg from './../../img/icons/icon-email.svg';
+import passwordlImgSvg from './../../img/icons/icon-lock.svg';
 import { regulEmail, regulPassword } from '../../constants';
 
 const FormSignUp = () => {
@@ -15,6 +19,8 @@ const FormSignUp = () => {
 
   return (
     <Formik
+      validateOnChange={false}
+      validateOnBlur={false}
       initialValues={{
         email: '',
         password: '',
@@ -26,7 +32,8 @@ const FormSignUp = () => {
 
         !regulEmail.test(values.email) ? setEmail(true) : setEmail(false);
       }}
-      onSubmit={({ setSubmitting }) => {
+      onSubmit={(values, { validate, setSubmitting }) => {
+        validate(values);
         setSubmitting(false);
       }}
     >
@@ -39,7 +46,7 @@ const FormSignUp = () => {
             name='email'
             placeholder='Email'
             valueInput={values.email}
-            imgStart={emailImg}
+            imgStart={emailImgSvg}
             err={isEmail}
             blur={handleBlur}
             errText='
@@ -53,18 +60,15 @@ const FormSignUp = () => {
             name='password'
             valueInput={values.password}
             placeholder='Password'
-            imgStart={passwordlImg}
+            imgStart={passwordlImgSvg}
             password={true}
             err={isPassword}
             errText='Password contain unsupported characters'
             changer={handleChange}
             blur={handleBlur}
           />
-          <BtnSubmitFormSignIn
-            type='submit'
-            disabled={isSubmitting}
-            text='Sign in'
-          />
+
+          <BtnSubmitForm type='submit' disabled={isSubmitting} text='Sign in' />
 
           <LinkPage
             path={routes.restorePasswordPage}

@@ -1,6 +1,8 @@
-import StylTextContent from './StylTextContent';
-import StylTextData from './StylTextData';
-import StylTextFilterPatient from './StylTextFilterPatient';
-import StylTextInfo from './StylTextInfo';
+import {
+  StylTextContent,
+  StylTextData,
+  StylTextFilterPatient,
+  StylTextInfo,
+} from './Text.styled';
 
 export { StylTextContent, StylTextData, StylTextFilterPatient, StylTextInfo };

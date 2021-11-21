@@ -5,6 +5,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-1.png",
     "alt": "avatar2",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -14,6 +15,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-2.png",
     "alt": "avatar3",
     "info": "We will invite you in for a full review every year and more frequently if you are struggling with blood sugar levels"
   },
@@ -24,6 +26,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-3.png",
     "alt": "avatar4",
     "info": "We will invite you in for a full review every year and more frequently if you are struggling with blood sugar levels"
   },
@@ -34,6 +37,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-4.png",
     "alt": "avatar5",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -43,6 +47,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-5.png",
     "alt": "avatar6",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -52,6 +57,7 @@
     "statusText": "Appointment is canceled",
     "status": "cancel",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-6.png",
     "alt": "avatar7",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -62,6 +68,7 @@
     "statusText": "Waiting for confirmation...",
     "status": "wait",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-7.png",
     "alt": "avatar8",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -71,6 +78,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-8.png",
     "alt": "avatar9",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -80,6 +88,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-9.png",
     "alt": "avatar10",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -89,6 +98,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-10.png",
     "alt": "avatar11",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -98,6 +108,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-11.png",
     "alt": "avatar12",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   },
@@ -107,6 +118,7 @@
     "statusText": "Appointment is confirmed",
     "status": "success",
     "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "img": "/img/avatars/patients-12.png",
     "alt": "avatar13",
     "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
   }

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import { StylTitleForm } from '../common/Titles/';
-import { FormInput } from '../';
-import { BtnSubmitForm } from '../BtnsComponents/';
-import userImg from './../../img/icons/icon-user.svg';
-import emailImg from './../../img/icons/icon-email.svg';
-import passwordlImg from './../../img/icons/icon-lock.svg';
-import checkImg from './../../img/icons/icon-check.svg';
+import { BtnSubmitForm, StylTitleForm, FormInput } from './../';
+import userImgSvg from './../../img/icons/icon-user.svg';
+import emailImgSvg from './../../img/icons/icon-email.svg';
+import passwordlImgSvg from './../../img/icons/icon-lock.svg';
+import checkImgSvg from './../../img/icons/icon-check.svg';
 import { regulEmail, regulPassword } from '../../constants';
 
 const FormSignUp = () => {
@@ -16,6 +14,8 @@ const FormSignUp = () => {
 
   return (
     <Formik
+      validateOnChange={false}
+      validateOnBlur={false}
       initialValues={{
         firstName: '',
         lastName: '',
@@ -34,7 +34,8 @@ const FormSignUp = () => {
 
         !regulEmail.test(values.email) ? setEmail(true) : setEmail(false);
       }}
-      onSubmit={({ setSubmitting }) => {
+      onSubmit={(values, { validate, setSubmitting }) => {
+        validate(values);
         setSubmitting(false);
       }}
     >
@@ -46,7 +47,7 @@ const FormSignUp = () => {
             name='firstName'
             valueInput={values.firstName}
             placeholder='First name'
-            imgStart={userImg}
+            imgStart={userImgSvg}
             changer={handleChange}
             blur={handleBlur}
           />
@@ -56,7 +57,7 @@ const FormSignUp = () => {
             name='lastName'
             placeholder='Last name'
             valueInput={values.lastName}
-            imgStart={userImg}
+            imgStart={userImgSvg}
             changer={handleChange}
             blur={handleBlur}
           />
@@ -66,7 +67,7 @@ const FormSignUp = () => {
             name='email'
             placeholder='Email'
             valueInput={values.email}
-            imgStart={emailImg}
+            imgStart={emailImgSvg}
             err={isEmail}
             errText='
               Email not correct. Please check the spelling
@@ -80,7 +81,7 @@ const FormSignUp = () => {
             name='password'
             valueInput={values.password}
             placeholder='Password'
-            imgStart={passwordlImg}
+            imgStart={passwordlImgSvg}
             password={true}
             err={isPassword}
             errText='Password contain unsupported characters'
@@ -93,7 +94,7 @@ const FormSignUp = () => {
             name='checkPassword'
             valueInput={values.checkPassword}
             placeholder='Password'
-            imgStart={checkImg}
+            imgStart={checkImgSvg}
             password={true}
             err={isCheckPassowrd}
             errText='Password does not match'

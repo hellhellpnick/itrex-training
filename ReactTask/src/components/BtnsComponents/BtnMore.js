@@ -1,8 +1,8 @@
 import React from 'react';
-import Btn from '../common/Btns/StylBtnMore';
+import { StylBtnMore } from './../';
 
 const BtnMore = () => {
-  return <Btn type='button'></Btn>;
+  return <StylBtnMore type='button'></StylBtnMore>;
 };
 
 export default BtnMore;

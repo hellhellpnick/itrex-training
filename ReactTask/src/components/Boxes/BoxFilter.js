@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import {
   StylFilterTypePatient,
   StylElementSelect,
-  StylFilterPatients,
   StylBoxSelect,
   StylBoxRowMargin,
   StylBtnFilter,
   StylTextFilterPatient,
 } from './../index';
 
-import filterImg from './../../img/icons/filter.png';
-import arrowImg from './../../img/icons/arrow-up.png';
+import filterImgSvg from './../../img/icons/icon-filter.svg';
+import arrowImgSvg from './../../img/icons/icon-arrow-up.svg';
 
 const BoxFilter = ({ text, filter }) => {
   const [isHidden, setHidden] = useState(false);
@@ -21,12 +20,16 @@ const BoxFilter = ({ text, filter }) => {
 
   return (
     <StylBoxRowMargin>
-      <StylBtnFilter type='button' onClick={handleSelect}>
-        <StylFilterPatients src={filterImg} alt='filter' />
+      <StylBtnFilter
+        type='button'
+        onClick={handleSelect}
+        imgFilter={filterImgSvg}
+      >
         <StylTextFilterPatient>
           {text}
-          <StylFilterTypePatient> {filter} </StylFilterTypePatient>
-          <img src={arrowImg} alt='arrow' />
+          <StylFilterTypePatient imgBox={arrowImgSvg}>
+            {filter}
+          </StylFilterTypePatient>
         </StylTextFilterPatient>
 
         <StylBoxSelect hidden={isHidden}>

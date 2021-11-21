@@ -1,24 +1,7 @@
-import StylBoxBtnPatients from './StylBoxBtnPatients';
-import StylBoxColumn from './StylBoxColumn';
-import StylBoxDoctor from './StylBoxDoctor';
-import StylBoxFlexColumn from './StylBoxFlexColumn';
-import StylBoxForm from './StylBoxForm';
-import StylBoxFormSignIn from './StylBoxFormSignIn';
-import StylBoxImgInfo from './StylBoxImgInfo';
-import StylBoxPatientContent from './StylBoxPatientContent';
-import StylBoxPatients from './StylBoxPatients';
-import StylBoxRow from './StylBoxRow';
-import StylBoxRowMargin from './StylBoxRowMargin';
-import StylBoxRowPadding from './StylBoxRowPadding';
-import StylBoxSelect from './StylBoxSelect';
-import StylBoxViewContent from './StylBoxViewContent';
-import StylBoxPatientsList from './StylBoxPatientsList';
-import StylBoxRowFlexStart from './StylBoxRowFlexStart';
-import StylBoxColumnFlex from './StylBoxColumnFlex';
-
-export {
+import {
   StylBoxBtnPatients,
   StylBoxColumn,
+  StylBoxColumnFlex,
   StylBoxDoctor,
   StylBoxFlexColumn,
   StylBoxForm,
@@ -26,12 +9,33 @@ export {
   StylBoxImgInfo,
   StylBoxPatientContent,
   StylBoxPatients,
+  StylBoxPatientsList,
   StylBoxRow,
-  StylBoxRowMargin,
+  StylBoxRowFlexStart,
   StylBoxRowPadding,
+  StylBoxRowMargin,
   StylBoxSelect,
   StylBoxViewContent,
-  StylBoxPatientsList,
-  StylBoxRowFlexStart,
+  StylBoxMain,
+} from './Boxes.styled';
+
+export {
+  StylBoxMain,
+  StylBoxBtnPatients,
+  StylBoxColumn,
   StylBoxColumnFlex,
+  StylBoxDoctor,
+  StylBoxFlexColumn,
+  StylBoxForm,
+  StylBoxFormSignIn,
+  StylBoxImgInfo,
+  StylBoxPatientContent,
+  StylBoxPatients,
+  StylBoxPatientsList,
+  StylBoxRow,
+  StylBoxRowFlexStart,
+  StylBoxRowPadding,
+  StylBoxRowMargin,
+  StylBoxSelect,
+  StylBoxViewContent,
 };

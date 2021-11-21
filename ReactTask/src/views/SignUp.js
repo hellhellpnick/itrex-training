@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
-import { StylBoxMain } from '../components/common/Boxes/StylBoxMain';
-import { FormSignUp, BoxContentLink, StylBoxForm } from '../components/';
+import {
+  FormSignUp,
+  BoxContentLink,
+  StylBoxForm,
+  StylBoxMain,
+} from '../components/';
 import { routes } from './../Router';
 
-const SignUp = ({ title }) => {
+const SignUp = ({ title, location }) => {
   useEffect(() => {
     document.title = title || '';
   }, [title]);

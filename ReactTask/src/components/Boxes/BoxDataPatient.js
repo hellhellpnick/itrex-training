@@ -1,11 +1,11 @@
 import React from 'react';
 import { StylBoxDoctor, StylBoxImgInfo, StylTextData } from './../index';
-import timeImg from './../../img/icons/time.png';
+import timeImgSvg from './../../img/icons/icon-time.svg';
 
 const BoxDataPatient = ({ data }) => {
   return (
     <StylBoxDoctor>
-      <StylBoxImgInfo src={timeImg} alt='time icon' />
+      <StylBoxImgInfo src={timeImgSvg} alt='time icon' />
       <StylTextData>{data}</StylTextData>
     </StylBoxDoctor>
   );

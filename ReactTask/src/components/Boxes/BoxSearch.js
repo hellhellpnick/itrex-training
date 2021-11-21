@@ -4,13 +4,12 @@ import {
   StylBtnSearch,
   StylInputSearchPatient,
 } from './../index';
-import searchImg from './../../img/icons/search.png';
+import searchImgSvg from './../../img/icons/icon-search.svg';
 
 const BoxSearch = () => {
   return (
     <StylBoxRowMargin>
-      <StylBtnSearch type='button'>
-        <img src={searchImg} alt='search' />
+      <StylBtnSearch type='button' imgSearch={searchImgSvg}>
         <StylInputSearchPatient type='text' placeholder='Search' />
       </StylBtnSearch>
     </StylBoxRowMargin>

@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
-import { StylBoxMain } from '../components/common/Boxes/StylBoxMain';
-import { FormSignIn, BoxContentLink, StylBoxFormSignIn } from '../components/';
+import {
+  FormSignIn,
+  BoxContentLink,
+  StylBoxFormSignIn,
+  StylBoxMain,
+} from '../components/';
 import { routes } from './../Router';
 
 const SignUp = ({ title }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import plusImg from './../../img/icons/plus.png';
+import plusImgSvg from './../../img/icons/icon-plus.svg';
 
 const Btn = styled.button`
   display: none;
@@ -32,7 +32,7 @@ const Btn = styled.button`
       left: 20px;
       top: 50%;
       transform: translatey(-50%);
-      background-image: url('${plusImg}');
+      background-image: url('${plusImgSvg}');
       width: 16px;
       height: 16px;
     }

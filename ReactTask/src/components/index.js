@@ -1,43 +1,43 @@
-import AvatarActive from './AvatarActive';
-import FormInput from './FormInput';
-import InformationTextForm from './InformationTextForm';
-import LabelFromInput from './LabelFromInput';
-import LinkPage from './LinkPage';
-import TitleFormArrow from './TitleFormArrow';
-
 //loader
 import { Loader, StylBoxCenterSpiner, StylSpiner } from './Loader/';
 
 //forms
 import { FormRestorePassword, FormSignIn, FormSignUp } from './Forms';
 
-//card patient profile patient
-import {
-  CardProfilePatient,
-  StylSubTitleCardPatient,
-} from './CardPatientProfilePatient';
-
 //card patient profile doctor
 import {
-  CardPatientProfileDoctor,
+  CardPatientProfile,
   StylBoxCardPatient,
   StylBoxColumnInfo,
   StylBoxImgPatient,
   StylBoxRowLine,
   StylSubTitleCard,
   StylTitleCard,
-} from './CardPatientProfileDoctor';
+} from './CardPatientProfile';
+
+//form form input
+import {
+  BtnEyePassword,
+  FormInput,
+  LabelFromInput,
+  StylBtnEyePasswordStyle,
+  StylIconInputEnd,
+  StylInputForm,
+  StylWrapperFormInput,
+  StylIconInputStart,
+  StylLabelFromInput,
+} from './Forms/FormInput';
+
+//mainPatientsAppointemt
+import { MainPatientsAppointment } from './MainPatientsAppointment';
 
 //btns component
 import {
   BtnCreateAppointment,
-  BtnEyePassword,
   BtnMore,
   BtnPatients,
   BtnPatientsHiddenMob,
   BtnSubmitForm,
-  BtnSubmitFormReset,
-  BtnSubmitFormSignIn,
 } from './BtnsComponents';
 
 //boxes
@@ -49,16 +49,35 @@ import {
   BoxSearch,
 } from './Boxes';
 
-//common
+//header profile
 import {
+  HeaderProfile,
+  StylTitleName,
+  StylSubTitlePosition,
+  AvatarActive,
   StylAvatarActive,
-  StylElementSelect,
-  StylFilterPatients,
-  StylFilterTypePatient,
-  StylInformationText,
-  StylLinkPage,
-  StylWrapperFormInput,
-} from './common';
+  StylAvatarImg,
+  StylLogo,
+} from './HeaderProfile';
+
+//create appointment
+import {
+  CreateAppointment,
+  StylArrowVisitDoctor,
+  StylBoxChooseTime,
+  StylBoxColumnFlexMargin,
+  StylBoxMenuSelectVisitDoctor,
+  StylBtnChooseTimeVisitDoctor,
+  StylChooseDateAndTimeVisitDoctor,
+  StylElementSelectVisitDoctor,
+  StylItemChooseDoctor,
+  StylBtnSubmitFormVisitDoctor,
+  StylInputVisitDoctor,
+  StylOptionVisitDoctor,
+  StylTitleVisitDoctor,
+  HeaderCreateAppointment,
+  InputsAppointment,
+} from './CreateAppointment';
 
 //common boxes
 import {
@@ -79,31 +98,29 @@ import {
   StylBoxViewContent,
   StylBoxRowFlexStart,
   StylBoxColumnFlex,
+  StylBoxMain,
 } from './common/Boxes';
 
 //common btns
 import {
-  StylBtnEyePasswordStyle,
   StylBtnFilter,
   StylBtnForm,
   StylBtnMore,
   StylBtnSearch,
 } from './common/Btns';
 
-//common icons
-import {
-  StylIconArrowBtn,
-  StylIconInputEnd,
-  StylIconInputStart,
-} from './common/icons';
-
 //commont parts of the form
 import {
+  TitleFormArrow,
+  InformationTextForm,
+  LinkPage,
   StylArrowFromForm,
   StylFormSign,
-  StylInputForm,
   StylInputSearchPatient,
-  StylLabelFromInput,
+  StylElementSelect,
+  StylFilterTypePatient,
+  StylInformationText,
+  StylLinkPage,
 } from './common/partsOfTheForm';
 
 //common text
@@ -116,29 +133,11 @@ import {
 
 //commont title
 import {
-  StylSubTitlePosition,
   StylTitleForm,
-  StylTitleName,
   StylTitlePatients,
   StylTitleCurrentPatientAppointment,
   StylTitlePatientAppointment,
 } from './common/Titles';
-
-//common visit doctor
-import {
-  StylChooseDateAndTimeVisitDoctor,
-  StylItemChooseDoctor,
-  StylInputVisitDoctor,
-  StylOptitionVisitDoctor,
-  StylTitleVisitDoctor,
-  StylArrowVisitDoctor,
-  StylBoxMenuSelectVisitDoctor,
-  StylElementSelectVisitDoctor,
-  StylBoxColumnFlexMargin,
-  StylBtnChooseTimeVisitDoctor,
-  StylBoxChooseTime,
-  StylBtnSubmitFormVisitDoctor,
-} from './common/VisitDoctor';
 
 //common calendar visit doctor
 import {
@@ -149,9 +148,17 @@ import {
   StylDayWeekVisitDoctor,
   StylHeaderCalendarVisitDoctor,
   StylBodyCalendarVisitDoctor,
-} from './common/CalendarVisitDoctor';
+} from './CalendarVisitDoctor';
 
 export {
+  StylBoxMain,
+  StylLogo,
+  InputsAppointment,
+  HeaderCreateAppointment,
+  CreateAppointment,
+  MainPatientsAppointment,
+  StylAvatarImg,
+  HeaderProfile,
   StylBtnSubmitFormVisitDoctor,
   StylBoxChooseTime,
   StylBtnChooseTimeVisitDoctor,
@@ -168,7 +175,6 @@ export {
   StylTitlePatients,
   StylAvatarActive,
   StylElementSelect,
-  StylFilterPatients,
   StylFilterTypePatient,
   StylInformationText,
   StylLinkPage,
@@ -182,7 +188,6 @@ export {
   StylInputForm,
   StylInputSearchPatient,
   StylLabelFromInput,
-  StylIconArrowBtn,
   StylIconInputEnd,
   StylIconInputStart,
   StylBtnEyePasswordStyle,
@@ -216,17 +221,13 @@ export {
   BtnPatients,
   BtnPatientsHiddenMob,
   BtnSubmitForm,
-  BtnSubmitFormReset,
-  BtnSubmitFormSignIn,
-  CardPatientProfileDoctor,
+  CardPatientProfile,
   StylBoxCardPatient,
   StylBoxColumnInfo,
   StylBoxImgPatient,
   StylBoxRowLine,
   StylSubTitleCard,
   StylTitleCard,
-  CardProfilePatient,
-  StylSubTitleCardPatient,
   FormRestorePassword,
   FormSignIn,
   FormSignUp,
@@ -246,7 +247,7 @@ export {
   StylItemChooseDoctor,
   StylBoxColumnFlex,
   StylInputVisitDoctor,
-  StylOptitionVisitDoctor,
+  StylOptionVisitDoctor,
   StylTitleVisitDoctor,
   StylArrowVisitDoctor,
   StylBoxMenuSelectVisitDoctor,

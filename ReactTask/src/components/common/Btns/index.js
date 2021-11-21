@@ -1,13 +1,8 @@
-import StylBtnEyePasswordStyle from './StylBtnEyePasswordStyle';
-import StylBtnFilter from './StylBtnFilter';
-import StylBtnForm from './StylBtnForm';
-import StylBtnMore from './StylBtnMore';
-import StylBtnSearch from './StylBtnSearch';
-
-export {
-  StylBtnEyePasswordStyle,
-  StylBtnFilter,
-  StylBtnForm,
-  StylBtnMore,
+import {
   StylBtnSearch,
-};
+  StylBtnMore,
+  StylBtnForm,
+  StylBtnFilter,
+} from './Btns.styled';
+
+export { StylBtnFilter, StylBtnForm, StylBtnMore, StylBtnSearch };
