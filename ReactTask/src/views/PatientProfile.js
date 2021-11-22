@@ -14,6 +14,7 @@ const PatientProfile = ({ title }) => {
   useEffect(() => {
     document.title = title || '';
   }, [title]);
+  
   const handleContent = () => {
     setHiddenAppointment(!isHiddenAppointment);
   };

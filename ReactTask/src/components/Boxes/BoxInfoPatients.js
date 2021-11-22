@@ -1,5 +1,5 @@
 import React from 'react';
-import { StylBoxImgInfo, StylBoxDoctor, StylTextInfo } from './../index';
+import {  StylBoxDoctor, StylTextInfo } from './../index';
 
 const BoxInfoPatient = ({ info, imgWay }) => {
   return (
