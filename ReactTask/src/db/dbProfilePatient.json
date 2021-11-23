@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "name": "Jane Cooper",
+    "statusText": "Therapist",
+    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "alt": "avatar2",
+    "img": "/img/avatars/patients-13.png",
+    "info": "'Headache', pant"
+  },
+  {
+    "id": "2",
+    "name": "Jane Cooper",
+    "statusText": "Therapist",
+    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "alt": "avatar2",
+    "img": "./img/avatars/patients-13.png",
+    "info": "'Headache', pant"
+  },
+  {
+    "id": "3",
+    "name": "Jane Cooper",
+    "statusText": "Therapist",
+    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "alt": "avatar2",
+    "img": "/img/avatars/patients-13.png",
+    "info": "'Headache', pant"
+  }
+]
