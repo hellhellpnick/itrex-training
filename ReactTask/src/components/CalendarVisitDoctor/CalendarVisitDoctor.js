@@ -67,7 +67,7 @@ const CalendarVisitDoctor = ({ changeData }) => {
           .fill(null)
           .map((_, index) => {
             const daySelect = index - (startDay - 2);
-            changeData(daySelect);
+            changeData(date.toISOString());
 
             return (
               <StylDayVisitDoctor

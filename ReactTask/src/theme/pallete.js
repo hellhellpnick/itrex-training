@@ -34,6 +34,7 @@ const palette = {
   error: {
     text: '#f6657f',
     border: '#f6657f',
+    background: '#FF2567',
   },
 };
 

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getAllSpecializations } from '../../redux/patient/patientOperations';
 
 import {
   StylBoxColumnFlex,
@@ -11,13 +12,26 @@ import {
   StylBoxColumnFlexMargin,
 } from './../';
 
-import { nameDoctorsArr, ocuppationDoctorArr } from './../../constants/index';
+import { getDoctorsBySpecializations } from '../../redux/patient/patientOperations';
 
-const InputsAppointment = ({ setFilledData }) => {
+const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
+  const [isOcuppationDoctorArr, setOcuppationDoctorArr] = useState([]);
+  const [isNameDoctorsArr, setNameDoctorsArr] = useState([]);
   const [isFocusInput, setFocusInput] = useState(false),
     [isFocusInputName, setFocusInputName] = useState(false),
     [isValueInputOccupation, setValueInputOccupation] = useState(''),
     [isValueInputName, setValueInputName] = useState('');
+
+  useEffect(() => {
+    getAllSpecializations().then((response) =>
+      setOcuppationDoctorArr(
+        response.data.map((item) => ({
+          value: item.id,
+          label: item.specialization_name,
+        }))
+      )
+    );
+  }, []);
 
   isValueInputName && isValueInputOccupation
     ? setFilledData(true)
@@ -25,6 +39,16 @@ const InputsAppointment = ({ setFilledData }) => {
 
   const chooseOccupationDoctor = (e) => {
     const selectData = e.currentTarget.innerHTML;
+    const idSelect = e.currentTarget.id;
+    setDoctorChoose(idSelect);
+    getDoctorsBySpecializations(idSelect).then((response) => {
+      setNameDoctorsArr(
+        response.data.map((item) => ({
+          value: item.id,
+          label: `${item.first_name} ${item.last_name}`,
+        }))
+      );
+    });
 
     setValueInputOccupation(selectData);
     setFocusInput(false);
@@ -49,7 +73,7 @@ const InputsAppointment = ({ setFilledData }) => {
             onChange={(e) => setValueInputOccupation(e.target.value)}
             onKeyPress={(event) => {
               if (event.key === 'Enter') {
-                if (!ocuppationDoctorArr.includes(isValueInputOccupation)) {
+                if (!isOcuppationDoctorArr.includes(isValueInputOccupation)) {
                   setValueInputOccupation('');
                 }
 
@@ -58,15 +82,16 @@ const InputsAppointment = ({ setFilledData }) => {
             }}
           />
           <StylBoxMenuSelectVisitDoctor focusSelect={isFocusInput}>
-            {ocuppationDoctorArr.map((item, index) => (
+            {isOcuppationDoctorArr.map((item) => (
               <StylElementSelectVisitDoctor
-                key={index}
+                key={item.value}
+                id={item.value}
                 onClick={(e) => {
                   chooseOccupationDoctor(e);
                   setFocusInput(false);
                 }}
               >
-                {item}
+                {item.label}
               </StylElementSelectVisitDoctor>
             ))}
           </StylBoxMenuSelectVisitDoctor>
@@ -82,7 +107,7 @@ const InputsAppointment = ({ setFilledData }) => {
             onChange={(e) => setValueInputName(e.target.value)}
             onKeyPress={(event) => {
               if (event.key === 'Enter') {
-                if (!ocuppationDoctorArr.includes(isValueInputName)) {
+                if (!isNameDoctorsArr.includes(isValueInputName)) {
                   setValueInputName('');
                 }
 
@@ -91,15 +116,15 @@ const InputsAppointment = ({ setFilledData }) => {
             }}
           />
           <StylBoxMenuSelectVisitDoctor focusSelect={isFocusInputName}>
-            {nameDoctorsArr.map((item, index) => (
+            {isNameDoctorsArr.map((item) => (
               <StylElementSelectVisitDoctor
                 onClick={(e) => {
                   chooseNameDoctor(e);
                   setFocusInputName(false);
                 }}
-                key={index}
+                key={item.value}
               >
-                {item}
+                {item.label}
               </StylElementSelectVisitDoctor>
             ))}
           </StylBoxMenuSelectVisitDoctor>

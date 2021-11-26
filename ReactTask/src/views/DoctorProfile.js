@@ -11,6 +11,7 @@ import {
   BtnPatients,
   CardPatientProfile,
   HeaderProfile,
+  StylBoxPatientsList,
 } from '../components/';
 
 import avatar1 from '../img/avatars/avatar-doctor.png';
@@ -45,10 +46,22 @@ const DoctorProfile = ({ title }) => {
           </StylBoxDoctor>
         </StylBoxRowPadding>
         {!!dataProfileDoctor.length && (
-          <CardPatientProfile
-            dataPatients={dataProfileDoctor}
-            imgIconDescription={scheduleImgSvg}
-          />
+          <StylBoxPatientsList>
+            {dataProfileDoctor.map(
+              ({ id, alt, name, status, statusText, data, info }) => (
+                <CardPatientProfile
+                key={id}
+                  imgIconDescription={scheduleImgSvg}
+                  alt={alt}
+                  name={name}
+                  status={status}
+                  statusText={statusText}
+                  data={data}
+                  info={info}
+                />
+              )
+            )}
+          </StylBoxPatientsList>
         )}
       </StylBoxPatientContent>
     </StylBoxPatients>

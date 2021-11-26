@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import {
   StylBoxDoctor,
   StylBoxBtnPatients,
@@ -9,11 +10,18 @@ import {
   StylBoxPatientContent,
   StylBoxRowPadding,
   StylTitlePatients,
+  StylBoxPatientsList,
 } from './../';
 import heartImgSvg from './../../img/icons/icon-heart.svg';
-import dataPatient from './../../db/dbProfilePatient.json';
+import { getPatients } from '../../redux/patient/patientOperations';
 
 const MainPatientsAppointment = ({ switchContent }) => {
+  const [appointments, setAppointments] = useState([]);
+
+  useEffect(() => {
+    getPatients(0, 5).then((response) => setAppointments(response.data));
+  }, []);
+
   return (
     <StylBoxPatientContent>
       <StylBoxBtnPatients>
@@ -28,12 +36,23 @@ const MainPatientsAppointment = ({ switchContent }) => {
           <BtnCreateAppointment cliclChangeBox={switchContent} />
         </StylBoxDoctor>
       </StylBoxRowPadding>
-      {!!dataPatient.length && (
-        <CardPatientProfile
-          dataPatients={dataPatient}
-          imgPatientsArr={'imgArr'}
-          imgIconDescription={heartImgSvg}
-        />
+      {!!appointments.length && (
+        <StylBoxPatientsList>
+          {appointments.map(
+            ({ id, alt, name, status, statusText, data, info }) => (
+              <CardPatientProfile
+                key={id}
+                imgIconDescription={heartImgSvg}
+                alt={alt}
+                name={name}
+                status={status}
+                statusText={statusText}
+                data={data}
+                info={info}
+              />
+            )
+          )}
+        </StylBoxPatientsList>
       )}
     </StylBoxPatientContent>
   );

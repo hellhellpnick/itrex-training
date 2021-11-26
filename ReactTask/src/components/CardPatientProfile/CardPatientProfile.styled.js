@@ -126,7 +126,47 @@ const StylTitleCard = styled.h2`
   align-self: flex-start;
 `;
 
+const StylBoxMenuCard = styled.div`
+  position: absolute;
+  display: ${(props) => (props.showMore ? 'flex' : 'none')};
+  right: 0;
+  top: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 272px;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.palette.main};
+  z-index: 2;
+`;
+
+const StylBtnChooseAction = styled.button`
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: ${(props) => props.theme.palette.main};
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  font-size: ${(props) => props.theme.typography.textSmall.primey};
+  font-weight: ${(props) => props.theme.typography.textWeight.main};
+  font-family: ${(props) => props.theme.typography.textFamily.main};
+  color: ${(props) =>
+    props.err ? props.theme.palette.error.text : props.theme.palette.text.main};
+  transition: all 0.2s ease;
+
+  @media (min-width: 1024px) {
+    &:hover {
+      background-color: ${(props) =>
+        props.theme.palette.backgroundColor.primary};
+    }
+  }
+`;
+
 export {
+  StylBtnChooseAction,
+  StylBoxMenuCard,
   StylTitleCard,
   StylBoxRowLine,
   StylBoxColumnInfo,

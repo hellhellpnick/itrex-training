@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   StylTitlePatientAppointment,
   StylTitleCurrentPatientAppointment,
@@ -6,7 +7,7 @@ import {
   StylTitlePatients,
 } from './../';
 
-const HeaderCreateAppointment = ({setFilledData}) => {
+const HeaderCreateAppointment = ({ setFilledData }) => {
   return (
     <>
       <StylBoxRowFlexStart>
