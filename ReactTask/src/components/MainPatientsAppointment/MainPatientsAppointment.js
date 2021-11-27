@@ -39,16 +39,15 @@ const MainPatientsAppointment = ({ switchContent }) => {
       {!!appointments.length && (
         <StylBoxPatientsList>
           {appointments.map(
-            ({ id, alt, name, status, statusText, data, info }) => (
+            ({ visitDate, reason, note, doctor, status }, index) => (
               <CardPatientProfile
-                key={id}
-                imgIconDescription={heartImgSvg}
-                alt={alt}
-                name={name}
+                key={index}
                 status={status}
-                statusText={statusText}
-                data={data}
-                info={info}
+                imgIconDescription={heartImgSvg}
+                visitDate={visitDate}
+                reason={reason}
+                note={note}
+                doctor={doctor}
               />
             )
           )}

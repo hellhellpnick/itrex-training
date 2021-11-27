@@ -18,14 +18,12 @@ import patient from './../../img/avatars/patients-1.png';
 
 const CardPatientProfile = ({
   imgIconDescription,
-  alt,
-  name,
+  visitDate,
+  reason,
+  note,
+  doctor,
   status,
-  statusText,
-  data,
-  info,
-  createAppointment,
-  editAppointment,
+  alt = 'photo patient',
 }) => {
   const [isMore, setMore] = useState(false);
   const boxEl = useRef();
@@ -42,18 +40,20 @@ const CardPatientProfile = ({
     <StylBoxCardPatient ref={boxEl}>
       <StylBoxRowLine>
         <StylBoxDoctor>
-          <StylBoxImgPatient src={patient} alt={alt} />
+          <StylBoxImgPatient src={doctor.photo} alt={alt} />
           <StylBoxColumnInfo>
-            <StylTitleCard>{name}</StylTitleCard>
-            <StylSubTitleCard status={status}>{statusText}</StylSubTitleCard>
+            <StylTitleCard>
+              {doctor.first_name} {doctor.last_name}
+            </StylTitleCard>
+            <StylSubTitleCard status={status}>{status}</StylSubTitleCard>
           </StylBoxColumnInfo>
         </StylBoxDoctor>
         <StylBtnMore onClick={showMore}>
           <StylBoxMenuCard showMore={isMore}>
-            <StylBtnChooseAction onClick={createAppointment}>
+            <StylBtnChooseAction onClick={showMore}>
               Create a resolution
             </StylBtnChooseAction>
-            <StylBtnChooseAction onClick={editAppointment}>
+            <StylBtnChooseAction onClick={showMore}>
               Edit an appontment
             </StylBtnChooseAction>
             <StylBtnChooseAction err={true} onClick={removeCard}>
@@ -62,8 +62,10 @@ const CardPatientProfile = ({
           </StylBoxMenuCard>
         </StylBtnMore>
       </StylBoxRowLine>
-      <BoxDataPatient data={data} />
-      <BoxInfoPatient info={info} imgWay={imgIconDescription} />
+      <BoxDataPatient
+        data={visitDate}
+      />
+      <BoxInfoPatient info={`${reason} ${note}`} imgWay={imgIconDescription} />
     </StylBoxCardPatient>
   );
 };
