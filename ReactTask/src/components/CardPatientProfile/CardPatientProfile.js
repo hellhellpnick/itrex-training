@@ -14,8 +14,6 @@ import {
   StylBtnChooseAction,
 } from '../index';
 
-import patient from './../../img/avatars/patients-1.png';
-
 const CardPatientProfile = ({
   imgIconDescription,
   visitDate,
@@ -62,9 +60,7 @@ const CardPatientProfile = ({
           </StylBoxMenuCard>
         </StylBtnMore>
       </StylBoxRowLine>
-      <BoxDataPatient
-        data={visitDate}
-      />
+      <BoxDataPatient data={visitDate} />
       <BoxInfoPatient info={`${reason} ${note}`} imgWay={imgIconDescription} />
     </StylBoxCardPatient>
   );

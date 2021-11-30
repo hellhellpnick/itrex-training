@@ -41,9 +41,16 @@ const FormSignUp = () => {
         setSubmitting(true);
         loginUser(
           values,
-          history.push({
-            pathname: routes.patientProfile,
-          })
+          () => {
+            history.push({
+              pathname: routes.patientProfile,
+            });
+          },
+          () => {
+            history.push({
+              pathname: routes.signInPage,
+            });
+          }
         );
       }}
     >

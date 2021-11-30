@@ -19,7 +19,9 @@ const MainPatientsAppointment = ({ switchContent }) => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    getPatients(0, 5).then((response) => setAppointments(response.data));
+    getPatients().then((response) =>
+      setAppointments(response.data.appointments)
+    );
   }, []);
 
   return (

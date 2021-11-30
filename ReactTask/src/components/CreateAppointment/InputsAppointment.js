@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { getAllSpecializations } from '../../redux/patient/patientOperations';
+import React, { useState } from 'react';
 
 import {
   StylBoxColumnFlex,
@@ -11,10 +10,11 @@ import {
   StylElementSelectVisitDoctor,
   StylBoxColumnFlexMargin,
 } from './../';
-
-import { getDoctorsBySpecializations } from '../../redux/patient/patientOperations';
+import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 
 const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
+  const { getAllSpecializationsDoctors, getDoctorsBySpecializationsNow } =
+    useActionsWithRedux();
   const [isOcuppationDoctorArr, setOcuppationDoctorArr] = useState([]);
   const [isNameDoctorsArr, setNameDoctorsArr] = useState([]);
   const [isFocusInput, setFocusInput] = useState(false),
@@ -22,16 +22,7 @@ const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
     [isValueInputOccupation, setValueInputOccupation] = useState(''),
     [isValueInputName, setValueInputName] = useState('');
 
-  useEffect(() => {
-    getAllSpecializations().then((response) =>
-      setOcuppationDoctorArr(
-        response.data.map((item) => ({
-          value: item.id,
-          label: item.specialization_name,
-        }))
-      )
-    );
-  }, []);
+  getAllSpecializationsDoctors(setOcuppationDoctorArr);
 
   isValueInputName && isValueInputOccupation
     ? setFilledData(true)
@@ -40,16 +31,9 @@ const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
   const chooseOccupationDoctor = (e) => {
     const selectData = e.currentTarget.innerHTML;
     const idSelect = e.currentTarget.id;
-    setDoctorChoose(idSelect);
-    getDoctorsBySpecializations(idSelect).then((response) => {
-      setNameDoctorsArr(
-        response.data.map((item) => ({
-          value: item.id,
-          label: `${item.first_name} ${item.last_name}`,
-        }))
-      );
-    });
 
+    setDoctorChoose(idSelect);
+    getDoctorsBySpecializationsNow(idSelect, setNameDoctorsArr);
     setValueInputOccupation(selectData);
     setFocusInput(false);
   };

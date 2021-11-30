@@ -16,7 +16,7 @@ axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com';
 
 const token = {
   set(tok) {
-    axios.defaults.headers.common.Authorization = `Bearer ${tok}`;
+    axios.defaults.headers.common.Authorization = `${tok}`;
   },
   unset() {
     axios.defaults.headers.common.Authorization = '';
@@ -38,6 +38,7 @@ const loginForm = (credentials, changePage, pageBack) => async (dispatch) => {
     dispatch(getUserProfileSuccess(response.data));
     changePage();
   } catch (error) {
+    pageBack();
     dispatch(loginError(error.message));
     dispatch(getUserProfileError(error.message));
   }
@@ -57,6 +58,7 @@ const registerForm =
       dispatch(getUserProfileSuccess(response.data));
       changePage();
     } catch (error) {
+      pageBack();
       dispatch(registerError(error.message));
       dispatch(getUserProfileError(error.message));
     }

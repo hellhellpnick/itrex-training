@@ -49,12 +49,16 @@ const FormSignUp = () => {
         };
         registerUser(
           obj,
-          history.push({
-            pathname: routes.patientProfile,
-          }),
-          history.push({
-            pathname: routes.signUpPage,
-          })
+          () => {
+            history.push({
+              pathname: routes.patientProfile,
+            });
+          },
+          () => {
+            history.push({
+              pathname: routes.signUpPage,
+            });
+          }
         );
       }}
     >

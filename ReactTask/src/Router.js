@@ -12,7 +12,7 @@ const routes = {
   signUpPage: '/',
   signInPage: '/signIn',
   restorePasswordPage: '/restorePassword',
-  patientsDoctor: '/patient',
+  patientsDoctor: '/patientsDoctor',
   patientProfile: '/patientProfile',
 };
 
@@ -31,7 +31,7 @@ const Router = () => {
       <Route path={routes.patientProfile}>
         <PatientProfile title='Patient' />
       </Route>
-      <Route path={routes.doctorProfile}>
+      <Route path={routes.patientsDoctor}>
         <DoctorProfile title='Patients' />
       </Route>
     </Switch>

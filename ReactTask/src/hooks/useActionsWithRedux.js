@@ -5,6 +5,11 @@ import {
   loginForm,
   registerForm,
 } from '../redux/formFeatures/formFeaturesOperations';
+import {
+  getAvailableTime,
+  getAllSpecializations,
+  getDoctorsBySpecializations,
+} from './../redux/patient/patientOperations';
 
 function useActionsWithRedux() {
   const dispatch = useDispatch();
@@ -31,11 +36,55 @@ function useActionsWithRedux() {
     [dispatch]
   );
 
+  const getAvailableTimePatient = useCallback(
+    (doctorId, time, statePatient) => {
+      const data = dispatch(getAvailableTime(doctorId, time));
+      data.then((response) => {
+        statePatient(response.data);
+      });
+    },
+    [dispatch]
+  );
+
+  const getAllSpecializationsDoctors = useCallback(
+    (stateDoctor) => {
+      const data = dispatch(getAllSpecializations());
+      data.then((response) =>
+        stateDoctor(
+          response.data.map((item) => ({
+            value: item.id,
+            label: item.specialization_name,
+          }))
+        )
+      );
+    },
+    [dispatch]
+  );
+
+  const getDoctorsBySpecializationsNow = useCallback(
+    (specializationId, stateDoctor) => {
+      const data = dispatch(getDoctorsBySpecializations(specializationId));
+      data.then((response) => {
+        stateDoctor(
+          response.data.map((item) => ({
+            value: item.id,
+            label: `${item.first_name} ${item.last_name}`,
+          }))
+        );
+      });
+    },
+
+    [dispatch]
+  );
+
   return {
+    getDoctorsBySpecializationsNow,
     createPatient,
     loginUser,
     registerUser,
     profile,
+    getAvailableTimePatient,
+    getAllSpecializationsDoctors,
   };
 }
 

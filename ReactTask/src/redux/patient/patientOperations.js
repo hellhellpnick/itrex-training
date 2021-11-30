@@ -11,24 +11,25 @@ const jsonAuth = JSON.parse(localAuth);
 const token = jsonAuth.token.replace(/"/g, '');
 axios.defaults.headers.common.Authorization = token;
 
-export const getAllSpecializations = () => axios.get('/api/specializations');
+export const getAllSpecializations = () => async () =>
+  await axios.get('/api/specializations');
 
-export const getDoctorsBySpecializations = (specializationId) =>
-  axios.get(`/api/doctors/specialization/${specializationId}`);
+export const getDoctorsBySpecializations = (specializationId) => async () =>
+  await axios.get(`/api/doctors/specialization/${specializationId}`);
 
-export const getAvailableTime = (id, date) =>
-  axios.get('/api/appointments/time/free', {
+export const getAvailableTime = (id, date) => async () =>
+  await axios.get('/api/appointments/time/free', {
     params: {
       id,
       date,
     },
   });
 
-export const getPatients = (offset, limit) =>
+export const getPatients = () =>
   axios.get('/api/appointments/patient/me', {
     params: {
-      offset,
-      limit,
+      offset: 0,
+      limit: 5,
     },
   });
 

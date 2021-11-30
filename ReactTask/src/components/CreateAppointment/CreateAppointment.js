@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 
 import {
   StylBoxPatientContent,
@@ -14,10 +15,9 @@ import {
 } from './../';
 
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
-import { getAvailableTime } from '../../redux/patient/patientOperations';
 
 const CreateAppointment = ({ switchContent }) => {
-  const { createPatient } = useActionsWithRedux();
+  const { createPatient, getAvailableTimePatient } = useActionsWithRedux();
   const [isChooseAllData, setChooseAllData] = useState(false),
     [isFilledData, setFilledData] = useState(false),
     [isPossibleTimeArr, setPossibleTimeArr] = useState([]),
@@ -26,16 +26,18 @@ const CreateAppointment = ({ switchContent }) => {
     [isDoctorChoose, setDoctorChoose] = useState('');
 
   useEffect(() => {
-    getAvailableTime(isDoctorChoose, isChooseUser).then((response) => {
-      setPossibleTimeArr(response.data);
-    });
-  }, [isDoctorChoose, isChooseUser]);
+    getAvailableTimePatient(isDoctorChoose, isChooseUser, setPossibleTimeArr);
 
-  useEffect(() => {
     isFilledData && isTimeSelect && isChooseUser
       ? setChooseAllData(true)
       : setChooseAllData(false);
-  }, [isFilledData, isTimeSelect, isChooseUser]);
+  }, [
+    isDoctorChoose,
+    isChooseUser,
+    isFilledData,
+    isTimeSelect,
+    getAvailableTimePatient,
+  ]);
 
   const changeDataChoose = (data) => {
     setChooseUser(data);
@@ -75,17 +77,16 @@ const CreateAppointment = ({ switchContent }) => {
             <StylBoxChooseTime>
               {isPossibleTimeArr.map((item, index) => {
                 const time = new Date(item);
-                const hour = time.getHours();
-                const minutes = time.getMinutes();
+                const hour = moment(time).format('hh:mm a');
 
                 return (
                   <StylBtnChooseTimeVisitDoctor
                     key={index}
                     type='button'
-                    isSelected={isTimeSelect === hour + ':' + minutes + '0'}
+                    isSelected={isTimeSelect === hour}
                     onClick={(e) => setTimeSelect(e.currentTarget.innerHTML)}
                   >
-                    {hour + ':' + minutes + '0'}
+                    {hour}
                   </StylBtnChooseTimeVisitDoctor>
                 );
               })}
