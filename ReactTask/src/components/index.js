@@ -13,7 +13,17 @@ import {
   StylBoxRowLine,
   StylSubTitleCard,
   StylTitleCard,
+  StylBoxMenuCard,
+  StylBtnChooseAction,
 } from './CardPatientProfile';
+
+//alert message
+import {
+  StylBoxAlert,
+  StylSubTitleAlert,
+  StylTextAlert,
+  AlertMessage,
+} from './AlertMessage';
 
 //form form input
 import {
@@ -78,6 +88,19 @@ import {
   HeaderCreateAppointment,
   InputsAppointment,
 } from './CreateAppointment';
+
+//resolution patient
+import {
+  StylBoxCenterResolutionForm,
+  StylTitleResolutionForm,
+  StylNamePersonResolutionForm,
+  StylTitleTextArea,
+  StylTextAreaResolution,
+  StylRowFormBtns,
+  StylBtnCloseForm,
+  StylBtnActionForm,
+  ResolutionPatient,
+} from './ResolutionPatient';
 
 //common boxes
 import {
@@ -151,6 +174,21 @@ import {
 } from './CalendarVisitDoctor';
 
 export {
+  StylBoxCenterResolutionForm,
+  StylTitleResolutionForm,
+  StylNamePersonResolutionForm,
+  StylTitleTextArea,
+  StylTextAreaResolution,
+  StylRowFormBtns,
+  StylBtnCloseForm,
+  StylBtnActionForm,
+  ResolutionPatient,
+  StylBoxAlert,
+  StylSubTitleAlert,
+  StylTextAlert,
+  AlertMessage,
+  StylBtnChooseAction,
+  StylBoxMenuCard,
   StylBoxMain,
   StylLogo,
   InputsAppointment,

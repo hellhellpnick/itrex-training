@@ -10,14 +10,19 @@ import {
   StylElementSelectVisitDoctor,
   StylBoxColumnFlexMargin,
 } from './../';
+import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 
-import { nameDoctorsArr, ocuppationDoctorArr } from './../../constants/index';
-
-const InputsAppointment = ({ setFilledData }) => {
+const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
+  const { getAllSpecializationsDoctors, getDoctorsBySpecializationsNow } =
+    useActionsWithRedux();
+  const [isOcuppationDoctorArr, setOcuppationDoctorArr] = useState([]);
+  const [isNameDoctorsArr, setNameDoctorsArr] = useState([]);
   const [isFocusInput, setFocusInput] = useState(false),
     [isFocusInputName, setFocusInputName] = useState(false),
     [isValueInputOccupation, setValueInputOccupation] = useState(''),
     [isValueInputName, setValueInputName] = useState('');
+
+  getAllSpecializationsDoctors(setOcuppationDoctorArr);
 
   isValueInputName && isValueInputOccupation
     ? setFilledData(true)
@@ -25,7 +30,10 @@ const InputsAppointment = ({ setFilledData }) => {
 
   const chooseOccupationDoctor = (e) => {
     const selectData = e.currentTarget.innerHTML;
+    const idSelect = e.currentTarget.id;
 
+    setDoctorChoose(idSelect);
+    getDoctorsBySpecializationsNow(idSelect, setNameDoctorsArr);
     setValueInputOccupation(selectData);
     setFocusInput(false);
   };
@@ -49,7 +57,7 @@ const InputsAppointment = ({ setFilledData }) => {
             onChange={(e) => setValueInputOccupation(e.target.value)}
             onKeyPress={(event) => {
               if (event.key === 'Enter') {
-                if (!ocuppationDoctorArr.includes(isValueInputOccupation)) {
+                if (!isOcuppationDoctorArr.includes(isValueInputOccupation)) {
                   setValueInputOccupation('');
                 }
 
@@ -58,15 +66,16 @@ const InputsAppointment = ({ setFilledData }) => {
             }}
           />
           <StylBoxMenuSelectVisitDoctor focusSelect={isFocusInput}>
-            {ocuppationDoctorArr.map((item, index) => (
+            {isOcuppationDoctorArr.map((item) => (
               <StylElementSelectVisitDoctor
-                key={index}
+                key={item.value}
+                id={item.value}
                 onClick={(e) => {
                   chooseOccupationDoctor(e);
                   setFocusInput(false);
                 }}
               >
-                {item}
+                {item.label}
               </StylElementSelectVisitDoctor>
             ))}
           </StylBoxMenuSelectVisitDoctor>
@@ -82,7 +91,7 @@ const InputsAppointment = ({ setFilledData }) => {
             onChange={(e) => setValueInputName(e.target.value)}
             onKeyPress={(event) => {
               if (event.key === 'Enter') {
-                if (!ocuppationDoctorArr.includes(isValueInputName)) {
+                if (!isNameDoctorsArr.includes(isValueInputName)) {
                   setValueInputName('');
                 }
 
@@ -91,15 +100,15 @@ const InputsAppointment = ({ setFilledData }) => {
             }}
           />
           <StylBoxMenuSelectVisitDoctor focusSelect={isFocusInputName}>
-            {nameDoctorsArr.map((item, index) => (
+            {isNameDoctorsArr.map((item) => (
               <StylElementSelectVisitDoctor
                 onClick={(e) => {
                   chooseNameDoctor(e);
                   setFocusInputName(false);
                 }}
-                key={index}
+                key={item.value}
               >
-                {item}
+                {item.label}
               </StylElementSelectVisitDoctor>
             ))}
           </StylBoxMenuSelectVisitDoctor>

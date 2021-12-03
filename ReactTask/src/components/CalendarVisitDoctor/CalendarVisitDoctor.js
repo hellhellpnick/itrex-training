@@ -19,8 +19,7 @@ import {
 import arrowImg from './../../img/icons/icon-arrow-right.svg';
 
 const CalendarVisitDoctor = ({ changeData }) => {
-  const today = new Date();
-  const [date, setDate] = useState(today);
+  const [date, setDate] = useState(new Date());
   const [day, setDay] = useState(date.getDate());
   const [month, setMonth] = useState(date.getMonth());
   const [year, setYear] = useState(date.getFullYear());
@@ -67,12 +66,12 @@ const CalendarVisitDoctor = ({ changeData }) => {
           .fill(null)
           .map((_, index) => {
             const daySelect = index - (startDay - 2);
-            changeData(daySelect);
+            changeData(date.toISOString());
 
             return (
               <StylDayVisitDoctor
                 key={index}
-                isToday={daySelect === today.getDate()}
+                isToday={daySelect === date.getDate()}
                 isSelected={daySelect === day}
                 onClick={() => setDate(new Date(year, month, daySelect))}
               >

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
+import { useHistory } from 'react-router-dom';
 import {
   FormInput,
   LinkPage,
@@ -12,8 +13,12 @@ import { routes } from './../../Router';
 import emailImgSvg from './../../img/icons/icon-email.svg';
 import passwordlImgSvg from './../../img/icons/icon-lock.svg';
 import { regulEmail, regulPassword } from '../../constants';
+import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 
 const FormSignUp = () => {
+  const history = useHistory();
+  const { loginUser } = useActionsWithRedux();
+
   const [isEmail, setEmail] = useState(false),
     [isPassword, setPassword] = useState(false);
 
@@ -22,7 +27,7 @@ const FormSignUp = () => {
       validateOnChange={false}
       validateOnBlur={false}
       initialValues={{
-        email: '',
+        userName: '',
         password: '',
       }}
       validate={(values) => {
@@ -30,11 +35,23 @@ const FormSignUp = () => {
           ? setPassword(true)
           : setPassword(false);
 
-        !regulEmail.test(values.email) ? setEmail(true) : setEmail(false);
+        !regulEmail.test(values.userName) ? setEmail(true) : setEmail(false);
       }}
-      onSubmit={(values, { validate, setSubmitting }) => {
-        validate(values);
-        setSubmitting(false);
+      onSubmit={(values, { setSubmitting }) => {
+        setSubmitting(true);
+        loginUser(
+          values,
+          () => {
+            history.push({
+              pathname: routes.patientProfile,
+            });
+          },
+          () => {
+            history.push({
+              pathname: routes.signInPage,
+            });
+          }
+        );
       }}
     >
       {({ values, isSubmitting, handleChange, handleSubmit, handleBlur }) => (
@@ -43,9 +60,9 @@ const FormSignUp = () => {
 
           <FormInput
             type='email'
-            name='email'
+            name='userName'
             placeholder='Email'
-            valueInput={values.email}
+            valueInput={values.userName}
             imgStart={emailImgSvg}
             err={isEmail}
             blur={handleBlur}

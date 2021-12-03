@@ -34,7 +34,7 @@ const StylBtnSearch = styled.button`
   }
 `;
 
-const StylBtnMore = styled.button`
+const StylBtnMore = styled.div`
   cursor: pointer;
   position: relative;
   display: flex;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   StylSubTitleCard,
   StylTitleCard,
@@ -9,34 +9,60 @@ import {
   StylBoxDoctor,
   BoxDataPatient,
   BoxInfoPatient,
-  BtnMore,
-  StylBoxPatientsList,
+  StylBtnMore,
+  StylBoxMenuCard,
+  StylBtnChooseAction,
 } from '../index';
 
-import patient from './../../img/avatars/patients-1.png';
+const CardPatientProfile = ({
+  imgIconDescription,
+  visitDate,
+  reason,
+  note,
+  doctor,
+  status,
+  alt = 'photo patient',
+}) => {
+  const [isMore, setMore] = useState(false);
+  const boxEl = useRef();
 
-const CardPatientProfile = ({ dataPatients, imgIconDescription }) => {
+  const showMore = () => {
+    setMore(!isMore);
+  };
+
+  const removeCard = () => {
+    boxEl.current.remove();
+  };
+
   return (
-    <StylBoxPatientsList>
-      {dataPatients.map(({ id, alt, name, status, statusText, data, info }) => (
-        <StylBoxCardPatient key={id}>
-          <StylBoxRowLine>
-            <StylBoxDoctor>
-              <StylBoxImgPatient src={patient} alt={alt} />
-              <StylBoxColumnInfo>
-                <StylTitleCard>{name}</StylTitleCard>
-                <StylSubTitleCard status={status}>
-                  {statusText}
-                </StylSubTitleCard>
-              </StylBoxColumnInfo>
-            </StylBoxDoctor>
-            <BtnMore />
-          </StylBoxRowLine>
-          <BoxDataPatient data={data} />
-          <BoxInfoPatient info={info} imgWay={imgIconDescription} />
-        </StylBoxCardPatient>
-      ))}
-    </StylBoxPatientsList>
+    <StylBoxCardPatient ref={boxEl}>
+      <StylBoxRowLine>
+        <StylBoxDoctor>
+          <StylBoxImgPatient src={doctor.photo} alt={alt} />
+          <StylBoxColumnInfo>
+            <StylTitleCard>
+              {doctor.first_name} {doctor.last_name}
+            </StylTitleCard>
+            <StylSubTitleCard status={status}>{status}</StylSubTitleCard>
+          </StylBoxColumnInfo>
+        </StylBoxDoctor>
+        <StylBtnMore onClick={showMore}>
+          <StylBoxMenuCard showMore={isMore}>
+            <StylBtnChooseAction onClick={showMore}>
+              Create a resolution
+            </StylBtnChooseAction>
+            <StylBtnChooseAction onClick={showMore}>
+              Edit an appontment
+            </StylBtnChooseAction>
+            <StylBtnChooseAction err={true} onClick={removeCard}>
+              Delete
+            </StylBtnChooseAction>
+          </StylBoxMenuCard>
+        </StylBtnMore>
+      </StylBoxRowLine>
+      <BoxDataPatient data={visitDate} />
+      <BoxInfoPatient info={`${reason} ${note}`} imgWay={imgIconDescription} />
+    </StylBoxCardPatient>
   );
 };
 
