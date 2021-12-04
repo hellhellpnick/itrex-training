@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   StylBoxColumnFlex,
@@ -12,7 +12,7 @@ import {
 } from './../';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 
-const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
+const InputsAppointment = ({ setFilledData, setDoctorChoose, setNoteUser }) => {
   const { getAllSpecializationsDoctors, getDoctorsBySpecializationsNow } =
     useActionsWithRedux();
   const [isOcuppationDoctorArr, setOcuppationDoctorArr] = useState([]);
@@ -24,9 +24,13 @@ const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
 
   getAllSpecializationsDoctors(setOcuppationDoctorArr);
 
-  isValueInputName && isValueInputOccupation
-    ? setFilledData(true)
-    : setFilledData(false);
+  useEffect(
+    () =>
+      isValueInputName && isValueInputOccupation
+        ? setFilledData(true)
+        : setFilledData(false),
+    [isValueInputName, isValueInputOccupation, setFilledData]
+  );
 
   const chooseOccupationDoctor = (e) => {
     const selectData = e.currentTarget.innerHTML;
@@ -52,6 +56,9 @@ const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
         <StylBoxColumnFlex>
           <StylArrowVisitDoctor focusSelect={isFocusInput} />
           <StylInputVisitDoctor
+            id='occupation'
+            role='occupation'
+            data-testid='occupation'
             value={isValueInputOccupation}
             onFocus={() => setFocusInput(true)}
             onChange={(e) => setValueInputOccupation(e.target.value)}
@@ -86,6 +93,9 @@ const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
         <StylBoxColumnFlex>
           <StylArrowVisitDoctor focusSelect={isFocusInputName} />
           <StylInputVisitDoctor
+            id='doctorsName'
+            role = 'doctorsName'
+            data-testid='doctorsName'
             value={isValueInputName}
             onFocus={() => setFocusInputName(true)}
             onChange={(e) => setValueInputName(e.target.value)}
@@ -117,7 +127,13 @@ const InputsAppointment = ({ setFilledData, setDoctorChoose }) => {
       <StylBoxColumnFlexMargin dataReady={true}>
         <StylTitleVisitDoctor>Note</StylTitleVisitDoctor>
         <StylBoxColumnFlex>
-          <StylInputVisitDoctor placeholder='Leave a note if needed' />
+          <StylInputVisitDoctor
+            id='userNote'
+            role='userNote'
+            data-testid='userNote'
+            placeholder='Leave a note if needed'
+            onChange={(e) => setNoteUser(e.currentTarget.value)}
+          />
         </StylBoxColumnFlex>
       </StylBoxColumnFlexMargin>
     </StylItemChooseDoctor>

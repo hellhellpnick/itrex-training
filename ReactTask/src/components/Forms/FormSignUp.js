@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import { useHistory } from 'react-router-dom';
 import { BtnSubmitForm, StylTitleForm, FormInput } from './../';
 import userImgSvg from './../../img/icons/icon-user.svg';
 import emailImgSvg from './../../img/icons/icon-email.svg';
@@ -8,25 +7,32 @@ import passwordlImgSvg from './../../img/icons/icon-lock.svg';
 import checkImgSvg from './../../img/icons/icon-check.svg';
 import { regulEmail, regulPassword } from '../../constants';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
-import { routes } from '../../Router';
 
 const FormSignUp = () => {
   const { registerUser } = useActionsWithRedux();
 
-  const history = useHistory();
   const [isEmail, setEmail] = useState(false),
     [isPassword, setPassword] = useState(false),
     [isCheckPassowrd, setCheckPassowrd] = useState(false);
+
+  const handleSubmit = (values) => {
+    const obj = {
+      userName: values.userName,
+      password: values.password,
+      firstName: values.firstName,
+      lastName: values.lastName,
+    };
+    registerUser(obj);
+  };
 
   return (
     <Formik
       validateOnChange={false}
       validateOnBlur={false}
       initialValues={{
+        userName: '',
         firstName: '',
         lastName: '',
-        email: '',
-        password: '',
         checkPassword: '',
       }}
       validate={(values) => {
@@ -38,29 +44,9 @@ const FormSignUp = () => {
           ? setPassword(true)
           : setPassword(false);
 
-        !regulEmail.test(values.email) ? setEmail(true) : setEmail(false);
+        !regulEmail.test(values.userName) ? setEmail(true) : setEmail(false);
       }}
-      onSubmit={(values) => {
-        const obj = {
-          userName: values.email,
-          password: values.password,
-          firstName: values.firstName,
-          lastName: values.lastName,
-        };
-        registerUser(
-          obj,
-          () => {
-            history.push({
-              pathname: routes.patientProfile,
-            });
-          },
-          () => {
-            history.push({
-              pathname: routes.signUpPage,
-            });
-          }
-        );
-      }}
+      onSubmit={handleSubmit}
     >
       {({ values, isSubmitting, handleChange, handleBlur }) => (
         <Form>
@@ -87,9 +73,9 @@ const FormSignUp = () => {
 
           <FormInput
             type='email'
-            name='email'
+            name='userName'
             placeholder='Email'
-            valueInput={values.email}
+            valueInput={values.userName}
             imgStart={emailImgSvg}
             err={isEmail}
             errText='
@@ -124,7 +110,12 @@ const FormSignUp = () => {
             changer={handleChange}
             blur={handleBlur}
           />
-          <BtnSubmitForm type='submit' disabled={isSubmitting} text='Sign up' />
+          <BtnSubmitForm
+            type='submit'
+            disabled={isSubmitting}
+            text='Sign up'
+            role='btnSignUp'
+          />
         </Form>
       )}
     </Formik>

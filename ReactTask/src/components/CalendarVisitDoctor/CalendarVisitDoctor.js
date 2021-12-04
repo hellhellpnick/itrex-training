@@ -30,7 +30,8 @@ const CalendarVisitDoctor = ({ changeData }) => {
     setMonth(date.getMonth());
     setYear(date.getFullYear());
     setStartDay(getStartDayOfMonth(date));
-  }, [date]);
+    changeData(date.toISOString());
+  }, [date, changeData]);
 
   function getStartDayOfMonth(date) {
     const startDate = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
@@ -66,11 +67,13 @@ const CalendarVisitDoctor = ({ changeData }) => {
           .fill(null)
           .map((_, index) => {
             const daySelect = index - (startDay - 2);
-            changeData(date.toISOString());
 
             return (
               <StylDayVisitDoctor
                 key={index}
+                id={date.toISOString()}
+                data-testid={new Date(year, month, daySelect).toISOString()}
+                role={new Date(year, month, daySelect).toISOString()}
                 isToday={daySelect === date.getDate()}
                 isSelected={daySelect === day}
                 onClick={() => setDate(new Date(year, month, daySelect))}

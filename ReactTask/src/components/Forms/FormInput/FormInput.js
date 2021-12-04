@@ -31,6 +31,7 @@ const FormInput = ({
     <StylWrapperFormInput err={err}>
       <StylIconInputStart src={imgStart} />
       <StylInputForm
+        id={name}
         type={isType}
         name={name}
         placeholder={placeholder}
@@ -39,9 +40,11 @@ const FormInput = ({
         onChange={changer}
         err={err}
         onBlur={blur}
+        data-testid={name}
+        role={name}
       />
       {password && <BtnEyePassword changeEye={changeTypeInput} />}
-      {err && <LabelFromInput text={errText} />}
+      {err && <LabelFromInput text={errText} for={name} />}
     </StylWrapperFormInput>
   );
 };

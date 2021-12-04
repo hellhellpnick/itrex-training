@@ -21,9 +21,13 @@ const CreateAppointment = ({ switchContent }) => {
   const [isChooseAllData, setChooseAllData] = useState(false),
     [isFilledData, setFilledData] = useState(false),
     [isPossibleTimeArr, setPossibleTimeArr] = useState([]),
+    [isNoteUser, setNoteUser] = useState('stomach-ache'),
+    [isTimeChooseCheckbox, setTimeChooseCheckbox] = useState(''),
     [isTimeSelect, setTimeSelect] = useState(''),
-    [isChooseUser, setChooseUser] = useState(''),
-    [isDoctorChoose, setDoctorChoose] = useState('');
+    [isChooseUser, setChooseUser] = useState('2021-12-22T22:00:00.000Z'),
+    [isDoctorChoose, setDoctorChoose] = useState(
+      '902240b7-514a-48c3-a67f-6acfb1d35030'
+    );
 
   useEffect(() => {
     getAvailableTimePatient(isDoctorChoose, isChooseUser, setPossibleTimeArr);
@@ -51,7 +55,7 @@ const CreateAppointment = ({ switchContent }) => {
     const obj = {
       date: isChooseUser,
       reason: isTimeSelect,
-      note: '',
+      note: isNoteUser,
       doctorID: isDoctorChoose,
     };
 
@@ -66,6 +70,7 @@ const CreateAppointment = ({ switchContent }) => {
         <InputsAppointment
           setFilledData={setFilledData}
           setDoctorChoose={chageDoctorChoose}
+          setNoteUser={setNoteUser}
         />
         <StylItemChooseDoctor contentText='Choose a day for an appointment'>
           <StylBoxColumnFlexMargin dataReady={isFilledData}>
@@ -83,8 +88,11 @@ const CreateAppointment = ({ switchContent }) => {
                   <StylBtnChooseTimeVisitDoctor
                     key={index}
                     type='button'
-                    isSelected={isTimeSelect === hour}
-                    onClick={(e) => setTimeSelect(e.currentTarget.innerHTML)}
+                    isSelected={isTimeChooseCheckbox === hour}
+                    onClick={(e) => {
+                      setTimeChooseCheckbox(e.currentTarget.innerHTML);
+                      setTimeSelect(item);
+                    }}
                   >
                     {hour}
                   </StylBtnChooseTimeVisitDoctor>
@@ -98,6 +106,7 @@ const CreateAppointment = ({ switchContent }) => {
       <StylBtnSubmitFormVisitDoctor
         isDisabled={isChooseAllData === false}
         onClick={createAppointmentUser}
+        role='btnCreateAppointment'
       >
         Submit
       </StylBtnSubmitFormVisitDoctor>

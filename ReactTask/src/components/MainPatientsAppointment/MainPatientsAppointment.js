@@ -40,19 +40,13 @@ const MainPatientsAppointment = ({ switchContent }) => {
       </StylBoxRowPadding>
       {!!appointments.length && (
         <StylBoxPatientsList>
-          {appointments.map(
-            ({ visitDate, reason, note, doctor, status }, index) => (
-              <CardPatientProfile
-                key={index}
-                status={status}
-                imgIconDescription={heartImgSvg}
-                visitDate={visitDate}
-                reason={reason}
-                note={note}
-                doctor={doctor}
-              />
-            )
-          )}
+          {appointments.map((item, index) => (
+            <CardPatientProfile
+              key={index}
+              item={item}
+              imgIconDescription={heartImgSvg}
+            />
+          ))}
         </StylBoxPatientsList>
       )}
     </StylBoxPatientContent>

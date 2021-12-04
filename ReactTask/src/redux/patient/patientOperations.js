@@ -33,6 +33,14 @@ export const getPatients = () =>
     },
   });
 
+export const getDoctors = () =>
+  axios.get('/api/appointments/doctor/me', {
+    params: {
+      offset: 0,
+      limit: 5,
+    },
+  });
+
 export const addPatient = (values) => async (dispatch) => {
   dispatch(createPatientRequest());
 

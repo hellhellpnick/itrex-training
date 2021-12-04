@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BoxFilter, BoxSearch } from './../components/Boxes';
 
 import {
@@ -14,24 +14,29 @@ import {
   StylBoxPatientsList,
 } from '../components/';
 
-import avatar1 from '../img/avatars/avatar-doctor.png';
+import avatarDoctorImg from '../img/avatars/avatar-doctor.png';
 import scheduleImgSvg from './../img/icons/icon-shedule.svg';
 import dataProfileDoctor from './../db/dbProfileDoctor.json';
+import { getDoctors } from './../redux/patient/patientOperations';
+import useActionsWithRedux from '../hooks/useActionsWithRedux';
 
 const DoctorProfile = ({ title }) => {
+  const [isAppointments, setAppointments] = useState([]);
+  const { profile } = useActionsWithRedux();
+
   useEffect(() => {
     document.title = title || '';
-  }, [title]);
+
+    profile.role_name === 'Patient'
+      ? getDoctors().then((response) =>
+          setAppointments(response.data.appointments)
+        )
+      : setAppointments(dataProfileDoctor);
+  }, [title, profile]);
 
   return (
     <StylBoxPatients>
-      <HeaderProfile
-        firstName={'Larry'}
-        lastName='Robbinson'
-        position='Doctor'
-        isOnline={true}
-        wayToImg={avatar1}
-      />
+      <HeaderProfile avatar={avatarDoctorImg} />
 
       <StylBoxPatientContent>
         <StylBoxBtnPatients>
@@ -45,22 +50,17 @@ const DoctorProfile = ({ title }) => {
             <BoxFilter text='Sort by:' filter='Date' />
           </StylBoxDoctor>
         </StylBoxRowPadding>
-        {!!dataProfileDoctor.length && (
+        {!!isAppointments.length && (
           <StylBoxPatientsList>
-            {dataProfileDoctor.map(
-              ({ id, alt, name, status, statusText, data, info }) => (
+            {isAppointments.map((item, index) => {
+              return (
                 <CardPatientProfile
-                key={id}
+                  item={item}
+                  key={index}
                   imgIconDescription={scheduleImgSvg}
-                  alt={alt}
-                  name={name}
-                  status={status}
-                  statusText={statusText}
-                  data={data}
-                  info={info}
                 />
-              )
-            )}
+              );
+            })}
           </StylBoxPatientsList>
         )}
       </StylBoxPatientContent>

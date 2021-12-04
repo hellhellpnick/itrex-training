@@ -10,25 +10,31 @@ import {
 } from './../';
 
 import logoSitePng from './../../img/logo.png';
+import useActionsWithRedux from './../../hooks/useActionsWithRedux';
 
-const HeaderProfile = ({
-  firstName,
-  lastName,
-  position,
-  wayToImg,
-  isOnline,
-}) => {
+const HeaderProfile = ({ avatar }) => {
+  const { profile } = useActionsWithRedux();
+
+  const dataUser = profile.first_name
+    ? profile
+    : {
+        first_name: 'Larry',
+        last_name: 'Robbinson',
+        photo: avatar,
+        role_name: 'Patient',
+      };
+
   return (
     <StylBoxRow>
       <StylLogo src={logoSitePng} alt='logo' />
       <StylBoxDoctor>
         <StylBoxFlexColumn>
           <StylTitleName>
-            {firstName} {lastName}
+            {dataUser.first_name} {dataUser.last_name}
           </StylTitleName>
-          <StylSubTitlePosition>{position}</StylSubTitlePosition>
+          <StylSubTitlePosition>{dataUser.role_name}</StylSubTitlePosition>
         </StylBoxFlexColumn>
-        <AvatarActive src={wayToImg} isOnline={isOnline} alt='avatar-user' />
+        <AvatarActive src={dataUser.photo} isOnline={true} alt='avatar-user' />
       </StylBoxDoctor>
     </StylBoxRow>
   );
