@@ -11,9 +11,7 @@ jest.mock('./../redux/patient/patientOperations', () => ({}));
 
 describe('SignUpForm', () => {
   test('Submit form "Sign up"', async () => {
-    const registerUser = jest.fn((values) => {
-      console.log(values);
-    });
+    const registerUser = jest.fn((values) => {});
     jest.spyOn(useActionsWithRedux, 'default').mockImplementation(() => ({
       registerUser,
     }));

@@ -24,10 +24,8 @@ const CreateAppointment = ({ switchContent }) => {
     [isNoteUser, setNoteUser] = useState('stomach-ache'),
     [isTimeChooseCheckbox, setTimeChooseCheckbox] = useState(''),
     [isTimeSelect, setTimeSelect] = useState(''),
-    [isChooseUser, setChooseUser] = useState('2021-12-22T22:00:00.000Z'),
-    [isDoctorChoose, setDoctorChoose] = useState(
-      '902240b7-514a-48c3-a67f-6acfb1d35030'
-    );
+    [isChooseUser, setChooseUser] = useState(''),
+    [isDoctorChoose, setDoctorChoose] = useState('');
 
   useEffect(() => {
     getAvailableTimePatient(isDoctorChoose, isChooseUser, setPossibleTimeArr);
