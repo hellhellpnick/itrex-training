@@ -240,6 +240,11 @@ const StylBoxSelect = styled.div`
   border-radius: 8px;
   background-color: ${(props) => props.theme.palette.main};
   z-index: 1;
+
+  @media (min-width: 1024px) {
+    left: -20px;
+    bottom: -98px;
+  }
 `;
 
 const StylBoxViewContent = styled.div`

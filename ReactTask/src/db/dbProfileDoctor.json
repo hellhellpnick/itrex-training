@@ -1,125 +1,18 @@
 [
   {
     "id": "1",
-    "name": "Jane Cooper",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-1.png",
-    "alt": "avatar2",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-  {
-    "id": "2",
-    "name": "Eleanor Pena",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-2.png",
-    "alt": "avatar3",
-    "info": "We will invite you in for a full review every year and more frequently if you are struggling with blood sugar levels"
-  },
-
-  {
-    "id": "3",
-    "name": "Devon Lane",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-3.png",
-    "alt": "avatar4",
-    "info": "We will invite you in for a full review every year and more frequently if you are struggling with blood sugar levels"
-  },
-
-  {
-    "id": "4",
-    "name": "Jenny Wilson",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-4.png",
-    "alt": "avatar5",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-  {
-    "id": "5",
-    "name": "Courtney Henry",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-5.png",
-    "alt": "avatar6",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-  {
-    "id": "6",
-    "name": "Arlene McCoy",
-    "statusText": "Appointment is canceled",
-    "status": "cancel",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-6.png",
-    "alt": "avatar7",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-
-  {
-    "id": "7",
-    "name": "Annette Black",
-    "statusText": "Waiting for confirmation...",
-    "status": "wait",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-7.png",
-    "alt": "avatar8",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-  {
-    "id": "8",
-    "name": "Cameron Williamson",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-8.png",
-    "alt": "avatar9",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-  {
-    "id": "9",
-    "name": "Bessie Cooper",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-9.png",
-    "alt": "avatar10",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-  {
-    "id": "10",
-    "name": "Savannah Nguyen",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-10.png",
-    "alt": "avatar11",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-  {
-    "id": "11",
-    "name": "Esther Howard",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-11.png",
-    "alt": "avatar12",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
-  },
-  {
-    "id": "12",
-    "name": "Jerome Bell",
-    "statusText": "Appointment is confirmed",
-    "status": "success",
-    "data": "Thu Sept 10, 2021 4 pm – 5 pm",
-    "img": "/img/avatars/patients-12.png",
-    "alt": "avatar13",
-    "info": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels"
+    "reason": "Jane Cooper",
+    "note": "We will invite you in for a full review every year and more frequently if youare struggling with blood sugar levels",
+    "patient_id": "2",
+    "doctor_id": "4",
+    "visit_date": "Thu Sept 10, 2021 4 pm – 5 pm",
+    "status": "Appointment is confirmed",
+    "doctor": {
+      "last_name": "Cooper",
+      "first_name": "Jane",
+      "id": "string",
+      "photo": "/img/avatars/patients-1.png",
+      "specialization_name": "surgeon"
+    }
   }
 ]

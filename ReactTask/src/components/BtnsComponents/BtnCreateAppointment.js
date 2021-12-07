@@ -24,6 +24,12 @@ const Btn = styled.button`
     box-shadow: 0px 4px 32px rgb(218 228 255 / 16%);
     border: none;
     outline: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(114, 151, 255, 0.5);
+      color: ${(props) => props.theme.palette.main};
+    }
 
     ::after {
       content: '';

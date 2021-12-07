@@ -21,6 +21,8 @@ const CreateAppointment = ({ switchContent }) => {
   const [isChooseAllData, setChooseAllData] = useState(false),
     [isFilledData, setFilledData] = useState(false),
     [isPossibleTimeArr, setPossibleTimeArr] = useState([]),
+    [isNoteUser, setNoteUser] = useState('stomach-ache'),
+    [isTimeChooseCheckbox, setTimeChooseCheckbox] = useState(''),
     [isTimeSelect, setTimeSelect] = useState(''),
     [isChooseUser, setChooseUser] = useState(''),
     [isDoctorChoose, setDoctorChoose] = useState('');
@@ -51,7 +53,7 @@ const CreateAppointment = ({ switchContent }) => {
     const obj = {
       date: isChooseUser,
       reason: isTimeSelect,
-      note: '',
+      note: isNoteUser,
       doctorID: isDoctorChoose,
     };
 
@@ -66,6 +68,7 @@ const CreateAppointment = ({ switchContent }) => {
         <InputsAppointment
           setFilledData={setFilledData}
           setDoctorChoose={chageDoctorChoose}
+          setNoteUser={setNoteUser}
         />
         <StylItemChooseDoctor contentText='Choose a day for an appointment'>
           <StylBoxColumnFlexMargin dataReady={isFilledData}>
@@ -83,8 +86,11 @@ const CreateAppointment = ({ switchContent }) => {
                   <StylBtnChooseTimeVisitDoctor
                     key={index}
                     type='button'
-                    isSelected={isTimeSelect === hour}
-                    onClick={(e) => setTimeSelect(e.currentTarget.innerHTML)}
+                    isSelected={isTimeChooseCheckbox === hour}
+                    onClick={(e) => {
+                      setTimeChooseCheckbox(e.currentTarget.innerHTML);
+                      setTimeSelect(item);
+                    }}
                   >
                     {hour}
                   </StylBtnChooseTimeVisitDoctor>
@@ -98,6 +104,7 @@ const CreateAppointment = ({ switchContent }) => {
       <StylBtnSubmitFormVisitDoctor
         isDisabled={isChooseAllData === false}
         onClick={createAppointmentUser}
+        role='btnCreateAppointment'
       >
         Submit
       </StylBtnSubmitFormVisitDoctor>

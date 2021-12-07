@@ -52,6 +52,14 @@ const StylElementSelect = styled.p`
   font-weight: ${(props) => props.theme.typography.textWeight.main};
   font-family: ${(props) => props.theme.typography.textFamily.main};
   color: ${(props) => props.theme.palette.text.main};
+  transition: all 0.2s ease;
+
+  @media (min-width: 1024px) {
+    &:hover {
+      background-color: ${(props) =>
+        props.theme.palette.backgroundColor.primary};
+    }
+  }
 `;
 
 const StylFilterTypePatient = styled.span`
@@ -92,12 +100,14 @@ const StylInformationText = styled.p`
   color: ${(props) => props.theme.palette.text.primary};
 `;
 
-const StylLinkPage = styled.a`
-  text-decoration: underline;
-  font-size: ${(props) => props.theme.typography.textSmall.primary};
-  font-weight: ${(props) => props.theme.typography.textWeight.primary};
-  color: ${(props) => props.theme.palette.text.second};
-  font-family: ${(props) => props.theme.typography.textFamily.main};
+const StylLinkPage = styled.span`
+  & > a {
+    text-decoration: underline;
+    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-weight: ${(props) => props.theme.typography.textWeight.primary};
+    color: ${(props) => props.theme.palette.text.second};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+  }
 `;
 
 export {

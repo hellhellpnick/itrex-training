@@ -14,15 +14,7 @@ import {
   StylBtnChooseAction,
 } from '../index';
 
-const CardPatientProfile = ({
-  imgIconDescription,
-  visitDate,
-  reason,
-  note,
-  doctor,
-  status,
-  alt = 'photo patient',
-}) => {
+const CardPatientProfile = ({ imgIconDescription, item }) => {
   const [isMore, setMore] = useState(false);
   const boxEl = useRef();
 
@@ -35,15 +27,20 @@ const CardPatientProfile = ({
   };
 
   return (
-    <StylBoxCardPatient ref={boxEl}>
+    <StylBoxCardPatient ref={boxEl} data-testid={item.id}>
       <StylBoxRowLine>
         <StylBoxDoctor>
-          <StylBoxImgPatient src={doctor.photo} alt={alt} />
+          <StylBoxImgPatient
+            src={item.doctor.photo}
+            alt={item.doctor.last_name}
+          />
           <StylBoxColumnInfo>
             <StylTitleCard>
-              {doctor.first_name} {doctor.last_name}
+              {item.doctor.first_name} {item.doctor.last_name}
             </StylTitleCard>
-            <StylSubTitleCard status={status}>{status}</StylSubTitleCard>
+            <StylSubTitleCard status={item.status}>
+              {item.status}
+            </StylSubTitleCard>
           </StylBoxColumnInfo>
         </StylBoxDoctor>
         <StylBtnMore onClick={showMore}>
@@ -60,8 +57,11 @@ const CardPatientProfile = ({
           </StylBoxMenuCard>
         </StylBtnMore>
       </StylBoxRowLine>
-      <BoxDataPatient data={visitDate} />
-      <BoxInfoPatient info={`${reason} ${note}`} imgWay={imgIconDescription} />
+      <BoxDataPatient data={item.visit_date} />
+      <BoxInfoPatient
+        info={`${item.reason} ${item.note}`}
+        imgWay={imgIconDescription}
+      />
     </StylBoxCardPatient>
   );
 };

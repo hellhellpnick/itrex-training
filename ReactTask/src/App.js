@@ -24,7 +24,7 @@ function App() {
                 textMessage='We show this message if something awesome has happened. You are awesome too'
               />
               <ResolutionPatient
-                changeShowResolution={''}
+                changeShowResolution={() => {}}
                 showContent={false}
                 namePesron='Aleks Murda'
                 textAreaMessage='We will invite you in for a full review every year and more frequently if you are struggling with blood sugar levels. 

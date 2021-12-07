@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { useHistory } from 'react-router-dom';
 import {
   FormInput,
   LinkPage,
@@ -16,11 +15,14 @@ import { regulEmail, regulPassword } from '../../constants';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 
 const FormSignUp = () => {
-  const history = useHistory();
   const { loginUser } = useActionsWithRedux();
 
   const [isEmail, setEmail] = useState(false),
     [isPassword, setPassword] = useState(false);
+
+  const handleSubmit = (values) => {
+    loginUser(values);
+  };
 
   return (
     <Formik
@@ -37,22 +39,7 @@ const FormSignUp = () => {
 
         !regulEmail.test(values.userName) ? setEmail(true) : setEmail(false);
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setSubmitting(true);
-        loginUser(
-          values,
-          () => {
-            history.push({
-              pathname: routes.patientProfile,
-            });
-          },
-          () => {
-            history.push({
-              pathname: routes.signInPage,
-            });
-          }
-        );
-      }}
+      onSubmit={handleSubmit}
     >
       {({ values, isSubmitting, handleChange, handleSubmit, handleBlur }) => (
         <StylFormSign onSubmit={handleSubmit}>
@@ -85,7 +72,12 @@ const FormSignUp = () => {
             blur={handleBlur}
           />
 
-          <BtnSubmitForm type='submit' disabled={isSubmitting} text='Sign in' />
+          <BtnSubmitForm
+            type='submit'
+            disabled={isSubmitting}
+            text='Sign in'
+            role='btnSignIn'
+          />
 
           <LinkPage
             path={routes.restorePasswordPage}
