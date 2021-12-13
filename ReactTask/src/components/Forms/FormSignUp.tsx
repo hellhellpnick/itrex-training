@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import  { FunctionComponent, useState } from 'react';
 import { Formik, Form } from 'formik';
 import { BtnSubmitForm, StylTitleForm, FormInput } from '..';
 import userImgSvg from './../../img/icons/icon-user.svg';

@@ -1,7 +1,7 @@
-import React from 'react';
+import { FunctionComponent } from 'react';
 import { StylBtnMore } from '..';
 
-const BtnMore = () => {
+const BtnMore: FunctionComponent = () => {
   return <StylBtnMore type='button'></StylBtnMore>;
 };
 

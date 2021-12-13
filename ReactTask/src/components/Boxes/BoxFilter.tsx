@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import {
   StylFilterTypePatient,
   StylElementSelect,
@@ -12,7 +12,7 @@ import filterImgSvg from './../../img/icons/icon-filter.svg';
 import arrowImgSvg from './../../img/icons/icon-arrow-up.svg';
 import { IBoxFilter } from '../../modules/Boxes.model';
 
-const BoxFilter = ({ text, filter }: IBoxFilter) => {
+const BoxFilter: FunctionComponent<IBoxFilter> = ({ text, filter }) => {
   const [isHidden, setHidden] = useState(false);
 
   const handleSelect = () => {

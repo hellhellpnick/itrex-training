@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import  { FunctionComponent } from 'react';
 import { StylBtnForm } from '../index';
 import arrowRightSvg from './../../img/icons/icon-arrow-right-light.svg';
 import { IBtnSubmitForm } from '../../modules/Btns.modle';

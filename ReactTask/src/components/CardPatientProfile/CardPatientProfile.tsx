@@ -1,4 +1,4 @@
-import React, { useState, createRef, FunctionComponent } from 'react';
+import  { useState, createRef, FunctionComponent } from 'react';
 import {
   StylSubTitleCard,
   StylTitleCard,

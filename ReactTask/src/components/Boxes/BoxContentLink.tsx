@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import  { FunctionComponent } from 'react';
 import { StylTextContent, StylBoxColumn, LinkPage } from '../index';
 import { IBoxContentLink } from '../../modules/Boxes.model';
 

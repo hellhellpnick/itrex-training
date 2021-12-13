@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import  { FunctionComponent, useState } from 'react';
 import { StylIconInputEnd, StylBtnEyePasswordStyle } from './index';
 import visibleEyeImgSvg from './../../../img/icons/icon-visible-password.svg';
 import closeEyeImgSvg from './../../../img/icons/icon-hidden-password.svg';

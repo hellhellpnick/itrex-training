@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import  { FunctionComponent } from 'react';
 import { StylAvatarActive, StylAvatarImg } from '../index';
 import { IAvatarActive } from '../../modules/HeaderProfile.model';
 

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Suspense } from 'react';
+import  { FunctionComponent, Suspense } from 'react';
 import { Switch, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Loader } from './components';
