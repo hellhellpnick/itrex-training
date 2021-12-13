@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import patientReducer from './patient/patientReducer';
 import authReducer from './formFeatures/formFeaturesReducer';
-import { AuthReducerType } from './../modules/Redux.modules';
+import { AuthReducerType } from '../modules/Redux.model';
 
 const authPersistConfig = {
   key: 'authForm',

@@ -7,10 +7,6 @@ export interface IBtnPatients {
   active: boolean;
 }
 
-export interface IBtnPatientsHiddenMob {
-  text: string;
-  active: boolean;
-}
 
 export interface IBtnSubmitForm {
   text: string;

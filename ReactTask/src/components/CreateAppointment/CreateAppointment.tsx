@@ -16,7 +16,7 @@ import {
 
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { getAvailableTime } from './../../redux/patient/patientOperations';
-import { ICreateAppointment } from '../../modules/CreateAppointment.modules';
+import { ICreateAppointment } from '../../modules/CreateAppointment.model';
 
 const CreateAppointment = ({ switchContent }: ICreateAppointment) => {
   const { createPatient } = useActionsWithRedux();

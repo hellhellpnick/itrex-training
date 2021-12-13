@@ -11,7 +11,7 @@ import {
 
 import logoSitePng from './../../img/logo.png';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
-import { IHeaderProfile } from '../../modules/HeaderProfile.modules';
+import { IHeaderProfile } from '../../modules/HeaderProfile.model';
 
 const HeaderProfile: FunctionComponent<IHeaderProfile> = ({ avatar }) => {
   const { profile } = useActionsWithRedux();

@@ -17,7 +17,7 @@ import {
   IRegisterForm,
   ITokens,
   IProfileWithData,
-} from './../../modules/Redux.modules';
+} from '../../modules/Redux.model';
 
 axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com';
 

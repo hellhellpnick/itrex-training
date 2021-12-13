@@ -8,7 +8,6 @@ import { CreateAppointment } from '../components';
 import theme from '../theme';
 
 jest.mock('./../redux/patient/patientOperations', () => ({}));
-type Default = string;
 describe('Create appointments', () => {
   test('to be truthy', async () => {
     const createPatient = jest.fn((values) => {});
@@ -18,7 +17,7 @@ describe('Create appointments', () => {
 
     jest.spyOn(React, 'useEffect').mockImplementation(() => {});
     jest
-      .spyOn<any, Default>(useActionsWithRedux, 'default')
+      .spyOn<any, string>(useActionsWithRedux, 'default')
       .mockImplementation(() => ({
         getAllSpecializations,
         createPatient,

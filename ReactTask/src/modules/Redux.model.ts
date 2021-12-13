@@ -28,24 +28,12 @@ export interface IAddAppointment {
   doctorID: string;
 }
 
-export interface IAddAppointmentResponse {
-  id: string;
-  patient_id: string;
-  doctor_id: string;
-  visit_date: string;
-  reason: string;
-  note: string;
-  status: string;
-}
-
 export interface ILogInForm {
   userName: string;
   password: string;
 }
 
-export interface IRegisterForm {
-  userName: string;
-  password: string;
+export interface IRegisterForm extends ILogInForm {
   firstName: string;
   lastName: string;
 }

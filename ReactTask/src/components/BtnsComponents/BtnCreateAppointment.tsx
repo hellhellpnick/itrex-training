@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import plusImgSvg from './../../img/icons/icon-plus.svg';
-import { IBtnCreateAppointment } from '../../modules/Btns.modules';
+import { IBtnCreateAppointment } from '../../modules/Btns.modle';
 
 const Btn = styled.button`
   display: none;

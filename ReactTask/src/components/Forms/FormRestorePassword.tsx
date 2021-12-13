@@ -72,7 +72,7 @@ const FormRestorePassword: FunctionComponent = () => {
           <StylBoxViewContent view={!isHiddenForm}>
             <StylInformationText>
               An email has been sent to{' '}
-              <StylLinkPage link={<></>} path=''>
+              <StylLinkPage path=''>
                 {values.email}
               </StylLinkPage>
               . Check your inbox, and click the reset link provided.

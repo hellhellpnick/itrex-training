@@ -13,7 +13,7 @@ import emailImgSvg from './../../img/icons/icon-email.svg';
 import passwordlImgSvg from './../../img/icons/icon-lock.svg';
 import { regulEmail, regulPassword } from '../../constants';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
-import { ISignIn } from '../../modules/Forms.modules';
+import { ISignIn } from '../../modules/Forms.model';
 
 const FormSignUp = () => {
   const { loginUser } = useActionsWithRedux();

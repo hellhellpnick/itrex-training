@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { IBtnPatientsHiddenMob } from '../../modules/Btns.modules';
+import { IBtnPatients } from '../../modules/Btns.modle';
 
 interface IBtn {
   active: boolean;
@@ -43,7 +43,7 @@ const Btn = styled.button<IBtn>`
   }
 `;
 
-const BtnPatientsHiddenMob: FunctionComponent<IBtnPatientsHiddenMob> = ({
+const BtnPatientsHiddenMob: FunctionComponent<IBtnPatients> = ({
   text,
   active,
 }) => {

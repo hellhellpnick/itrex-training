@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { StylBoxAlert, StylSubTitleAlert, StylTextAlert } from '..';
-import { IAlertMessage } from '../../modules/AlertMessage.models';
+import { IAlertMessage } from '../../modules/AlertMessage.model';
 
 const AlertMessage: FunctionComponent<IAlertMessage> = ({
   showMessage,

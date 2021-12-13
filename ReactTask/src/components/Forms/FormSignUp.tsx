@@ -7,7 +7,7 @@ import passwordlImgSvg from './../../img/icons/icon-lock.svg';
 import checkImgSvg from './../../img/icons/icon-check.svg';
 import { regulEmail, regulPassword } from '../../constants';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
-import { ISignUp } from '../../modules/Forms.modules';
+import { ISignUp } from '../../modules/Forms.model';
 
 const FormSignUp: FunctionComponent = () => {
   const { registerUser } = useActionsWithRedux();

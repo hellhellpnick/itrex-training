@@ -5,7 +5,7 @@ import iconCloseSvg from './../../img/icons/icon-close.svg';
 
 interface IStylBoxAlert {
   showMessage: boolean;
-  err: boolean;
+  err?: boolean;
 }
 
 const StylBoxAlert = styled.div<IStylBoxAlert>`

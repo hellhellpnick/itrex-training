@@ -14,7 +14,7 @@ import {
   StylBtnChooseAction,
 } from '../index';
 
-import { ICardPatientProfile } from '../../modules/CardPatientProfile.modules';
+import { ICardPatientProfile } from '../../modules/CardPatientProfile.model';
 
 const CardPatientProfile: FunctionComponent<ICardPatientProfile> = ({
   imgIconDescription,

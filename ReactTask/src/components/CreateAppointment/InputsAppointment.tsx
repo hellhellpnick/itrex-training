@@ -26,7 +26,7 @@ import {
   IInputAppointment,
   IOccupationDoctorArr,
   INameDoctorArr,
-} from '../../modules/CreateAppointment.modules';
+} from '../../modules/CreateAppointment.model';
 
 const InputsAppointment: FunctionComponent<IInputAppointment> = ({
   setFilledData,
@@ -90,7 +90,7 @@ const InputsAppointment: FunctionComponent<IInputAppointment> = ({
               if (event.key === 'Enter') {
                 if (
                   !isOcuppationDoctorArr.includes(
-                    isValueInputOccupation as never
+                    isValueInputOccupation as any
                   )
                 ) {
                   setValueInputOccupation('');
@@ -134,7 +134,7 @@ const InputsAppointment: FunctionComponent<IInputAppointment> = ({
             }
             onKeyPress={(e) => {
               if (e.key === 'Enter') {
-                if (!isNameDoctorsArr.includes(isValueInputName as never)) {
+                if (!isNameDoctorsArr.includes(isValueInputName as any)) {
                   setValueInputName('');
                 }
 

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { StylAvatarActive, StylAvatarImg } from '../index';
-import { IAvatarActive } from '../../modules/HeaderProfile.modules';
+import { IAvatarActive } from '../../modules/HeaderProfile.model';
 
 const AvatarActive: FunctionComponent<IAvatarActive> = ({
   src,

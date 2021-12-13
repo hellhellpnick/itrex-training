@@ -7,11 +7,11 @@ import { FormSignUp } from '../components';
 import theme from '../theme';
 
 jest.mock('./../redux/patient/patientOperations', () => ({}));
-type Default = string;
+
 describe('SignUpForm', () => {
   test('Submit form "Sign up"', async () => {
     const registerUser = jest.fn((values) => {});
-    jest.spyOn<any, Default>(useActionsWithRedux, 'default').mockImplementation(() => ({
+    jest.spyOn<any, string>(useActionsWithRedux, 'default').mockImplementation(() => ({
       registerUser,
     }));
 

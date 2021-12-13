@@ -6,7 +6,7 @@ import {
   StylWrapperFormInput,
   StylInputForm,
 } from './index';
-import { IFormInput } from '../../../modules/Forms.modules';
+import { IFormInput } from '../../../modules/Forms.model';
 
 const FormInput: FunctionComponent<IFormInput> = ({
   type,

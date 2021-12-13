@@ -9,7 +9,7 @@ import {
   loginError,
   getUserProfileError,
 } from './formFeaturesActions';
-import { IProfile } from '../../modules/Redux.modules';
+import { IProfile } from '../../modules/Redux.model';
 
 const user = createReducer<IProfile>({} as IProfile, {
   [getUserProfileSuccess.type]: (

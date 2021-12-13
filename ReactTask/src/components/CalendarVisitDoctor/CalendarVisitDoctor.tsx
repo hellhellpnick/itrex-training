@@ -16,7 +16,7 @@ import {
 } from '../../constants/index';
 
 import arrowImg from './../../img/icons/icon-arrow-right.svg';
-import { ICalendarVisitDoctor } from '../../modules/CalendarVisitDoctor.modules';
+import { ICalendarVisitDoctor } from '../../modules/CalendarVisitDoctor.model';
 
 const CalendarVisitDoctor: FunctionComponent<ICalendarVisitDoctor> = ({
   changeData,
@@ -40,7 +40,7 @@ const CalendarVisitDoctor: FunctionComponent<ICalendarVisitDoctor> = ({
     return startDate === 0 ? 7 : startDate;
   }
 
-  const isLeapYear = (year: any) => {
+  const isLeapYear = (year: number) => {
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
   };
 

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { StylTextContent, StylBoxColumn, LinkPage } from '../index';
-import { IBoxContentLink } from '../../modules/Boxes.modules';
+import { IBoxContentLink } from '../../modules/Boxes.model';
 
 const BoxContentLink: FunctionComponent<IBoxContentLink> = ({
   text,

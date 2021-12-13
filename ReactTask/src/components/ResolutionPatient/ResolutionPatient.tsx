@@ -9,7 +9,7 @@ import {
   StylBtnCloseForm,
   StylBtnActionForm,
 } from '..';
-import { IResolutionPatient } from '../../modules/ResolutionPatient.modules';
+import { IResolutionPatient } from '../../modules/ResolutionPatient.model';
 
 const ResolutionPatient: FunctionComponent<IResolutionPatient> = ({
   showContent,
@@ -20,7 +20,7 @@ const ResolutionPatient: FunctionComponent<IResolutionPatient> = ({
 }) => {
   const [isTextArea, setTextArea] = useState(textAreaMessage);
 
-  const changeArea = (e: any) => {
+  const changeArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextArea(e.currentTarget.value);
   };
 

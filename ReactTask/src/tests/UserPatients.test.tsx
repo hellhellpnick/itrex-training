@@ -40,12 +40,11 @@ jest.mock('./../redux/patient/patientOperations', () => ({
   changeIsAddedState: () => {},
 }));
 
-type Default = string;
 describe('User patients', () => {
   const mock = new MockAdapter(axios);
   test('Patients list', async () => {
     jest
-      .spyOn<any, Default>(useActionsWithRedux, 'default')
+      .spyOn<any, string>(useActionsWithRedux, 'default')
       .mockImplementation(() => ({
         appointments: [],
       }));

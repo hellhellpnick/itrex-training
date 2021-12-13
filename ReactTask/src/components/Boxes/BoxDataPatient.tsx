@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { StylBoxDoctor, StylBoxImgInfo, StylTextData } from '../index';
 import timeImgSvg from './../../img/icons/icon-time.svg';
-import { IBoxDataPatient } from '../../modules/Boxes.modules';
+import { IBoxDataPatient } from '../../modules/Boxes.model';
 
 const BoxDataPatient: FunctionComponent<IBoxDataPatient> = ({ data }) => {
   return (

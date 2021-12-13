@@ -1,5 +1,5 @@
 export interface IAlertMessage {
   textMessage: string;
-  statusErr: boolean | any;
+  statusErr?: boolean;
   showMessage: boolean;
 }

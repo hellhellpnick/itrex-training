@@ -8,11 +8,11 @@ import { FormSignIn } from '../components';
 import theme from '../theme';
 
 jest.mock('./../redux/patient/patientOperations', () => ({}));
-type Default = string;
+
 describe('SignInForm', () => {
   test('Submit form "Sign in"', async () => {
     const loginUser = jest.fn((values) => {});
-    jest.spyOn<any, Default>(useActionsWithRedux, 'default').mockImplementation(() => ({
+    jest.spyOn<any, string>(useActionsWithRedux, 'default').mockImplementation(() => ({
       loginUser,
     }));
 

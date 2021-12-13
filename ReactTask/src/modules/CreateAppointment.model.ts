@@ -8,10 +8,6 @@ export interface IInputAppointment {
   setNoteUser: (data: string) => void;
 }
 
-export interface IDoctorsBySpecializations {
-  item: { id: string; first_name: string; last_name: string };
-}
-
 export interface INameDoctor {
   id: string;
   first_name: string;

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { IBtnPatients } from '../../modules/Btns.modules';
+import { IBtnPatients } from '../../modules/Btns.modle';
 
 interface IBtn {
   active: boolean;

@@ -14,7 +14,7 @@ import {
 } from '..';
 import heartImgSvg from './../../img/icons/icon-heart.svg';
 import { getPatients } from '../../redux/patient/patientOperations';
-import { IMainPatientsAppointment } from '../../modules/MainPatientsAppointment.modules';
+import { IMainPatientsAppointment } from '../../modules/MainPatientsAppointment.model';
 
 const MainPatientsAppointment: FunctionComponent<IMainPatientsAppointment> = ({
   switchContent,

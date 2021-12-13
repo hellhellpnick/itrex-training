@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { StylBoxDoctor, StylTextInfo } from '../index';
-import { IBoxInfoPatient } from '../../modules/Boxes.modules';
+import { IBoxInfoPatient } from '../../modules/Boxes.model';
 
 const BoxInfoPatient: FunctionComponent<IBoxInfoPatient> = ({
   info,

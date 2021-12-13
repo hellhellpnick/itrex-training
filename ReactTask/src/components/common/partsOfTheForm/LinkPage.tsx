@@ -8,7 +8,7 @@ interface ILinkPage {
 }
 const LinkPage: FunctionComponent<ILinkPage> = ({ link, path }) => {
   return (
-    <StylLinkPage link={<></>} path=''>
+    <StylLinkPage  path=''>
       <NavLink to={path}>{link}</NavLink>
     </StylLinkPage>
   );

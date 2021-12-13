@@ -6,7 +6,7 @@ interface IStylFilterTypePatient {
 }
 
 interface IStylLinkPage {
-  link: ReactNode;
+  link?: ReactNode;
   path: string;
 }
 

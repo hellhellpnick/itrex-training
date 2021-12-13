@@ -5,9 +5,7 @@ export interface ISignIn {
   password: string;
 }
 
-export interface ISignUp {
-  userName: string;
-  password: string;
+export interface ISignUp extends ISignIn {
   firstName: string;
   lastName: string;
   checkPassword: string;
