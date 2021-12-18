@@ -1,4 +1,4 @@
-import  { FunctionComponent, Suspense } from 'react';
+import { FunctionComponent, Suspense } from 'react';
 import { Switch, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Loader } from './components';
@@ -18,11 +18,7 @@ const App: FunctionComponent = () => {
               <Switch>
                 <Router />
               </Switch>
-              <AlertMessage
-                statusErr={false}
-                showMessage={false}
-                textMessage='We show this message if something awesome has happened. You are awesome too'
-              />
+              <AlertMessage />
               <ResolutionPatient
                 changeShowResolution={() => {}}
                 showContent={false}

@@ -2,16 +2,16 @@ import { FunctionComponent, useEffect } from 'react';
 import {
   StylBoxPatients,
   HeaderProfile,
-  MainPatientsAppointment,
-} from '../components';
+  UserResolutionList,
+} from '../components/';
 
 import avatarImg from './../img/avatars/avatar-patient.png';
 
-interface IPatientProfile {
+interface IUserResolution {
   title: string;
 }
 
-const PatientProfile: FunctionComponent<IPatientProfile> = ({ title }) => {
+const UserResolution: FunctionComponent<IUserResolution> = ({ title }) => {
   useEffect(() => {
     document.title = title || '';
   }, [title]);
@@ -19,9 +19,9 @@ const PatientProfile: FunctionComponent<IPatientProfile> = ({ title }) => {
   return (
     <StylBoxPatients>
       <HeaderProfile avatar={avatarImg} />
-      <MainPatientsAppointment />
+      <UserResolutionList />
     </StylBoxPatients>
   );
 };
 
-export default PatientProfile;
+export default UserResolution;

@@ -7,6 +7,7 @@ import { FormRestorePassword, FormSignIn, FormSignUp } from './Forms';
 //card patient profile doctor
 import {
   CardPatientProfile,
+  CardDoctorProfile,
   StylBoxCardPatient,
   StylBoxColumnInfo,
   StylBoxImgPatient,
@@ -173,7 +174,33 @@ import {
   StylBodyCalendarVisitDoctor,
 } from './CalendarVisitDoctor';
 
+//not found
+import { StylBoxCenter, StylImgNotFound, StylTitleNotFound } from './NotFound';
+
+//user resolution
+import {
+  StylTable,
+  StylTableHead,
+  StylTableHeadRow,
+  StylTableHeaderColumn,
+  StylTableRow,
+  StylTableCell,
+  StyledArrow,
+  UserResolutionList,
+} from './UserResolutionList';
+
 export {
+  StylTable,
+  StylTableHead,
+  StylTableHeadRow,
+  StylTableHeaderColumn,
+  StylTableRow,
+  StylTableCell,
+  StyledArrow,
+  UserResolutionList,
+  StylBoxCenter,
+  StylImgNotFound,
+  StylTitleNotFound,
   StylBoxCenterResolutionForm,
   StylTitleResolutionForm,
   StylNamePersonResolutionForm,
@@ -261,6 +288,7 @@ export {
   BtnSubmitForm,
   CardPatientProfile,
   StylBoxCardPatient,
+  CardDoctorProfile,
   StylBoxColumnInfo,
   StylBoxImgPatient,
   StylBoxRowLine,

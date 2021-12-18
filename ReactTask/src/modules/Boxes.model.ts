@@ -1,7 +1,7 @@
 export interface IBoxContentLink {
   text: string;
   link: string;
-  path: string;
+  to: string;
 }
 export interface IBoxDataPatient {
   data: string;

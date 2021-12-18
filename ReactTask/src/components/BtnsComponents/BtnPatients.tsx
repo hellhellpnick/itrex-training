@@ -1,4 +1,5 @@
-import  { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { IBtnPatients } from '../../modules/Btns.modle';
 
@@ -6,7 +7,7 @@ interface IBtn {
   active: boolean;
 }
 
-const Btn = styled.button<IBtn>`
+const Btn = styled(NavLink)<IBtn>`
   cursor: pointer;
   max-width: 120px;
   min-height: 40px;
@@ -14,6 +15,8 @@ const Btn = styled.button<IBtn>`
   padding: 12px 0;
   font-size: 15px;
   font-weight: 600;
+  text-decoration: none;
+  text-align: center;
   font-family: ${(props) => props.theme.typography.textFamily.main};
   color: ${(props) =>
     props.active ? props.theme.palette.main : props.theme.palette.text.second};
@@ -41,8 +44,16 @@ const Btn = styled.button<IBtn>`
   }
 `;
 
-const BtnPatients: FunctionComponent<IBtnPatients> = ({ text, active }) => {
-  return <Btn active={active}>{text}</Btn>;
+const BtnPatients: FunctionComponent<IBtnPatients> = ({
+  text,
+  active,
+  path,
+}) => {
+  return (
+    <Btn active={active} to={path}>
+      {text}
+    </Btn>
+  );
 };
 
 export default BtnPatients;

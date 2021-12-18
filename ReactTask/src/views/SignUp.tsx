@@ -1,4 +1,4 @@
-import  { FunctionComponent, useEffect } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import {
   FormSignUp,
   BoxContentLink,
@@ -24,7 +24,7 @@ const SignUp: FunctionComponent<ISignUp> = ({ title }) => {
           <BoxContentLink
             text='Already have an account?'
             link='Sign in'
-            path={routes.signInPage}
+            to={routes.signInPage}
           />
         </StylBoxForm>
       </StylBoxMain>

@@ -1,17 +1,19 @@
-import  { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { IBtnPatients } from '../../modules/Btns.modle';
 
 interface IBtn {
   active: boolean;
+  to: string;
 }
 
-const Btn = styled.button<IBtn>`
+const Btn = styled(NavLink)<IBtn>`
   display: none;
 
   @media (min-width: 1024px) {
-    display: block;
     cursor: pointer;
+    display: block;
     max-width: 160px;
     min-height: 40px;
     width: 100%;
@@ -19,6 +21,8 @@ const Btn = styled.button<IBtn>`
     font-size: 15px;
     font-weight: 600;
     font-family: ${(props) => props.theme.typography.textFamily.main};
+    text-decoration: none;
+    text-align: center;
     color: ${(props) =>
       props.active
         ? props.theme.palette.main
@@ -46,8 +50,13 @@ const Btn = styled.button<IBtn>`
 const BtnPatientsHiddenMob: FunctionComponent<IBtnPatients> = ({
   text,
   active,
+  path,
 }) => {
-  return <Btn active={active}>{text}</Btn>;
+  return (
+    <Btn active={active} to={path}>
+      {text}
+    </Btn>
+  );
 };
 
 export default BtnPatientsHiddenMob;

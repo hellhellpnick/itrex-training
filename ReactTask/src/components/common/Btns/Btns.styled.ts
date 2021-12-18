@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import iconDots from './../../../img/icons/icon-dots.svg';
+import iconDotsBlue from './../../../img/icons/icon-dots-blue.svg';
 
 interface IStylBtnSearch {
   imgSearch?: string;
@@ -59,12 +60,22 @@ const StylBtnMore = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
+  transition: all 0.2s ease;
+
   ::after {
     content: '';
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background-image: url(${iconDots});
+  }
+
+  @media (min-width: 1024px) {
+    &:hover {
+      &::after {
+        background-image: url(${iconDotsBlue});
+      }
+    }
   }
 `;
 

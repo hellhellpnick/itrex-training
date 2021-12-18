@@ -14,9 +14,9 @@ import {
   StylBtnChooseAction,
 } from '../index';
 
-import { ICardDoctorProfile } from '../../modules/CardPatientProfile.model';
+import { ICardPatientProfile } from '../../modules/CardPatientProfile.model';
 
-const CardPatientProfile: FunctionComponent<ICardDoctorProfile> = ({
+const CardDoctorProfile: FunctionComponent<ICardPatientProfile> = ({
   imgIconDescription,
   item,
 }) => {
@@ -36,12 +36,12 @@ const CardPatientProfile: FunctionComponent<ICardDoctorProfile> = ({
       <StylBoxRowLine>
         <StylBoxDoctor>
           <StylBoxImgPatient
-            src={item.doctor.photo}
-            alt={item.doctor.last_name}
+            src={item.patient.photo}
+            alt={item.patient.last_name}
           />
           <StylBoxColumnInfo>
             <StylTitleCard>
-              {item.doctor.first_name} {item.doctor.last_name}
+              {item.patient.first_name} {item.patient.last_name}
             </StylTitleCard>
             <StylSubTitleCard status={item.status}>
               {item.status}
@@ -71,4 +71,4 @@ const CardPatientProfile: FunctionComponent<ICardDoctorProfile> = ({
   );
 };
 
-export default CardPatientProfile;
+export default CardDoctorProfile;

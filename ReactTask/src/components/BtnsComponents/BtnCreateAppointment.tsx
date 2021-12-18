@@ -1,9 +1,10 @@
-import  { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { routes } from '../../Router';
 import plusImgSvg from './../../img/icons/icon-plus.svg';
-import { IBtnCreateAppointment } from '../../modules/Btns.modle';
 
-const Btn = styled.button`
+const Btn = styled(NavLink)`
   display: none;
 
   @media (min-width: 1024px) {
@@ -25,6 +26,7 @@ const Btn = styled.button`
     box-shadow: 0px 4px 32px rgb(218 228 255 / 16%);
     border: none;
     outline: none;
+    text-decoration: none;
     transition: all 0.2s ease;
 
     &:hover {
@@ -46,10 +48,8 @@ const Btn = styled.button`
   }
 `;
 
-const BtnCreateAppointment: FunctionComponent<IBtnCreateAppointment> = ({
-  cliclChangeBox,
-}) => {
-  return <Btn onClick={cliclChangeBox}>Create an appointment</Btn>;
+const BtnCreateAppointment: FunctionComponent = () => {
+  return <Btn to={routes.createAppointemtn}>Create an appointment</Btn>;
 };
 
 export default BtnCreateAppointment;

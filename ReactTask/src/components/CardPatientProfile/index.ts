@@ -1,4 +1,5 @@
 import CardPatientProfile from './CardPatientProfile';
+import CardDoctorProfile from './CardDoctorProfile';
 import {
   StylBoxCardPatient,
   StylBoxColumnInfo,
@@ -20,4 +21,5 @@ export {
   StylBoxRowLine,
   StylSubTitleCard,
   StylTitleCard,
+  CardDoctorProfile,
 };

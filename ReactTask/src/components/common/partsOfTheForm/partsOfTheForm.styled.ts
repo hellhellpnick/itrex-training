@@ -7,7 +7,7 @@ interface IStylFilterTypePatient {
 
 interface IStylLinkPage {
   link?: ReactNode;
-  path: string;
+  path?: string;
 }
 
 const StylArrowFromForm = styled.img`

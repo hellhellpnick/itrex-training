@@ -18,6 +18,7 @@ import {
   ITokens,
   IProfileWithData,
 } from '../../modules/Redux.model';
+import { alert } from '../err/alertAction';
 
 axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com';
 
@@ -39,14 +40,27 @@ const loginForm =
       const { data } = await axios.post<ITokens>('api/auth/login', credentials);
 
       token.set(data.access_token);
-
       dispatch(loginSuccess(data));
 
       const response = await axios.get<IProfileWithData>('/api/auth/profile');
       dispatch(getUserProfileSuccess(response.data));
+      dispatch(
+        alert({
+          show: true,
+          err: false,
+          message: 'Authorization was successful',
+        })
+      );
     } catch (error) {
       dispatch(loginError((error as Error).message));
       dispatch(getUserProfileError((error as Error).message));
+      dispatch(
+        alert({
+          show: true,
+          err: false,
+          message: 'With authorization problems',
+        })
+      );
     }
   };
 
@@ -66,9 +80,11 @@ const registerForm =
 
       const response = await axios.get<IProfileWithData>('/api/auth/profile');
       dispatch(getUserProfileSuccess(response.data));
+      //NotifySucces('Authorization was successful');
     } catch (error) {
       dispatch(registerError((error as Error).message));
       dispatch(getUserProfileError((error as Error).message));
+      //NotifyError('Registration completed successfully');
     }
   };
 

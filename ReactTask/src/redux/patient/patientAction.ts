@@ -14,4 +14,25 @@ const createPatientError = createAction(
   })
 );
 
-export { createPatientRequest, createPatientSuccess, createPatientError };
+const getResolutionsPatientRequest = createAction('doctor/getPatientRequest');
+const getResolutionsPatientSuccess = createAction(
+  'doctor/getPatientSuccess',
+  (date) => ({
+    payload: date,
+  })
+);
+const getResolutionsPatientError = createAction(
+  'doctor/getPatientError',
+  (date) => ({
+    payload: date,
+  })
+);
+
+export {
+  createPatientRequest,
+  createPatientSuccess,
+  createPatientError,
+  getResolutionsPatientRequest,
+  getResolutionsPatientSuccess,
+  getResolutionsPatientError,
+};

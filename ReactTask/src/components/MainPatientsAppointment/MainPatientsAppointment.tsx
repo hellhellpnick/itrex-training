@@ -1,4 +1,4 @@
-import  { useState, useEffect, FunctionComponent } from 'react';
+import { useState, useEffect, FunctionComponent } from 'react';
 import {
   StylBoxDoctor,
   StylBoxBtnPatients,
@@ -15,45 +15,55 @@ import {
 import heartImgSvg from './../../img/icons/icon-heart.svg';
 import { getPatients } from '../../redux/patient/patientOperations';
 import { IMainPatientsAppointment } from '../../modules/MainPatientsAppointment.model';
+import { routes } from '../../Router';
 
-const MainPatientsAppointment: FunctionComponent<IMainPatientsAppointment> = ({
-  switchContent,
-}) => {
-  const [appointments, setAppointments] = useState([]);
+const MainPatientsAppointment: FunctionComponent<IMainPatientsAppointment> =
+  () => {
+    const [isAppointments, setAppointments] = useState([]);
 
-  useEffect(() => {
-    getPatients().then((response) =>
-      setAppointments(response.data.appointments)
+    useEffect(() => {
+      getPatients().then((response) =>
+        setAppointments(response.data.appointments)
+      );
+    }, []);
+
+    return (
+      <StylBoxPatientContent>
+        <StylBoxBtnPatients>
+          <BtnPatients active={false} text='Profile' path={routes.profile} />
+          <BtnPatients
+            active={true}
+            text='Appointments '
+            path={routes.patientProfile}
+          />
+          <BtnPatientsHiddenMob
+            active={false}
+            text='Resolutions'
+            path={routes.patientResolution}
+          />
+        </StylBoxBtnPatients>
+        <StylBoxRowPadding>
+          <StylTitlePatients>My Appointments</StylTitlePatients>
+          <StylBoxDoctor>
+            <BoxFilter text='Show: ' filter='Upcoming' />
+            <BtnCreateAppointment />
+          </StylBoxDoctor>
+        </StylBoxRowPadding>
+        {!!isAppointments.length && (
+          <StylBoxPatientsList>
+            {isAppointments.map((item, index) => {
+              return (
+                <CardPatientProfile
+                  key={index}
+                  item={item}
+                  imgIconDescription={heartImgSvg}
+                />
+              );
+            })}
+          </StylBoxPatientsList>
+        )}
+      </StylBoxPatientContent>
     );
-  }, []);
-
-  return (
-    <StylBoxPatientContent>
-      <StylBoxBtnPatients>
-        <BtnPatients active={false} text='Profile' />
-        <BtnPatients active={true} text='Appointments  ' />
-        <BtnPatientsHiddenMob active={false} text='Resolutions  ' />
-      </StylBoxBtnPatients>
-      <StylBoxRowPadding>
-        <StylTitlePatients>My Appointments</StylTitlePatients>
-        <StylBoxDoctor>
-          <BoxFilter text='Show: ' filter='Upcoming' />
-          <BtnCreateAppointment cliclChangeBox={switchContent} />
-        </StylBoxDoctor>
-      </StylBoxRowPadding>
-      {!!appointments.length && (
-        <StylBoxPatientsList>
-          {appointments.map((item, index) => (
-            <CardPatientProfile
-              key={index}
-              item={item}
-              imgIconDescription={heartImgSvg}
-            />
-          ))}
-        </StylBoxPatientsList>
-      )}
-    </StylBoxPatientContent>
-  );
-};
+  };
 
 export default MainPatientsAppointment;

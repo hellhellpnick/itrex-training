@@ -1,8 +1,8 @@
 import { FunctionComponent, useEffect } from 'react';
 import {
+  CreateAppointment,
   StylBoxPatients,
   HeaderProfile,
-  MainPatientsAppointment,
 } from '../components';
 
 import avatarImg from './../img/avatars/avatar-patient.png';
@@ -19,7 +19,7 @@ const PatientProfile: FunctionComponent<IPatientProfile> = ({ title }) => {
   return (
     <StylBoxPatients>
       <HeaderProfile avatar={avatarImg} />
-      <MainPatientsAppointment />
+      <CreateAppointment />
     </StylBoxPatients>
   );
 };
