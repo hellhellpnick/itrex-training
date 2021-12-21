@@ -24,6 +24,7 @@ import {
   StylSubTitleAlert,
   StylTextAlert,
   AlertMessage,
+  StylBtnClose,
 } from './AlertMessage';
 
 //form form input
@@ -190,6 +191,7 @@ import {
 } from './UserResolutionList';
 
 export {
+  StylBtnClose,
   StylTable,
   StylTableHead,
   StylTableHeadRow,

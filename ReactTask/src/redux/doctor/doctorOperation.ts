@@ -12,8 +12,10 @@ import {
   IResolution,
   IResolutionResponse,
 } from './../../modules/ResolutionPatient.model';
+import { MessageSuccess, MessageError } from './../../constants';
+import { alert } from '../err/AlertAction';
 
-axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com';
+axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com/api/';
 const localAuth = localStorage.getItem('persist:auth') || '{}';
 const jsonAuth = JSON.parse(localAuth);
 axios.defaults.headers.common.Authorization = jsonAuth.token;
@@ -32,11 +34,13 @@ export const createResolution =
 
     try {
       const { data } = await axios.post<IResolutionResponse>(
-        '/api/resolutions',
+        '/resolutions',
         values
       );
       dispatch(createResolutionSuccess(data));
+      dispatch(alert(MessageSuccess));
     } catch (error) {
+      dispatch(alert(MessageError));
       dispatch(createResolutionError((error as Error).message));
     }
   };
@@ -46,9 +50,11 @@ export const deleteAppointment =
     dispatch(deleteAppointmentRequest());
 
     try {
-      await axios.delete<string>(`/api/appointments/${appointmentId}`);
+      await axios.delete<string>(`/appointments/${appointmentId}`);
       dispatch(deleteAppointmentSuccess(appointmentId));
+      dispatch(alert(MessageSuccess));
     } catch (error) {
+      dispatch(alert(MessageError));
       dispatch(deleteAppointmentError((error as Error).message));
     }
   };

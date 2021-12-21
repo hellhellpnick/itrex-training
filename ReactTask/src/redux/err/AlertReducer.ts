@@ -1,5 +1,5 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
-import { alert } from './alertAction';
+import { alert } from './AlertAction';
 import { IAlertMessage } from '../../modules/AlertMessage';
 
 const errors = createReducer({} as IAlertMessage, {

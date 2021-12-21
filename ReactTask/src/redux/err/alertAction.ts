@@ -4,5 +4,4 @@ const alert = createAction('user/Alert', (payload) => ({
   payload,
 }));
 
-
 export { alert };

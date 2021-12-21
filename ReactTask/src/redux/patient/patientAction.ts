@@ -14,15 +14,15 @@ const createPatientError = createAction(
   })
 );
 
-const getResolutionsPatientRequest = createAction('doctor/getPatientRequest');
+const getResolutionsPatientRequest = createAction('patient/getPatientRequest');
 const getResolutionsPatientSuccess = createAction(
-  'doctor/getPatientSuccess',
+  'patient/getPatientSuccess',
   (date) => ({
     payload: date,
   })
 );
 const getResolutionsPatientError = createAction(
-  'doctor/getPatientError',
+  'patient/getPatientError',
   (date) => ({
     payload: date,
   })

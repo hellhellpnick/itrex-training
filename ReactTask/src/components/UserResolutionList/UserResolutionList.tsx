@@ -24,6 +24,7 @@ import arrowDownSvg from './../../img/icons/icon-arrow-down.svg';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { resolutionTableColumns } from './resolutionTableSchema';
 import { routes } from '../../Router';
+import { IPatientResolutions } from '../../modules/CardPatientProfile.model';
 
 const UserResolutionList: FunctionComponent = () => {
   const { getResolutionsPatientHandler, resolutionsPatient } =
@@ -33,7 +34,7 @@ const UserResolutionList: FunctionComponent = () => {
   }, [getResolutionsPatientHandler]);
 
   const columns = useMemo(() => resolutionTableColumns, []);
-  const data = resolutionsPatient.map((resolution: any) => ({
+  const data = resolutionsPatient.map((resolution: IPatientResolutions) => ({
     col1: resolution.doctor.first_name,
     col2: resolution.doctor.last_name,
     col3: resolution.resolution,

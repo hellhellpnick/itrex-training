@@ -10,6 +10,7 @@ import {
 } from '../redux/formFeatures/formFeaturesOperations';
 import { IPatientResolutions } from './../modules/CardPatientProfile.model';
 import { IAlertMessage } from '../modules/AlertMessage';
+import { alert } from '../redux/err/AlertAction';
 
 interface IProfile {
   authForm: {
@@ -37,7 +38,7 @@ function useActionsWithRedux() {
     (state: IPatientState) => state.patientList.resolutions
   );
   const alertMessage = useSelector(
-    (state: IAlertMessage | any) => state.alertMessage
+    (state: IAlertMessage) => state.alertMessage
   );
 
   const createPatient = useCallback(
@@ -46,6 +47,10 @@ function useActionsWithRedux() {
     },
     [dispatch]
   );
+
+  const alertHidden = useCallback(() => {
+    dispatch(alert({}));
+  }, [dispatch]);
 
   const loginUser = useCallback(
     (data) => {
@@ -73,6 +78,7 @@ function useActionsWithRedux() {
     getResolutionsPatientHandler,
     resolutionsPatient,
     alertMessage,
+    alertHidden,
   };
 }
 
