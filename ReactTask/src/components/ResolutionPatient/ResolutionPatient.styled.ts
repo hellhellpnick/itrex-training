@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import iconUserSvg from './../../img/icons/icon-user.svg';
-import iconCloseSvg from './../../img/icons/icon-close-grey.svg';
-import iconScheduleSvg from './../../img/icons/icon-shedule.svg';
-import iconCheckSvg from './../../img/icons/icon-check-white.svg';
+import iconUserSvg from './../../assets/icons/icon-user.svg';
+import iconCloseSvg from './../../assets/icons/icon-close-grey.svg';
+import iconScheduleSvg from './../../assets/icons/icon-shedule.svg';
+import iconCheckSvg from './../../assets/icons/icon-check-white.svg';
 
 interface IStylBoxCenterResolutionForm {
   showResolution: boolean;

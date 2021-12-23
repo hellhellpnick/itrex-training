@@ -20,7 +20,7 @@ import {
   StylBtnMore,
 } from './../';
 import moment from 'moment';
-import arrowDownSvg from './../../img/icons/icon-arrow-down.svg';
+import arrowDownSvg from './../../assets/icons/icon-arrow-down.svg';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { resolutionTableColumns } from './resolutionTableSchema';
 import { routes } from '../../Router';
@@ -50,14 +50,9 @@ const UserResolutionList: FunctionComponent = () => {
     <>
       <StylBoxPatientContent>
         <StylBoxBtnPatients>
-          <BtnPatients active={false} text='Profile' path={routes.profile} />
-          <BtnPatients
-            active={false}
-            text='Appointments '
-            path={routes.patientProfile}
-          />
+          <BtnPatients text='Profile' path={routes.profile} />
+          <BtnPatients text='Appointments ' path={routes.patientProfile} />
           <BtnPatientsHiddenMob
-            active={true}
             text='Resolutions  '
             path={routes.patientResolution}
           />

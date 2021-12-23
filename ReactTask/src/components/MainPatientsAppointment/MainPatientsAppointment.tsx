@@ -12,7 +12,7 @@ import {
   StylTitlePatients,
   StylBoxPatientsList,
 } from '..';
-import heartImgSvg from './../../img/icons/icon-heart.svg';
+import heartImgSvg from './../../assets/icons/icon-heart.svg';
 import { getPatients } from '../../redux/patient/patientOperations';
 import { IMainPatientsAppointment } from '../../modules/MainPatientsAppointment.model';
 import { routes } from '../../Router';
@@ -30,14 +30,9 @@ const MainPatientsAppointment: FunctionComponent<IMainPatientsAppointment> =
     return (
       <StylBoxPatientContent>
         <StylBoxBtnPatients>
-          <BtnPatients active={false} text='Profile' path={routes.profile} />
-          <BtnPatients
-            active={true}
-            text='Appointments '
-            path={routes.patientProfile}
-          />
+          <BtnPatients text='Profile' path={routes.profile} />
+          <BtnPatients text='Appointments ' path={routes.patientProfile} />
           <BtnPatientsHiddenMob
-            active={false}
             text='Resolutions'
             path={routes.patientResolution}
           />

@@ -15,6 +15,7 @@ import {
 } from '../index';
 
 import { ICardDoctorProfile } from '../../modules/CardPatientProfile.model';
+import { deletePatient } from '../../redux/patient/patientOperations';
 
 const CardPatientProfile: FunctionComponent<ICardDoctorProfile> = ({
   imgIconDescription,
@@ -29,10 +30,11 @@ const CardPatientProfile: FunctionComponent<ICardDoctorProfile> = ({
 
   const removeCard = () => {
     boxEl.current!.remove();
+    deletePatient(item.id);
   };
 
   return (
-    <StylBoxCardPatient ref={boxEl} data-testid={item.id}>
+    <StylBoxCardPatient ref={boxEl} data-testid={item.id} id={item.id}>
       <StylBoxRowLine>
         <StylBoxDoctor>
           <StylBoxImgPatient

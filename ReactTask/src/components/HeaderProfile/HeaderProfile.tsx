@@ -9,7 +9,7 @@ import {
   StylLogo,
 } from '..';
 
-import logoSitePng from './../../img/logo.png';
+import logoSitePng from './../../assets/logo.png';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { IHeaderProfile } from '../../modules/HeaderProfile.model';
 

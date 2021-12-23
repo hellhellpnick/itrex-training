@@ -11,7 +11,15 @@ const AlertMessage: FunctionComponent = () => {
   const { alertMessage, alertHidden } = useActionsWithRedux();
 
   return (
-    <StylBoxAlert err={alertMessage.err} showMessage={alertMessage.show}>
+    <StylBoxAlert
+      err={alertMessage.err}
+      showMessage={alertMessage.show}
+      className={
+        alertMessage.show
+          ? 'animate__animated  animate__backInLeft'
+          : 'animate__animated  animate__backOutLeft'
+      }
+    >
       <StylBtnClose type='button' onClick={alertHidden} />
       <StylSubTitleAlert>
         {alertMessage.err

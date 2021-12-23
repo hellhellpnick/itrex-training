@@ -5,7 +5,7 @@ import {
   StylTitleNotFound,
 } from '../components';
 
-import notFound from './../img/404.png';
+import notFound from './../assets/404.png';
 
 interface INotFound {
   title: string;

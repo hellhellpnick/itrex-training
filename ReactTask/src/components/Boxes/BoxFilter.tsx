@@ -8,8 +8,8 @@ import {
   StylTextFilterPatient,
 } from '../index';
 
-import filterImgSvg from './../../img/icons/icon-filter.svg';
-import arrowImgSvg from './../../img/icons/icon-arrow-up.svg';
+import filterImgSvg from './../../assets/icons/icon-filter.svg';
+import arrowImgSvg from './../../assets/icons/icon-arrow-up.svg';
 import { IBoxFilter } from '../../modules/Boxes.model';
 
 const BoxFilter: FunctionComponent<IBoxFilter> = ({ text, filter }) => {

@@ -1,4 +1,4 @@
-import  {
+import {
   useEffect,
   useState,
   MouseEvent,
@@ -32,6 +32,7 @@ const InputsAppointment: FunctionComponent<IInputAppointment> = ({
   setFilledData,
   setDoctorChoose,
   setNoteUser,
+  setReasonUser,
 }) => {
   const [isOcuppationDoctorArr, setOcuppationDoctorArr] =
     useState<IOccupationDoctorArr>([]);
@@ -89,9 +90,7 @@ const InputsAppointment: FunctionComponent<IInputAppointment> = ({
             onKeyPress={(event) => {
               if (event.key === 'Enter') {
                 if (
-                  !isOcuppationDoctorArr.includes(
-                    isValueInputOccupation as any
-                  )
+                  !isOcuppationDoctorArr.includes(isValueInputOccupation as any)
                 ) {
                   setValueInputOccupation('');
                 }
@@ -171,6 +170,20 @@ const InputsAppointment: FunctionComponent<IInputAppointment> = ({
             placeholder='Leave a note if needed'
             onChange={(e: FormEvent<HTMLInputElement>) =>
               setNoteUser(e.currentTarget.value)
+            }
+          />
+        </StylBoxColumnFlex>
+      </StylBoxColumnFlexMargin>
+      <StylBoxColumnFlexMargin dataReady={true}>
+        <StylTitleVisitDoctor>Reason</StylTitleVisitDoctor>
+        <StylBoxColumnFlex>
+          <StylInputVisitDoctor
+            id='userReason'
+            role='userReason'
+            data-testid='userReason'
+            placeholder='Leave a note if needed'
+            onChange={(e: FormEvent<HTMLInputElement>) =>
+              setReasonUser(e.currentTarget.value)
             }
           />
         </StylBoxColumnFlex>

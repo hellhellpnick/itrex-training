@@ -24,6 +24,7 @@ const CreateAppointment = () => {
     [isFilledData, setFilledData] = useState(false),
     [isPossibleTimeArr, setPossibleTimeArr] = useState([]),
     [isNoteUser, setNoteUser] = useState('stomach-ache'),
+    [isReasonUser, setReasonUser] = useState('stomach-ache'),
     [isTimeChooseCheckbox, setTimeChooseCheckbox] = useState(''),
     [isTimeSelect, setTimeSelect] = useState(''),
     [isChooseUser, setChooseUser] = useState(''),
@@ -50,10 +51,11 @@ const CreateAppointment = () => {
   const createAppointmentUser = () => {
     const obj = {
       date: isTimeSelect,
-      reason: isNoteUser,
+      reason: isReasonUser,
       note: isNoteUser,
       doctorID: isDoctorChoose,
     };
+
     createPatient(obj);
   };
 
@@ -65,6 +67,7 @@ const CreateAppointment = () => {
           setFilledData={setFilledData}
           setDoctorChoose={chageDoctorChoose}
           setNoteUser={setNoteUser}
+          setReasonUser={setReasonUser}
         />
         <StylItemChooseDoctor contentText='Choose a day for an appointment'>
           <StylBoxColumnFlexMargin dataReady={isFilledData}>

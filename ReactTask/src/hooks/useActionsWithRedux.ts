@@ -43,14 +43,21 @@ function useActionsWithRedux() {
 
   const createPatient = useCallback(
     (data) => {
+      console.log(data);
       dispatch(addPatient(data));
     },
     [dispatch]
   );
 
   const alertHidden = useCallback(() => {
-    dispatch(alert({}));
-  }, [dispatch]);
+    dispatch(
+      alert({
+        show: false,
+        err: alertMessage.err,
+        message: alertMessage.message,
+      })
+    );
+  }, [dispatch, alertMessage]);
 
   const loginUser = useCallback(
     (data) => {

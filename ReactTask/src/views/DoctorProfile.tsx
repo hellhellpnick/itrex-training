@@ -14,8 +14,8 @@ import {
   StylBoxPatientsList,
 } from '../components';
 
-import avatarDoctorImg from '../img/avatars/avatar-doctor.png';
-import scheduleImgSvg from './../img/icons/icon-shedule.svg';
+import avatarDoctorImg from '../assets/avatars/avatar-doctor.png';
+import scheduleImgSvg from './../assets/icons/icon-shedule.svg';
 import { getDoctors } from '../redux/doctor/doctorOperation';
 import useActionsWithRedux from '../hooks/useActionsWithRedux';
 import { routes } from '../Router';
@@ -42,12 +42,8 @@ const DoctorProfile: FunctionComponent<IDoctorProfile> = ({ title }) => {
 
       <StylBoxPatientContent>
         <StylBoxBtnPatients>
-          <BtnPatients
-            active={true}
-            text='Patients'
-            path={routes.patientsDoctor}
-          />
-          <BtnPatients active={false} text='Resolutions ' path='*' />
+          <BtnPatients text='Patients' path={routes.patientsDoctor} />
+          <BtnPatients text='Resolutions ' path='*' />
         </StylBoxBtnPatients>
         <StylBoxRowPadding>
           <StylTitlePatients>My patients</StylTitlePatients>
