@@ -80,7 +80,7 @@ const StylBoxCardPatient = styled.article`
   margin-bottom: 24px;
 
   @media (min-width: 1024px) {
-    max-width: 390px;
+    max-width: 350px;
     padding: 32px;
     margin-right: 20px;
   }
@@ -104,6 +104,7 @@ const StylSubTitleCard = styled.h2<IStylSubTitleCard>`
   align-self: ${(props) => !props.status && 'flex-start'};
   max-width: 160px;
   padding-left: ${(props) => props.status && '16px'};
+  align-self: flex-start;
 
   ::after {
     content: '';
@@ -115,12 +116,12 @@ const StylSubTitleCard = styled.h2<IStylSubTitleCard>`
     height: 8px;
     border-radius: 50%;
     background-color: ${(props) =>
-      props.status === 'success'
+      props.status === 'confirmed'
         ? props.theme.palette.backgroundColor.second
-        : props.status === 'cancel'
+        : props.status === 'canceled'
         ? props.theme.palette.error.text
-        : props.theme.palette.text.second
-        ? props.status === ''
+        : props.status === 'waiting'
+        ? props.theme.palette.text.second
         : ''};
   }
 

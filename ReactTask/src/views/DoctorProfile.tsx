@@ -1,4 +1,4 @@
-import  { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { BoxFilter, BoxSearch } from '../components/Boxes';
 
 import {
@@ -9,15 +9,16 @@ import {
   StylBoxRowPadding,
   StylTitlePatients,
   BtnPatients,
-  CardPatientProfile,
+  CardDoctorProfile,
   HeaderProfile,
   StylBoxPatientsList,
 } from '../components';
 
 import avatarDoctorImg from '../img/avatars/avatar-doctor.png';
 import scheduleImgSvg from './../img/icons/icon-shedule.svg';
-import { getDoctors } from '../redux/patient/patientOperations';
+import { getDoctors } from '../redux/doctor/doctorOperation';
 import useActionsWithRedux from '../hooks/useActionsWithRedux';
+import { routes } from '../Router';
 
 interface IDoctorProfile {
   title: string;
@@ -41,8 +42,12 @@ const DoctorProfile: FunctionComponent<IDoctorProfile> = ({ title }) => {
 
       <StylBoxPatientContent>
         <StylBoxBtnPatients>
-          <BtnPatients active={true} text='Patients' />
-          <BtnPatients active={false} text='Resolutions  ' />
+          <BtnPatients
+            active={true}
+            text='Patients'
+            path={routes.patientsDoctor}
+          />
+          <BtnPatients active={false} text='Resolutions ' path='*' />
         </StylBoxBtnPatients>
         <StylBoxRowPadding>
           <StylTitlePatients>My patients</StylTitlePatients>
@@ -55,7 +60,7 @@ const DoctorProfile: FunctionComponent<IDoctorProfile> = ({ title }) => {
           <StylBoxPatientsList>
             {isAppointments.map((item, index) => {
               return (
-                <CardPatientProfile
+                <CardDoctorProfile
                   item={item}
                   key={index}
                   imgIconDescription={scheduleImgSvg}

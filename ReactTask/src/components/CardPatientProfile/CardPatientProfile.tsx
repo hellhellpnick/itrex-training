@@ -1,4 +1,4 @@
-import  { useState, createRef, FunctionComponent } from 'react';
+import { useState, createRef, FunctionComponent } from 'react';
 import {
   StylSubTitleCard,
   StylTitleCard,
@@ -14,9 +14,9 @@ import {
   StylBtnChooseAction,
 } from '../index';
 
-import { ICardPatientProfile } from '../../modules/CardPatientProfile.model';
+import { ICardDoctorProfile } from '../../modules/CardPatientProfile.model';
 
-const CardPatientProfile: FunctionComponent<ICardPatientProfile> = ({
+const CardPatientProfile: FunctionComponent<ICardDoctorProfile> = ({
   imgIconDescription,
   item,
 }) => {

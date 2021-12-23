@@ -1,6 +1,5 @@
-import  { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import {
-  CreateAppointment,
   StylBoxPatients,
   HeaderProfile,
   MainPatientsAppointment,
@@ -13,25 +12,14 @@ interface IPatientProfile {
 }
 
 const PatientProfile: FunctionComponent<IPatientProfile> = ({ title }) => {
-  const [isHiddenAppointment, setHiddenAppointment] = useState(true);
-
   useEffect(() => {
     document.title = title || '';
   }, [title]);
 
-  const handleContent = () => {
-    setHiddenAppointment(!isHiddenAppointment);
-  };
-
   return (
     <StylBoxPatients>
       <HeaderProfile avatar={avatarImg} />
-
-      {isHiddenAppointment ? (
-        <MainPatientsAppointment switchContent={handleContent} />
-      ) : (
-        <CreateAppointment switchContent={handleContent} />
-      )}
+      <MainPatientsAppointment />
     </StylBoxPatients>
   );
 };

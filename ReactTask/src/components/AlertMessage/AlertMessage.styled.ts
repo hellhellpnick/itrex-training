@@ -4,7 +4,7 @@ import iconWarningSvg from './../../img/icons/icon-warning.svg';
 import iconCloseSvg from './../../img/icons/icon-close.svg';
 
 interface IStylBoxAlert {
-  showMessage: boolean;
+  showMessage?: boolean;
   err?: boolean;
 }
 
@@ -34,19 +34,6 @@ const StylBoxAlert = styled.div<IStylBoxAlert>`
     background-image: url(${iconSuccessSvg});
   }
 
-  &:before {
-    content: '';
-    cursor: pointer;
-    position: absolute;
-    top: 28px;
-    right: 28px;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-image: url(${iconCloseSvg});
-  }
-
   ${(props) =>
     props.err &&
     css`
@@ -57,6 +44,22 @@ const StylBoxAlert = styled.div<IStylBoxAlert>`
       }
     `}
 `;
+
+const StylBtnClose = styled.button`
+  cursor: pointer;
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url(${iconCloseSvg});
+`;
+
 const StylSubTitleAlert = styled.h3`
   font-size: ${(props) => props.theme.typography.textMedium.main};
   font-weight: ${(props) => props.theme.typography.textWeight.second};
@@ -71,4 +74,4 @@ const StylTextAlert = styled.p`
   color: ${(props) => props.theme.palette.main};
 `;
 
-export { StylBoxAlert, StylSubTitleAlert, StylTextAlert };
+export { StylBoxAlert, StylSubTitleAlert, StylTextAlert, StylBtnClose };

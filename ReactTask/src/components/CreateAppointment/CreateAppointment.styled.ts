@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 interface IStylArrowVisitDoctor {
@@ -62,7 +63,7 @@ const StylBoxChooseTime = styled.div`
   align-items: center;
   padding-bottom: 40px;
   height: 150px;
-  width: 320px;
+  max-width: 490px;
   overflow-x: scroll;
 
   ::-webkit-scrollbar {
@@ -94,7 +95,6 @@ const StylBoxColumnFlexMargin = styled.div<IStylBoxColumnFlexMargin>`
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: nowrap;
-
   pointer-events: ${(props) => (props.dataReady ? 'auto' : 'none')};
   opacity: ${(props) => (props.dataReady ? '1' : '0.5')};
   margin-bottom: 40px;
@@ -138,22 +138,22 @@ const StylBoxMenuSelectVisitDoctor = styled.ul<IStylBoxMenuSelectVisitDoctor>`
 
 const StylBtnChooseTimeVisitDoctor = styled.button<IStylBtnChooseTimeVisitDoctor>`
   cursor: pointer;
-  font-size: ${(props) => props.theme.typography.textSmall.primary};
+  max-width: 105px;
+  width: 100%;
+  font-size: 14px;
   font-weight: ${(props) => props.theme.typography.textWeight.primary};
   color: ${(props) => props.theme.palette.text.main};
   font-family: ${(props) => props.theme.typography.textFamily.main};
   line-height: 130%;
   text-transform: capitalize;
   padding: 8px 16px;
-  box-shadow: 0px 4px 32px rgba(218, 228, 255, 0.24);
-  border-radius: 8px;
-  background-color: ${(props) => props.theme.palette.main};
   border: 1px solid transparent;
   transition: all 0.2s ease;
   margin-right: 16px;
   margin-bottom: 16px;
-  max-width: 115px;
-  width: 100%;
+  box-shadow: 0px 4px 32px rgba(218, 228, 255, 0.24);
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.palette.main};
 
   &:hover {
     color: ${(props) => props.theme.palette.main};
@@ -189,7 +189,9 @@ const StylBtnChooseTimeVisitDoctor = styled.button<IStylBtnChooseTimeVisitDoctor
     `}
 `;
 
-const StylBtnSubmitFormVisitDoctor = styled.button<IStylBtnSubmitFormVisitDoctor>`
+const StylBtnSubmitFormVisitDoctor = styled(
+  NavLink
+)<IStylBtnSubmitFormVisitDoctor>`
   cursor: pointer;
   position: absolute;
   right: 50px;
@@ -210,6 +212,8 @@ const StylBtnSubmitFormVisitDoctor = styled.button<IStylBtnSubmitFormVisitDoctor
   padding: 16px;
   max-width: 160px;
   width: 100%;
+  text-decoration: none;
+  text-align: center;
 
   ${(props) =>
     props.isDisabled &&

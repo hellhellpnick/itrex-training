@@ -1,4 +1,4 @@
-import  { FunctionComponent, useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import {
   LabelFromInput,
   BtnEyePassword,
@@ -14,7 +14,7 @@ const FormInput: FunctionComponent<IFormInput> = ({
   placeholder,
   imgStart,
   password = false,
-  err = false,
+  err = '',
   errText = '',
   valueInput,
   changer,

@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import * as Yup from 'yup';
 import { Formik } from 'formik';
 import {
   FormInput,
@@ -11,38 +11,44 @@ import {
 import { routes } from '../../Router';
 import emailImgSvg from './../../img/icons/icon-email.svg';
 import passwordlImgSvg from './../../img/icons/icon-lock.svg';
-import { regulEmail, regulPassword } from '../../constants';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { ISignIn } from '../../modules/Forms.model';
 
 const FormSignUp = () => {
   const { loginUser } = useActionsWithRedux();
 
-  const [isEmail, setEmail] = useState(false),
-    [isPassword, setPassword] = useState(false);
-
   const handleSubmit = (values: ISignIn) => {
     loginUser(values);
   };
 
+  const validateSignIn = Yup.object({
+    userName: Yup.string()
+      .email('Email is invalid')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 characters')
+      .required('Password is required'),
+  });
+
   return (
     <Formik
+      validationSchema={validateSignIn}
       validateOnChange={false}
       validateOnBlur={false}
       initialValues={{
         userName: '',
         password: '',
       }}
-      validate={(values) => {
-        !regulPassword.test(values.password)
-          ? setPassword(true)
-          : setPassword(false);
-
-        !regulEmail.test(values.userName) ? setEmail(true) : setEmail(false);
-      }}
       onSubmit={handleSubmit}
     >
-      {({ values, isSubmitting, handleChange, handleSubmit, handleBlur }) => (
+      {({
+        values,
+        isSubmitting,
+        errors,
+        handleChange,
+        handleSubmit,
+        handleBlur,
+      }) => (
         <StylFormSign onSubmit={handleSubmit}>
           <StylTitleForm>Sign in</StylTitleForm>
 
@@ -52,11 +58,9 @@ const FormSignUp = () => {
             placeholder='Email'
             valueInput={values.userName}
             imgStart={emailImgSvg}
-            err={isEmail}
+            err={errors.userName}
             blur={handleBlur}
-            errText='
-              Email not correct. Please check the spelling
-            '
+            errText={errors.userName}
             changer={handleChange}
           />
 
@@ -67,8 +71,8 @@ const FormSignUp = () => {
             placeholder='Password'
             imgStart={passwordlImgSvg}
             password={true}
-            err={isPassword}
-            errText='Password contain unsupported characters'
+            err={errors.password}
+            errText={errors.password}
             changer={handleChange}
             blur={handleBlur}
           />

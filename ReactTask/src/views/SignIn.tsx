@@ -24,7 +24,7 @@ const SignIn: FunctionComponent<ISigIn> = ({ title }) => {
           <BoxContentLink
             text='Don’t have an account?'
             link='Sign Up'
-            path={routes.signUpPage}
+            to={routes.signUpPage}
           />
         </StylBoxFormSignIn>
       </StylBoxMain>

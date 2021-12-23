@@ -1,4 +1,4 @@
-import  { FunctionComponent, useState, useEffect } from 'react';
+import { FunctionComponent, useState, useEffect } from 'react';
 
 import {
   StylBtnVisitDoctor,

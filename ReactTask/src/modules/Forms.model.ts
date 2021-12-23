@@ -21,7 +21,7 @@ export interface IFormInput {
   placeholder: string;
   imgStart: string;
   password?: boolean;
-  err?: boolean;
+  err?: string;
   errText?: string;
   valueInput: string;
   changer: (event: ChangeEvent<HTMLInputElement>) => void;

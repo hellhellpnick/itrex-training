@@ -1,5 +1,6 @@
-import  { FunctionComponent, useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 import {
   StylInformationText,
   StylLinkPage,
@@ -12,16 +13,14 @@ import {
   StylTitleForm,
 } from '../index';
 import emailImgSvg from './../../img/icons/icon-email.svg';
-import { regulEmail } from '../../constants';
 import { routes } from '../../Router';
 
 interface IRestorePassword {
-  email: string;
+  userName: string;
 }
 
 const FormRestorePassword: FunctionComponent = () => {
-  const [isEmail, setEmail] = useState(false),
-    [isHiddenForm, setHiddenForm] = useState(true);
+  const [isHiddenForm, setHiddenForm] = useState(true);
 
   const handleForm = () => {
     setHiddenForm(!isHiddenForm);
@@ -31,19 +30,30 @@ const FormRestorePassword: FunctionComponent = () => {
     handleForm();
   };
 
+  const validateRestorePassword = Yup.object({
+    userName: Yup.string()
+      .email('Email is invalid')
+      .required('Email is required'),
+  });
+
   return (
     <Formik
       validateOnChange={false}
       validateOnBlur={false}
+      validationSchema={validateRestorePassword}
       initialValues={{
-        email: '',
-      }}
-      validate={(values) => {
-        !regulEmail.test(values.email) ? setEmail(true) : setEmail(false);
+        userName: '',
       }}
       onSubmit={submitForm}
     >
-      {({ values, isSubmitting, handleChange, handleSubmit, handleBlur }) => (
+      {({
+        values,
+        errors,
+        isSubmitting,
+        handleChange,
+        handleSubmit,
+        handleBlur,
+      }) => (
         <StylFormSign onSubmit={handleSubmit}>
           <StylTitleForm>
             <TitleFormArrow path={routes.signInPage} link={<></>} />
@@ -56,10 +66,10 @@ const FormRestorePassword: FunctionComponent = () => {
               type='email'
               name='email'
               placeholder='Email'
-              valueInput={values.email}
+              valueInput={values.userName}
               imgStart={emailImgSvg}
-              err={isEmail}
-              errText='Email not correct. Please check the spelling'
+              err={errors.userName}
+              errText={errors.userName}
               blur={handleBlur}
               changer={handleChange}
             />
@@ -72,10 +82,8 @@ const FormRestorePassword: FunctionComponent = () => {
           <StylBoxViewContent view={!isHiddenForm}>
             <StylInformationText>
               An email has been sent to{' '}
-              <StylLinkPage path=''>
-                {values.email}
-              </StylLinkPage>
-              . Check your inbox, and click the reset link provided.
+              <StylLinkPage>{values.userName}</StylLinkPage>. Check your inbox,
+              and click the reset link provided.
             </StylInformationText>
           </StylBoxViewContent>
         </StylFormSign>

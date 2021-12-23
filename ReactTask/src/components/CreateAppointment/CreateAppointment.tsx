@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import moment from 'moment';
 
 import {
@@ -16,9 +16,9 @@ import {
 
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { getAvailableTime } from './../../redux/patient/patientOperations';
-import { ICreateAppointment } from '../../modules/CreateAppointment.model';
+import { routes } from '../../Router';
 
-const CreateAppointment = ({ switchContent }: ICreateAppointment) => {
+const CreateAppointment = () => {
   const { createPatient } = useActionsWithRedux();
   const [isChooseAllData, setChooseAllData] = useState(false),
     [isFilledData, setFilledData] = useState(false),
@@ -49,14 +49,12 @@ const CreateAppointment = ({ switchContent }: ICreateAppointment) => {
 
   const createAppointmentUser = () => {
     const obj = {
-      date: isChooseUser,
-      reason: isTimeSelect,
+      date: isTimeSelect,
+      reason: isNoteUser,
       note: isNoteUser,
       doctorID: isDoctorChoose,
     };
-
     createPatient(obj);
-    switchContent();
   };
 
   return (
@@ -103,6 +101,7 @@ const CreateAppointment = ({ switchContent }: ICreateAppointment) => {
         isDisabled={isChooseAllData === false}
         onClick={createAppointmentUser}
         role='btnCreateAppointment'
+        to={routes.patientProfile}
       >
         Submit
       </StylBtnSubmitFormVisitDoctor>

@@ -1,18 +1,24 @@
-import  { FunctionComponent } from 'react';
-import { StylBoxAlert, StylSubTitleAlert, StylTextAlert } from '..';
-import { IAlertMessage } from '../../modules/AlertMessage.model';
+import { FunctionComponent } from 'react';
+import {
+  StylBoxAlert,
+  StylSubTitleAlert,
+  StylTextAlert,
+  StylBtnClose,
+} from '..';
+import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 
-const AlertMessage: FunctionComponent<IAlertMessage> = ({
-  showMessage,
-  textMessage,
-  statusErr,
-}) => {
+const AlertMessage: FunctionComponent = () => {
+  const { alertMessage, alertHidden } = useActionsWithRedux();
+
   return (
-    <StylBoxAlert err={statusErr} showMessage={showMessage}>
+    <StylBoxAlert err={alertMessage.err} showMessage={alertMessage.show}>
+      <StylBtnClose type='button' onClick={alertHidden} />
       <StylSubTitleAlert>
-        {statusErr ? 'Error message goes here' : 'Success message goes here'}
+        {alertMessage.err
+          ? 'Error message goes here'
+          : 'Success message goes here'}
       </StylSubTitleAlert>
-      <StylTextAlert>{textMessage}</StylTextAlert>
+      <StylTextAlert>{alertMessage.message}</StylTextAlert>
     </StylBoxAlert>
   );
 };

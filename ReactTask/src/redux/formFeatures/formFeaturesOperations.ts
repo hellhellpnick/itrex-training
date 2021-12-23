@@ -18,8 +18,10 @@ import {
   ITokens,
   IProfileWithData,
 } from '../../modules/Redux.model';
+import { alert } from '../err/AlertAction';
+import { MessageSuccess, MessageError } from './../../constants';
 
-axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com';
+axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com/api/';
 
 const token = {
   set(tok: string) {
@@ -36,17 +38,19 @@ const loginForm =
     dispatch(getUserProfileRequest());
 
     try {
-      const { data } = await axios.post<ITokens>('api/auth/login', credentials);
+      const { data } = await axios.post<ITokens>('/auth/login', credentials);
 
       token.set(data.access_token);
-
       dispatch(loginSuccess(data));
 
-      const response = await axios.get<IProfileWithData>('/api/auth/profile');
+      const response = await axios.get<IProfileWithData>('/auth/profile');
       dispatch(getUserProfileSuccess(response.data));
+
+      dispatch(alert(MessageSuccess));
     } catch (error) {
       dispatch(loginError((error as Error).message));
       dispatch(getUserProfileError((error as Error).message));
+      dispatch(alert(MessageError));
     }
   };
 
@@ -58,17 +62,19 @@ const registerForm =
 
     try {
       const { data } = await axios.post<ITokens>(
-        'api/auth/registration',
+        '/auth/registration',
         credentials
       );
       token.set(data.access_token);
       dispatch(registerSuccess(data));
 
-      const response = await axios.get<IProfileWithData>('/api/auth/profile');
+      const response = await axios.get<IProfileWithData>('/auth/profile');
       dispatch(getUserProfileSuccess(response.data));
+      dispatch(alert(MessageSuccess));
     } catch (error) {
       dispatch(registerError((error as Error).message));
       dispatch(getUserProfileError((error as Error).message));
+      dispatch(alert(MessageError));
     }
   };
 

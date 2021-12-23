@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface IErrorExpected {
-  err: boolean;
+  err: string;
 }
 
 const StylInputForm = styled.input<IErrorExpected>`

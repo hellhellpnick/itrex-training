@@ -1,20 +1,16 @@
-import  { FunctionComponent, useState } from 'react';
+import { FunctionComponent } from 'react';
+import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { BtnSubmitForm, StylTitleForm, FormInput } from '..';
 import userImgSvg from './../../img/icons/icon-user.svg';
 import emailImgSvg from './../../img/icons/icon-email.svg';
 import passwordlImgSvg from './../../img/icons/icon-lock.svg';
 import checkImgSvg from './../../img/icons/icon-check.svg';
-import { regulEmail, regulPassword } from '../../constants';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { ISignUp } from '../../modules/Forms.model';
 
 const FormSignUp: FunctionComponent = () => {
   const { registerUser } = useActionsWithRedux();
-
-  const [isEmail, setEmail] = useState(false),
-    [isPassword, setPassword] = useState(false),
-    [isCheckPassowrd, setCheckPassowrd] = useState(false);
 
   const handleSubmit = (values: ISignUp) => {
     const obj = {
@@ -26,8 +22,27 @@ const FormSignUp: FunctionComponent = () => {
     registerUser(obj);
   };
 
+  const validateSignUp = Yup.object({
+    firstName: Yup.string()
+      .max(15, 'Must be 15 characters or less')
+      .required('First name is required'),
+    lastName: Yup.string()
+      .max(20, 'Must be 20 characters or less')
+      .required('Last name is required'),
+    userName: Yup.string()
+      .email('Email is invalid')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 characters')
+      .required('Password is required'),
+      checkPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Password must match')
+      .required('Confirm password is required'),
+  });
+
   return (
     <Formik
+      validationSchema={validateSignUp}
       validateOnChange={false}
       validateOnBlur={false}
       initialValues={{
@@ -37,20 +52,9 @@ const FormSignUp: FunctionComponent = () => {
         password: '',
         checkPassword: '',
       }}
-      validate={(values) => {
-        values.password !== values.checkPassword
-          ? setCheckPassowrd(true)
-          : setCheckPassowrd(false);
-
-        !regulPassword.test(values.password)
-          ? setPassword(true)
-          : setPassword(false);
-
-        !regulEmail.test(values.userName) ? setEmail(true) : setEmail(false);
-      }}
       onSubmit={handleSubmit}
     >
-      {({ values, isSubmitting, handleChange, handleBlur }) => (
+      {({ values, errors, isSubmitting, handleChange, handleBlur }) => (
         <Form>
           <StylTitleForm>Sign up</StylTitleForm>
           <FormInput
@@ -61,6 +65,8 @@ const FormSignUp: FunctionComponent = () => {
             imgStart={userImgSvg}
             changer={handleChange}
             blur={handleBlur}
+            err={errors.firstName}
+            errText={errors.firstName}
           />
 
           <FormInput
@@ -71,6 +77,8 @@ const FormSignUp: FunctionComponent = () => {
             imgStart={userImgSvg}
             changer={handleChange}
             blur={handleBlur}
+            err={errors.lastName}
+            errText={errors.lastName}
           />
 
           <FormInput
@@ -79,10 +87,8 @@ const FormSignUp: FunctionComponent = () => {
             placeholder='Email'
             valueInput={values.userName}
             imgStart={emailImgSvg}
-            err={isEmail}
-            errText='
-              Email not correct. Please check the spelling
-            '
+            err={errors.userName}
+            errText={errors.userName}
             changer={handleChange}
             blur={handleBlur}
           />
@@ -94,8 +100,8 @@ const FormSignUp: FunctionComponent = () => {
             placeholder='Password'
             imgStart={passwordlImgSvg}
             password={true}
-            err={isPassword}
-            errText='Password contain unsupported characters'
+            err={errors.password}
+            errText={errors.password}
             changer={handleChange}
             blur={handleBlur}
           />
@@ -107,8 +113,8 @@ const FormSignUp: FunctionComponent = () => {
             placeholder='Password'
             imgStart={checkImgSvg}
             password={true}
-            err={isCheckPassowrd}
-            errText='Password does not match'
+            err={errors.checkPassword}
+            errText={errors.checkPassword}
             changer={handleChange}
             blur={handleBlur}
           />
