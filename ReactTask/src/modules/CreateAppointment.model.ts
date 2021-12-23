@@ -6,6 +6,7 @@ export interface IInputAppointment {
   setFilledData: (data: boolean) => void;
   setDoctorChoose: (data: string) => void;
   setNoteUser: (data: string) => void;
+  setReasonUser: (data: string) => void;
 }
 
 export interface INameDoctor {

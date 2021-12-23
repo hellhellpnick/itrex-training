@@ -12,7 +12,7 @@ import {
   StylFormSign,
   StylTitleForm,
 } from '../index';
-import emailImgSvg from './../../img/icons/icon-email.svg';
+import emailImgSvg from './../../assets/icons/icon-email.svg';
 import { routes } from '../../Router';
 
 interface IRestorePassword {
@@ -56,7 +56,7 @@ const FormRestorePassword: FunctionComponent = () => {
       }) => (
         <StylFormSign onSubmit={handleSubmit}>
           <StylTitleForm>
-            <TitleFormArrow path={routes.signInPage} link={<></>} />
+            <TitleFormArrow path={routes.signInPage} />
             Restore password
           </StylTitleForm>
 

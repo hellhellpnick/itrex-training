@@ -5,7 +5,7 @@ import {
   MainPatientsAppointment,
 } from '../components';
 
-import avatarImg from './../img/avatars/avatar-patient.png';
+import avatarImg from './../assets/avatars/avatar-patient.png';
 
 interface IPatientProfile {
   title: string;

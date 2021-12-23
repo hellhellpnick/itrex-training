@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgMain from './../../../img/bg-main.png';
+import bgMain from './../../../assets/bg-main.png';
 
 interface IStylBoxDoctor {
   imgWay?: string;

@@ -9,8 +9,8 @@ import {
 } from '..';
 
 import { routes } from '../../Router';
-import emailImgSvg from './../../img/icons/icon-email.svg';
-import passwordlImgSvg from './../../img/icons/icon-lock.svg';
+import emailImgSvg from './../../assets/icons/icon-email.svg';
+import passwordlImgSvg from './../../assets/icons/icon-lock.svg';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { ISignIn } from '../../modules/Forms.model';
 

@@ -17,9 +17,9 @@ import { MessageSuccess, MessageError } from './../../constants';
 import { alert } from './../err/AlertAction';
 
 axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com/api';
-const localAuth = localStorage.getItem('persist:auth') || '{}';
+const localAuth = localStorage.getItem('persist:authForm') || '{}';
 const jsonAuth = JSON.parse(localAuth);
-const token = jsonAuth.token;
+const token = jsonAuth.token.replace(/"/g, '');
 axios.defaults.headers.common.Authorization = token;
 
 export const getAllSpecializations = () => axios.get('/specializations');
@@ -52,6 +52,7 @@ export const addPatient =
         '/appointments',
         values
       );
+
       dispatch(createPatientSuccess(data));
       dispatch(alert(MessageSuccess));
     } catch (error) {
@@ -75,5 +76,17 @@ export const getResolutionsPatient =
     } catch (error) {
       dispatch(alert(MessageError));
       dispatch(getResolutionsPatientError((error as Error).message));
+    }
+  };
+
+export const deletePatient =
+  (values: string) => async (dispatch: Dispatch<{ type: string }>) => {
+    try {
+      await axios.post<IAddAppointmentResponse>(`/appointments/${values}`);
+
+      dispatch(alert(MessageSuccess));
+    } catch (error) {
+      dispatch(alert(MessageError));
+      dispatch(createPatientError((error as Error).message));
     }
   };

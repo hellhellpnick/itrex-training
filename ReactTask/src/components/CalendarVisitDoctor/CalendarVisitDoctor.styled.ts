@@ -7,6 +7,7 @@ interface IStylBtnVisitDoctor {
 interface IStylDayVisitDoctor {
   isToday: boolean;
   isSelected: boolean;
+  isLastMonth?: boolean;
 }
 
 const StylBodyCalendarVisitDoctor = styled.div`
@@ -87,6 +88,20 @@ const StylDayVisitDoctor = styled(StylDayWeekVisitDoctor)<IStylDayVisitDoctor>`
       &:hover {
         color: ${(props) => props.theme.palette.main};
         background-color: ${(props) => props.theme.palette.backgroundBtn.main};
+      }
+    `}
+
+    ${(props) =>
+    props.isLastMonth &&
+    css`
+      pointer-events: none;
+      border: none;
+      background-color: transparent;
+      color: ${(props) => props.theme.palette.text.primary};
+
+      &:hover {
+        color: ${(props) => props.theme.palette.text.primary};
+        background-color: transparent;
       }
     `}
 `;

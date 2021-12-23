@@ -4,7 +4,6 @@ export interface IBtnCreateAppointment {
 
 export interface IBtnPatients {
   text: string;
-  active: boolean;
   path: string;
 }
 

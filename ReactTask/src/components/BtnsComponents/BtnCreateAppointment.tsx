@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { routes } from '../../Router';
-import plusImgSvg from './../../img/icons/icon-plus.svg';
+import plusImgSvg from './../../assets/icons/icon-plus.svg';
 
 const Btn = styled(NavLink)`
   display: none;

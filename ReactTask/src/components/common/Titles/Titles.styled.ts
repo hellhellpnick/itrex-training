@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import arrowRight from './../../../img/icons/icon-arrow-right.svg';
+import arrowRight from './../../../assets/icons/icon-arrow-right.svg';
 
 const StylTitleForm = styled.fieldset`
   position: relative;

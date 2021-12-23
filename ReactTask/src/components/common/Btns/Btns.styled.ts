@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import iconDots from './../../../img/icons/icon-dots.svg';
-import iconDotsBlue from './../../../img/icons/icon-dots-blue.svg';
+import iconDots from './../../../assets/icons/icon-dots.svg';
+import iconDotsBlue from './../../../assets/icons/icon-dots-blue.svg';
 
 interface IStylBtnSearch {
   imgSearch?: string;

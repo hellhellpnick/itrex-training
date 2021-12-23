@@ -4,7 +4,7 @@ import {
   StylBtnSearch,
   StylInputSearchPatient,
 } from '../index';
-import searchImgSvg from './../../img/icons/icon-search.svg';
+import searchImgSvg from './../../assets/icons/icon-search.svg';
 
 const BoxSearch: FunctionComponent = () => {
   return (

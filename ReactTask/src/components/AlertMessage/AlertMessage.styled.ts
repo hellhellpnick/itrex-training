@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import iconSuccessSvg from './../../img/icons/icon-success.svg';
-import iconWarningSvg from './../../img/icons/icon-warning.svg';
-import iconCloseSvg from './../../img/icons/icon-close.svg';
+import iconSuccessSvg from './../../assets/icons/icon-success.svg';
+import iconWarningSvg from './../../assets/icons/icon-warning.svg';
+import iconCloseSvg from './../../assets/icons/icon-close.svg';
 
 interface IStylBoxAlert {
   showMessage?: boolean;
@@ -12,7 +12,7 @@ const StylBoxAlert = styled.div<IStylBoxAlert>`
   position: fixed;
   left: 32px;
   bottom: 32px;
-  display: ${(props) => (props.showMessage ? 'flex' : 'none')};
+  display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
@@ -20,6 +20,7 @@ const StylBoxAlert = styled.div<IStylBoxAlert>`
   border-radius: 8px;
   max-width: 450px;
   background-color: ${(props) => props.theme.palette.backgroundColor.second};
+
   z-index: 10;
 
   &:after {

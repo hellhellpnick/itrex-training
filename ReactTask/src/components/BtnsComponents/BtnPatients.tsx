@@ -3,11 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { IBtnPatients } from '../../modules/Btns.modle';
 
-interface IBtn {
-  active: boolean;
-}
-
-const Btn = styled(NavLink)<IBtn>`
+const Btn = styled(NavLink)`
   cursor: pointer;
   max-width: 120px;
   min-height: 40px;
@@ -18,18 +14,19 @@ const Btn = styled(NavLink)<IBtn>`
   text-decoration: none;
   text-align: center;
   font-family: ${(props) => props.theme.typography.textFamily.main};
-  color: ${(props) =>
-    props.active ? props.theme.palette.main : props.theme.palette.text.second};
-  background-color: ${(props) =>
-    props.active
-      ? props.theme.palette.backgroundBtn.main
-      : props.theme.palette.main};
+  color: ${(props) => props.theme.palette.text.second};
+  background-color: ${(props) => props.theme.palette.main};
   line-height: 130%;
   border-radius: 8px;
   box-shadow: 0px 4px 32px rgb(218 228 255 / 16%);
   transition: all 0.2s ease;
   border: none;
   outline: none;
+
+  &.active {
+    color: ${(props) => props.theme.palette.main};
+    background-color: ${(props) => props.theme.palette.backgroundBtn.main};
+  }
 
   @media (min-width: 768px) {
     max-width: 160px;
@@ -44,16 +41,8 @@ const Btn = styled(NavLink)<IBtn>`
   }
 `;
 
-const BtnPatients: FunctionComponent<IBtnPatients> = ({
-  text,
-  active,
-  path,
-}) => {
-  return (
-    <Btn active={active} to={path}>
-      {text}
-    </Btn>
-  );
+const BtnPatients: FunctionComponent<IBtnPatients> = ({ text, path }) => {
+  return <Btn to={path}>{text}</Btn>;
 };
 
 export default BtnPatients;

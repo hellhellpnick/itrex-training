@@ -2,10 +2,10 @@ import { FunctionComponent } from 'react';
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { BtnSubmitForm, StylTitleForm, FormInput } from '..';
-import userImgSvg from './../../img/icons/icon-user.svg';
-import emailImgSvg from './../../img/icons/icon-email.svg';
-import passwordlImgSvg from './../../img/icons/icon-lock.svg';
-import checkImgSvg from './../../img/icons/icon-check.svg';
+import userImgSvg from './../../assets/icons/icon-user.svg';
+import emailImgSvg from './../../assets/icons/icon-email.svg';
+import passwordlImgSvg from './../../assets/icons/icon-lock.svg';
+import checkImgSvg from './../../assets/icons/icon-check.svg';
 import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 import { ISignUp } from '../../modules/Forms.model';
 

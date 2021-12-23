@@ -15,7 +15,7 @@ import {
   months,
 } from '../../constants/index';
 
-import arrowImg from './../../img/icons/icon-arrow-right.svg';
+import arrowImg from './../../assets/icons/icon-arrow-right.svg';
 import { ICalendarVisitDoctor } from '../../modules/CalendarVisitDoctor.model';
 
 const CalendarVisitDoctor: FunctionComponent<ICalendarVisitDoctor> = ({
@@ -57,7 +57,7 @@ const CalendarVisitDoctor: FunctionComponent<ICalendarVisitDoctor> = ({
           {months[month]} {year}
         </div>
         <StylBtnVisitDoctor
-          onClick={() => setDate(new Date(year, month + 1, day))}
+          onClick={() => setDate(new Date(year, month + 1))}
           imgUrl={arrowImg}
         />
       </StylHeaderCalendarVisitDoctor>
@@ -76,11 +76,20 @@ const CalendarVisitDoctor: FunctionComponent<ICalendarVisitDoctor> = ({
                 id={date.toISOString()}
                 data-testid={new Date(year, month, daySelect).toISOString()}
                 role={new Date(year, month, daySelect).toISOString()}
-                isToday={daySelect === date.getDate()}
+                isToday={new Date().getDate() === daySelect}
                 isSelected={daySelect === day}
                 onClick={() => setDate(new Date(year, month, daySelect))}
+                isLastMonth={daySelect <= 0 && true}
               >
-                {daySelect > 0 && daySelect}
+                {daySelect > 0
+                  ? daySelect
+                  : new Date(
+                      date.getFullYear(),
+                      date.getMonth() + 1,
+                      0
+                    ).getDate() -
+                    2 +
+                    index}
               </StylDayVisitDoctor>
             );
           })}
