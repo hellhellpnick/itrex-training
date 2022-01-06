@@ -1,0 +1,2 @@
+(this.webpackJsonpitrex=this.webpackJsonpitrex||[]).push([[7],{261:function(t,e,c){"use strict";c.r(e);var n=c(1),s=c(8),i=c.p+"static/media/404.98e8b469.png",o=c(0);e.default=function(t){var e=t.title;return Object(n.useEffect)((function(){document.title=e||""}),[e]),Object(o.jsxs)(s.H,{children:[Object(o.jsx)(s.wb,{src:i,alt:"not found"}),Object(o.jsxs)(s.Yb,{children:["Oops... ",Object(o.jsx)("br",{}),"We can\u2019t seem to find the page you are looking for."]})]})}}}]);
+//# sourceMappingURL=7.e345f4ce.chunk.js.map

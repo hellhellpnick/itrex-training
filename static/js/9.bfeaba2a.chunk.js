@@ -1,0 +1,2 @@
+(this.webpackJsonpitrex=this.webpackJsonpitrex||[]).push([[9],{256:function(t,e,c){"use strict";c.r(e);var n=c(1),i=c(8),s=c(14),r=c(0);e.default=function(t){var e=t.title;return Object(n.useEffect)((function(){document.title=e||""}),[e]),Object(r.jsx)(r.Fragment,{children:Object(r.jsx)(i.U,{children:Object(r.jsxs)(i.R,{children:[Object(r.jsx)(i.r,{}),Object(r.jsx)(i.c,{text:"Don\u2019t have an account?",link:"Sign Up",to:s.b.signUpPage})]})})})}}}]);
+//# sourceMappingURL=9.bfeaba2a.chunk.js.map
