@@ -4,7 +4,6 @@ import storage from 'redux-persist/lib/storage';
 import patientReducer from './patient/patientReducer';
 import doctorReducer from './doctor/doctorReducer';
 import authReducer from './formFeatures/formFeaturesReducer';
-import errors from './err/AlertReducer';
 import { AuthReducerType } from '../modules/Redux.model';
 
 const authPersistConfig = {
@@ -21,7 +20,6 @@ const store = configureStore({
     ),
     patientList: patientReducer,
     doctorList: doctorReducer,
-    alertMessage: errors,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

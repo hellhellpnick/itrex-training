@@ -3,7 +3,7 @@ import { Switch, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Loader } from './components';
 import { Router } from './Router';
-import { AlertMessage, ResolutionPatient } from './components';
+import { ResolutionPatient } from './components';
 import theme from './theme';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
@@ -18,7 +18,6 @@ const App: FunctionComponent = () => {
               <Switch>
                 <Router />
               </Switch>
-              <AlertMessage />
               <ResolutionPatient
                 changeShowResolution={() => {}}
                 showContent={false}

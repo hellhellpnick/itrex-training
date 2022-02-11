@@ -14,8 +14,6 @@ import {
 } from '../../modules/Redux.model';
 import { MessageSuccess, MessageError } from './../../constants';
 
-import { alert } from './../err/AlertAction';
-
 axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com/api';
 const localAuth = localStorage.getItem('persist:authForm') || '{}';
 const jsonAuth = JSON.parse(localAuth);
@@ -54,9 +52,7 @@ export const addPatient =
       );
 
       dispatch(createPatientSuccess(data));
-      dispatch(alert(MessageSuccess));
     } catch (error) {
-      dispatch(alert(MessageError));
       dispatch(createPatientError((error as Error).message));
     }
   };
@@ -74,7 +70,6 @@ export const getResolutionsPatient =
       });
       dispatch(getResolutionsPatientSuccess(data.resolutions));
     } catch (error) {
-      dispatch(alert(MessageError));
       dispatch(getResolutionsPatientError((error as Error).message));
     }
   };
@@ -83,10 +78,7 @@ export const deletePatient =
   (values: string) => async (dispatch: Dispatch<{ type: string }>) => {
     try {
       await axios.post<IAddAppointmentResponse>(`/appointments/${values}`);
-
-      dispatch(alert(MessageSuccess));
     } catch (error) {
-      dispatch(alert(MessageError));
       dispatch(createPatientError((error as Error).message));
     }
   };

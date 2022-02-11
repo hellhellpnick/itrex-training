@@ -18,8 +18,6 @@ import {
   ITokens,
   IProfileWithData,
 } from '../../modules/Redux.model';
-import { alert } from '../err/AlertAction';
-import { MessageSuccess, MessageError } from './../../constants';
 
 axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com/api/';
 
@@ -45,12 +43,9 @@ const loginForm =
 
       const response = await axios.get<IProfileWithData>('/auth/profile');
       dispatch(getUserProfileSuccess(response.data));
-
-      dispatch(alert(MessageSuccess));
     } catch (error) {
       dispatch(loginError((error as Error).message));
       dispatch(getUserProfileError((error as Error).message));
-      dispatch(alert(MessageError));
     }
   };
 
@@ -70,11 +65,9 @@ const registerForm =
 
       const response = await axios.get<IProfileWithData>('/auth/profile');
       dispatch(getUserProfileSuccess(response.data));
-      dispatch(alert(MessageSuccess));
     } catch (error) {
       dispatch(registerError((error as Error).message));
       dispatch(getUserProfileError((error as Error).message));
-      dispatch(alert(MessageError));
     }
   };
 

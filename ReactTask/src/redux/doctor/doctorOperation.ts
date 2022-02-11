@@ -12,8 +12,6 @@ import {
   IResolution,
   IResolutionResponse,
 } from './../../modules/ResolutionPatient.model';
-import { MessageSuccess, MessageError } from './../../constants';
-import { alert } from '../err/AlertAction';
 
 axios.defaults.baseURL = 'https://reactlabapi.herokuapp.com/api';
 const localAuth = localStorage.getItem('persist:authForm') || '{}';
@@ -39,9 +37,7 @@ export const createResolution =
         values
       );
       dispatch(createResolutionSuccess(data));
-      dispatch(alert(MessageSuccess));
     } catch (error) {
-      dispatch(alert(MessageError));
       dispatch(createResolutionError((error as Error).message));
     }
   };
@@ -53,9 +49,7 @@ export const deleteAppointment =
     try {
       await axios.delete<string>(`/appointments/${appointmentId}`);
       dispatch(deleteAppointmentSuccess(appointmentId));
-      dispatch(alert(MessageSuccess));
     } catch (error) {
-      dispatch(alert(MessageError));
       dispatch(deleteAppointmentError((error as Error).message));
     }
   };

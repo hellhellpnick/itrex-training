@@ -18,15 +18,6 @@ import {
   StylBtnChooseAction,
 } from './CardPatientProfile';
 
-//alert message
-import {
-  StylBoxAlert,
-  StylSubTitleAlert,
-  StylTextAlert,
-  AlertMessage,
-  StylBtnClose,
-} from './AlertMessage';
-
 //form form input
 import {
   BtnEyePassword,
@@ -191,7 +182,6 @@ import {
 } from './UserResolutionList';
 
 export {
-  StylBtnClose,
   StylTable,
   StylTableHead,
   StylTableHeadRow,
@@ -212,10 +202,6 @@ export {
   StylBtnCloseForm,
   StylBtnActionForm,
   ResolutionPatient,
-  StylBoxAlert,
-  StylSubTitleAlert,
-  StylTextAlert,
-  AlertMessage,
   StylBtnChooseAction,
   StylBoxMenuCard,
   StylBoxMain,
