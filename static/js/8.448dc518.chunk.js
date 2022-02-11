@@ -1,0 +1,2 @@
+(this.webpackJsonpitrex=this.webpackJsonpitrex||[]).push([[8],{255:function(t,e,c){"use strict";c.r(e);var n=c(1),i=c(8),r=c(0);e.default=function(t){var e=t.title;return Object(n.useEffect)((function(){document.title=e||""}),[e]),Object(r.jsx)(r.Fragment,{children:Object(r.jsx)(i.S,{children:Object(r.jsx)(i.P,{children:Object(r.jsx)(i.p,{})})})})}}}]);
+//# sourceMappingURL=8.448dc518.chunk.js.map

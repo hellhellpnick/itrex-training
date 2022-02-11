@@ -1,0 +1,2 @@
+(this.webpackJsonpitrex=this.webpackJsonpitrex||[]).push([[10],{253:function(t,e,n){"use strict";n.r(e);var c=n(1),i=n(8),s=n(13),r=n(0);e.default=function(t){var e=t.title;return Object(c.useEffect)((function(){document.title=e||""}),[e]),Object(r.jsx)(r.Fragment,{children:Object(r.jsx)(i.S,{children:Object(r.jsxs)(i.O,{children:[Object(r.jsx)(i.r,{}),Object(r.jsx)(i.b,{text:"Already have an account?",link:"Sign in",to:s.b.signInPage})]})})})}}}]);
+//# sourceMappingURL=10.28574baa.chunk.js.map
